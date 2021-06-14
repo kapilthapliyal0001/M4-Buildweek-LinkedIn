@@ -10,7 +10,7 @@
   border-top-right-radius: 10px;
 }
 
-.avatar {
+#jumboProfile_img {
   position: absolute;
   border-radius: 50%;
   border: 4px solid white;
@@ -18,6 +18,10 @@
   width: 9rem;
   object-fit: cover;
   top: 4rem;
+  overflow: hidden;
+}
+#jumboProfile_img > img {
+  width: 100%;
 }
 
 .location-line {
@@ -113,4 +117,36 @@ svg:hover {
 #rowtwo > .col {
   border-radius: 10px;
   border: crimson 1px solid;
+}
+
+#expProfileSingle > div > img {
+  width: 60px;
+}
+
+#expProfileSingle > div > p {
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+}
+#expProfileSingle > div > p:nth-child(2) {
+  color: red;
+}
+
+#expProfileSingle > div > p:nth-child(1) {
+  font-size: 14px;
+  font-weight: 600;
+}
+#expProfileSingle > div > p:nth-child(3),
+#expProfileSingle > div > p:nth-child(4) {
+  color: rgb(124, 124, 124);
+}
+
+#expProfileSingle > div > p:nth-child(5) {
+  margin-top: 5px;
+}
+
+#editIcon {
+  position: absolute;
+  right: 20px;
+  z-index: 99;
 }

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import JumboProfile from "./Profile/JumboProfile";
-import { Col, Row } from "react-bootstrap";
+import ProfileJumbo from "./Profile/ProfileJumbo";
+import { Col, Row, Container } from "react-bootstrap";
 import ProfileAbout from "./Profile/ProfileAbout";
 import YourDashBoardProfile from "./Profile/YourDashBoardProfile";
 import Sidebar from "./Sidebar/Sidebar";
+import ProfileUpdater from "./Profile/ProfileJumboUpdater";
+import ProfileExperience from "./Profile/ProfileExperience";
 // import MainPage from "./components/Sidebar/MainPage";
 
 export default class ProfilePage extends Component {
@@ -36,25 +38,32 @@ export default class ProfilePage extends Component {
   render() {
     return (
       <>
-        <Row>
-          <Col xs={6}>
-            {/* <MainPage /> */}
-            <JumboProfile
-              userId={this.state.user._id}
-              name={this.state.user.name}
-              surname={this.state.user.surname}
-              img={this.state.user.image}
-              bio={this.state.user.bio}
-              title={this.state.user.bio}
-              area={this.state.user.area}
-            />
-            <ProfileAbout bio={this.state.user.bio} title="About" />
-            <YourDashBoardProfile title="Your Dashboard" />
-          </Col>
-          <Col xs={6}>
-            <Sidebar />
-          </Col>
-        </Row>
+        <Container>
+          <Row>
+            <Col>
+              <Row>
+                <ProfileUpdater />
+                <Col xs={8} className="mt-2">
+                  <ProfileJumbo
+                    userId={this.state.user._id}
+                    name={this.state.user.name}
+                    surname={this.state.user.surname}
+                    img={this.state.user.image}
+                    bio={this.state.user.bio}
+                    title={this.state.user.bio}
+                    area={this.state.user.area}
+                  />
+                  <ProfileAbout bio={this.state.user.bio} title="About" />
+                  <YourDashBoardProfile title="Your Dashboard" />
+                  <ProfileExperience title="Experience" />
+                </Col>
+                <Col xs={4} className="mt-2">
+                  <Sidebar />
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Container>
       </>
     );
   }

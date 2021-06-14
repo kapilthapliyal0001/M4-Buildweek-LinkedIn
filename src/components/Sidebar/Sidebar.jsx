@@ -42,7 +42,7 @@ class Sidebar extends Component {
           {/* Srction to see the main body of the page Day1 */}
           <Row>
             {/*  Side bar start */}
-            <Col xs={6} md={4} className="sidebar-container">
+            <Col className="sidebar-container">
               {/* Button First sidebar-section starts */}
               <div className="first-sidebar-container pb-1">
                 <div className="sidebar-btn mt-2 mb-2 d-flex">

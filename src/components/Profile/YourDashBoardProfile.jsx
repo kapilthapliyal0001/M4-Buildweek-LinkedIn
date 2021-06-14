@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
 
-import "./JumboProfile.css";
+import "./ProfilePage.css";
 export default class YourDashBoardProfile extends Component {
   render() {
     return (
