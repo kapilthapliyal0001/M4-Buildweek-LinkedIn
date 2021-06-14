@@ -1,10 +1,10 @@
-import {Component} from "react";
-import {Col, Row, Container, Button, Image} from "react-bootstrap";
+import { Component } from "react";
+import { Col, Row, Container, Button, Image } from "react-bootstrap";
 import "./Sidebar.css";
 
 // get the fontawesome imports
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGlobe, faQuestionCircle} from "@fortawesome/fontawesome-free-solid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlobe, faQuestionCircle } from "@fortawesome/fontawesome-free-solid";
 
 class Sidebar extends Component {
   state = {
@@ -41,10 +41,6 @@ class Sidebar extends Component {
         <Container>
           {/* Srction to see the main body of the page Day1 */}
           <Row>
-            <Col xs={12} md={8}>
-              Content for the main page
-            </Col>
-
             {/*  Side bar start */}
             <Col xs={6} md={4} className="sidebar-container">
               {/* Button First sidebar-section starts */}
