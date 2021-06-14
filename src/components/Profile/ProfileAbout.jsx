@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Image, Nav } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
 
 import "./JumboProfile.css";
