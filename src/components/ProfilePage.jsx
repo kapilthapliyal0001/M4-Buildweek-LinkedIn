@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import JumboProfile from "./Profile/JumboProfile";
 import { Col } from "react-bootstrap";
+import ProfileAbout from "./Profile/ProfileAbout";
+import YourDashBoardProfile from "./Profile/YourDashBoardProfile";
 
 export default class ProfilePage extends Component {
   state = {
-    user: "",
+    user: {},
   };
 
   componentDidMount = async () => {
@@ -19,13 +21,11 @@ export default class ProfilePage extends Component {
           Authorization: bearerTokenHedri,
           "Content-Type": "application/json",
         },
-        // body: JSON.stringify(this.state.user),
       });
-      if (Response.ok) {
-        let myProfileData = await getResponse.json();
-        console.log(myProfileData);
-        this.setState({ user: myProfileData });
-      }
+
+      let myProfileData = await getResponse.json();
+      console.log(myProfileData);
+      this.setState({ user: myProfileData });
     } catch (err) {
       console.log(err);
     }
@@ -33,8 +33,8 @@ export default class ProfilePage extends Component {
 
   render() {
     return (
-      <div>
-        <Col xs={8}>
+      <>
+        <Col xs={6}>
           <JumboProfile
             userId={this.state.user._id}
             name={this.state.user.name}
@@ -44,8 +44,10 @@ export default class ProfilePage extends Component {
             title={this.state.user.bio}
             area={this.state.user.area}
           />
+          <ProfileAbout bio={this.state.user.bio} title="About" />
+          <YourDashBoardProfile title="Your Dashboard" />
         </Col>
-      </div>
+      </>
     );
   }
 }
