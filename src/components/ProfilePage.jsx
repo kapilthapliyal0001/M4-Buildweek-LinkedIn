@@ -4,6 +4,7 @@ import { Col } from "react-bootstrap";
 import ProfileAbout from "./Profile/ProfileAbout";
 import YourDashBoardProfile from "./Profile/YourDashBoardProfile";
 import Sidebar from "./Sidebar/Sidebar";
+// import MainPage from "./components/Sidebar/MainPage";
 
 export default class ProfilePage extends Component {
   state = {
@@ -36,6 +37,7 @@ export default class ProfilePage extends Component {
     return (
       <>
         <Col xs={6}>
+          {/* <MainPage /> */}
           <JumboProfile
             userId={this.state.user._id}
             name={this.state.user.name}

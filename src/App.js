@@ -1,14 +1,12 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Sidebar from "./components/Sidebar/Sidebar";
-import MainPage from "./components/Sidebar/MainPage"; // main page is not useed right now;
+// main page is not useed right now;
 import ProfilePage from "./components/ProfilePage.jsx";
 
 function App() {
   return (
     <div className="App">
       <ProfilePage />
-      <Sidebar />
     </div>
   );
 }
