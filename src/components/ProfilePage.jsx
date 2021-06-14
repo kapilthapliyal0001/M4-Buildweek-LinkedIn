@@ -3,6 +3,7 @@ import JumboProfile from "./Profile/JumboProfile";
 import { Col } from "react-bootstrap";
 import ProfileAbout from "./Profile/ProfileAbout";
 import YourDashBoardProfile from "./Profile/YourDashBoardProfile";
+import Sidebar from "./Sidebar/Sidebar";
 
 export default class ProfilePage extends Component {
   state = {
@@ -46,6 +47,9 @@ export default class ProfilePage extends Component {
           />
           <ProfileAbout bio={this.state.user.bio} title="About" />
           <YourDashBoardProfile title="Your Dashboard" />
+        </Col>
+        <Col xs={4}>
+          <Sidebar />
         </Col>
       </>
     );
