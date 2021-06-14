@@ -25,8 +25,8 @@ class Sidebar extends Component {
       let data = await response.json();
       let result = console.log(data, "This is the result of the API");
       //   Updating the state with the profiles
-      let ran_a = Math.floor(Math.random() * 10);
-      let ran_b = Math.floor(Math.random() * 10) + ran_a + 1;
+      let ran_a = Math.floor(Math.random() * 7) + 47;
+      let ran_b = Math.floor(Math.random() * 7) + ran_a + 1;
       this.setState({
         profiles: data.slice(ran_a, ran_b),
       });
@@ -49,10 +49,10 @@ class Sidebar extends Component {
             <Col xs={6} md={4} className="sidebar-container">
               {/* Button First sidebar-section starts */}
               <div className="first-sidebar-container pb-1">
-                <div className="sidebar-btn mt-2 mb-2 d-flex justify-content-between">
+                <div className="sidebar-btn mt-2 mb-2 d-flex">
                   <div className="ml-3">
                     <Button
-                      className="rounded-pill btn-sm long-btn"
+                      className="rounded-pill btn-sm long-btn pl-2"
                       variant="primary"
                     >
                       English
@@ -66,14 +66,17 @@ class Sidebar extends Component {
                     </Button>
                   </div>
                   <FontAwesomeIcon
-                    className="button-icon globe-icon mr-4"
+                    className="button-icon globe-icon ml-auto mr-4"
                     icon={faGlobe}
                   />
                 </div>
-                <div className="d-flex justify-content-around m-2">
-                  <span> Edit Public profile and url</span>
+                <div className="d-flex justify-content-between m-2">
+                  <span className="edit-text ml-3">
+                    {" "}
+                    Edit Public profile and url
+                  </span>
                   <FontAwesomeIcon
-                    className="button-icon question-icon"
+                    className="button-icon question-icon ml-auto mr-3"
                     icon={faQuestionCircle}
                   />
                   <div>{""}</div>
@@ -95,13 +98,14 @@ class Sidebar extends Component {
                 <div className="pl-3 pt-2">
                   {/* Loading random profiles */}
                   {this.state.profiles.map((p) => (
-                    <>
-                      <div className="d-flex" key={p._id}>
+                    <div key={p._id}>
+                      <div className="d-flex">
                         {/* <div className="profile-img mt-1"> */}
                         {/* {" "} */}
                         <Image
                           className="w-25 img-circle profile-img mt-1"
                           src={p.image}
+                          alt="Linkdin Member"
                           fluid
                           roundedCircle
                         ></Image>
@@ -121,7 +125,7 @@ class Sidebar extends Component {
                           </div>
                         </div>
                       </div>
-                    </>
+                    </div>
                   ))}
                 </div>
               </div>
