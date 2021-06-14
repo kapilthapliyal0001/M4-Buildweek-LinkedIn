@@ -1,4 +1,6 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+// main page is not useed right now;
 import ProfilePage from "./components/ProfilePage.jsx";
 import MyNav from "./components/MyNav/MyNav";
 

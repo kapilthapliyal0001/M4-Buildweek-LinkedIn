@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import JumboProfile from "./Profile/JumboProfile";
-import { Col } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import ProfileAbout from "./Profile/ProfileAbout";
 import YourDashBoardProfile from "./Profile/YourDashBoardProfile";
+import Sidebar from "./Sidebar/Sidebar";
+// import MainPage from "./components/Sidebar/MainPage";
 
 export default class ProfilePage extends Component {
   state = {
@@ -34,19 +36,25 @@ export default class ProfilePage extends Component {
   render() {
     return (
       <>
-        <Col xs={6}>
-          <JumboProfile
-            userId={this.state.user._id}
-            name={this.state.user.name}
-            surname={this.state.user.surname}
-            img={this.state.user.image}
-            bio={this.state.user.bio}
-            title={this.state.user.bio}
-            area={this.state.user.area}
-          />
-          <ProfileAbout bio={this.state.user.bio} title="About" />
-          <YourDashBoardProfile title="Your Dashboard" />
-        </Col>
+        <Row>
+          <Col xs={6}>
+            {/* <MainPage /> */}
+            <JumboProfile
+              userId={this.state.user._id}
+              name={this.state.user.name}
+              surname={this.state.user.surname}
+              img={this.state.user.image}
+              bio={this.state.user.bio}
+              title={this.state.user.bio}
+              area={this.state.user.area}
+            />
+            <ProfileAbout bio={this.state.user.bio} title="About" />
+            <YourDashBoardProfile title="Your Dashboard" />
+          </Col>
+          <Col xs={6}>
+            <Sidebar />
+          </Col>
+        </Row>
       </>
     );
   }
