@@ -7,8 +7,8 @@ import MyNav from "./components/MyNav/MyNav";
 function App() {
   return (
     <div className="App">
-      <ProfilePage />
       <MyNav />
+      <ProfilePage />
     </div>
   );
 }
