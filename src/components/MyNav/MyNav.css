@@ -39,10 +39,6 @@
   display: flex;
 }
 
-.headerRight .MuiAvatar-colorDefault {
-  background-color: #70b5f9;
-}
-
 @media screen and (max-width: 750px) {
   .headerSearch {
     display: none;

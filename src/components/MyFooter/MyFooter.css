@@ -18,6 +18,12 @@
   font-size: 12px;
   padding-top: 2px;
   padding-bottom: 2px;
+  margin-bottom: 0px;
+}
+.footerP {
+  text-decoration: none;
+  font-size: 12px;
+  margin-top: 0px;
 }
 .liItems > li:hover {
   text-decoration: underline;
@@ -27,4 +33,11 @@
   object-fit: contain;
   height: 30px;
   margin-left: 70px;
+}
+#dropdown-item-button {
+  background-color: transparent;
+  color: #6d6d6c;
+  border: 2px solid #6d6d6c;
+  width: 400px;
+  text-align: left;
 }
