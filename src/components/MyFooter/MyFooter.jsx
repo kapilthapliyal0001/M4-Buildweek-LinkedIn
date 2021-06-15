@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../MyFooter/MyFooter.css";
 import LinkedInLogo from "../MyFooter/footer-LinkedIn.png";
@@ -37,7 +37,14 @@ const MyFooter = () => {
               <li>Small Business</li>
             </ul>
           </Col>
-          <Col xs={2}><img src={} /><span>Questions?</span></Col>
+          <Col xs={2}>
+            <Image
+              src={
+                "https://via.placeholder.com/150C/O https://placeholder.com/"
+              }
+            />
+            <span>Questions?</span>
+          </Col>
           <Col xs={4}>searchbar</Col>
         </Row>
       </Container>
