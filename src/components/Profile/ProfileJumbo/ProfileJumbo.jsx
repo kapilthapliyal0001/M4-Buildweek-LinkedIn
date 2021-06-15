@@ -44,7 +44,10 @@ export default class ProfileJumbo extends Component {
               <h5>
                 {name} {surname}
               </h5>
-              <Pencil onClick={() => this.setState({ showModalJumbo: true })} />
+              <Pencil
+                id="pencil-icon"
+                onClick={() => this.setState({ showModalJumbo: true })}
+              />
             </Card.Title>
             <Card.Text>
               <p>
