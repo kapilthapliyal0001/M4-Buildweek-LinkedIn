@@ -14,7 +14,6 @@ export default class ProfileExperiencePost extends Component {
     },
   };
 
-  componentDidMount = async () => {};
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Gonna submit Exp now");
@@ -46,7 +45,6 @@ export default class ProfileExperiencePost extends Component {
             endDate: null,
           },
         });
-
         // let updateData = await putExpResponse.json();
         // console.log(updateData);
         // this.setState({ experience: updateData });
@@ -57,7 +55,6 @@ export default class ProfileExperiencePost extends Component {
       console.log(err);
     }
   };
-
   inputChange = (e) => {
     let id = e.target.id;
     this.setState({
@@ -107,7 +104,7 @@ export default class ProfileExperiencePost extends Component {
                 <Form.Group as={Col}>
                   <Form.Label>Date Started</Form.Label>
                   <Form.Control
-                    id="date"
+                    id="startDate"
                     type="datetime-local"
                     value={startDate}
                     onChange={(e) => this.inputChange(e)}
@@ -134,7 +131,6 @@ export default class ProfileExperiencePost extends Component {
                   onChange={(e) => this.inputChange(e)}
                 />
               </Form.Group>
-
               <Button variant="secondary">Reset Form</Button>
               <Button variant="primary" type="submit">
                 Save changes
