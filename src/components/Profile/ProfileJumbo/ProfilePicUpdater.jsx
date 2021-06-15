@@ -1,7 +1,48 @@
-import React, { Component } from "react";
-import { Modal, Form } from "react-bootstrap";
+import { Component } from "react";
+import { Modal, Form, Row, Col, Button } from "react-bootstrap";
 
 export default class ProfilePicUpdater extends Component {
+  state = { user: {} };
+
+  handleProfileUpdate = async (e) => {
+    // const userId = "60c73bf1291930001560aba3";
+    const endpointPUTprofile = `https://striveschool-api.herokuapp.com/api/profile/`;
+    const bearerTokenHedri =
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2JmMTI5MTkzMDAwMTU2MGFiYTMiLCJpYXQiOjE2MjM2Njk3NDUsImV4cCI6MTYyNDg3OTM0NX0.Lk5Z-l56SBkY6YCIvoiHpVg_0J0rEZHaO4PzAuep3bo";
+
+    try {
+      let response = await fetch(endpointPUTprofile, {
+        method: "PUT",
+        headers: {
+          Authorization: bearerTokenHedri,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(this.state.user),
+      });
+      console.log(response.ok);
+      if (response.ok) {
+        alert("Profile Updated!");
+        this.setState({
+          user: {
+            image: "",
+          },
+        });
+      } else {
+        alert(
+          "We have some kind of issue, don't ask me - it's for you to solve"
+        );
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  inputChange = (e) => {
+    let id = e.target.id;
+    this.setState({
+      user: { ...this.state.user, [id]: e.target.value },
+    });
+  };
+
   render() {
     return (
       <>
@@ -17,10 +58,21 @@ export default class ProfilePicUpdater extends Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form.Group controlId="formFileLg" className="mb-3">
-              <Form.Label>Large file input example</Form.Label>
-              <Form.Control type="file" size="lg" />
-            </Form.Group>
+            <Form onSubmit={(e) => this.handleProfileUpdate(e)}>
+              <Form.Group className="mb-3">
+                <Form.Label>Profile Pic</Form.Label>
+                <Form.Control
+                  id="image"
+                  type="text"
+                  placeholder={this.props.image}
+                  onChange={(e) => this.inputChange(e)}
+                />
+              </Form.Group>
+              <Button variant="secondary">Close</Button>
+              <Button variant="primary" type="submit">
+                Save changes
+              </Button>
+            </Form>
           </Modal.Body>
         </Modal>
       </>

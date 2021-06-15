@@ -4,32 +4,43 @@ import { Modal, Form, Row, Col, Button } from "react-bootstrap";
 export default class ProfileAboutUpdater extends Component {
   state = { user: {} };
 
-  componentDidMount = async () => {
-    const userId = "60c73bf1291930001560aba3";
-    const endpointGetMyProfile = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
+  handleProfileUpdate = async (e) => {
+    // const userId = "60c73bf1291930001560aba3";
+    const endpointPUTprofile = `https://striveschool-api.herokuapp.com/api/profile/`;
     const bearerTokenHedri =
       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2JmMTI5MTkzMDAwMTU2MGFiYTMiLCJpYXQiOjE2MjM2Njk3NDUsImV4cCI6MTYyNDg3OTM0NX0.Lk5Z-l56SBkY6YCIvoiHpVg_0J0rEZHaO4PzAuep3bo";
 
     try {
-      let putResponse = await fetch(endpointGetMyProfile, {
+      let response = await fetch(endpointPUTprofile, {
         method: "PUT",
-
         headers: {
           Authorization: bearerTokenHedri,
           "Content-Type": "application/json",
         },
         body: JSON.stringify(this.state.user),
       });
-
-      let updateData = await putResponse.json();
-      console.log(updateData);
-      this.setState({ user: updateData });
+      console.log(response.ok);
+      if (response.ok) {
+        alert("Profile Updated!");
+        this.setState({
+          user: {
+            bio: "",
+          },
+        });
+      } else {
+        alert(
+          "We have some kind of issue, don't ask me - it's for you to solve"
+        );
+      }
     } catch (err) {
       console.log(err);
     }
   };
-  handleSubmit = () => {
-    this.setState({ user: this.target.value });
+  inputChange = (e) => {
+    let id = e.target.id;
+    this.setState({
+      user: { ...this.state.user, [id]: e.target.value },
+    });
   };
 
   render() {
@@ -43,24 +54,29 @@ export default class ProfileAboutUpdater extends Component {
         >
           <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
-              Large Modal
+              Update {this.props.name} Bio Info
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form onSubmit={this.handleSubmit}>
-              <Form.Group as={Col} controlId="profileBio">
-                <Form.Label>Bio</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Describe yourself or what you are about"
-                />
-              </Form.Group>
+            <Form onSubmit={(e) => this.handleProfileUpdate(e)}>
+              <Row className="mb-3">
+                <Form.Group as={Col}>
+                  <Form.Label>Bio</Form.Label>
+                  <Form.Control
+                    id="bio"
+                    type="text"
+                    placeholder={this.props.bio}
+                    onChange={(e) => this.inputChange(e)}
+                  />
+                </Form.Group>
+              </Row>
+
+              <Button variant="secondary">Clear Input</Button>
+              <Button variant="primary" type="submit">
+                Save changes
+              </Button>
             </Form>
           </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary">Close</Button>
-            <Button variant="primary">Save changes</Button>
-          </Modal.Footer>
         </Modal>
       </>
     );
