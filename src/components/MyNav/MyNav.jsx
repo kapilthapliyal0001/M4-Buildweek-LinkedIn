@@ -24,6 +24,11 @@ const MyNav = () => {
         <MyNavOptions Icons={Icon.ChatDotsFill} title="Messaging" />
         <MyNavOptions Icons={Icon.BellFill} title="Notifications" />
         <MyNavOptions avatar={myPic} title="me" />
+        <MyNavOptions
+          Icons={Icon.Grid3x3GapFill}
+          title="Work"
+          style={{ borderLeft: "2px solid gray " }}
+        />
       </div>
     </div>
   );

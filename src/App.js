@@ -7,6 +7,8 @@ import MyFooter from "./components/MyFooter/MyFooter";
 import LoginPage from "./components/LoginPage";
 import HomePage from "./components/HomePage/HomePage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Sidebar from "./components/Sidebar/Sidebar";
+import MainFeed from "./components/HomePage/MainFeed/MainFeed";
 
 function App() {
   return (
@@ -22,9 +24,9 @@ function App() {
           <HomePage />
         </Route> */}
       <MyNav />
+      {/* <MainFeed /> */}
       <ProfilePage />
       <MyFooter />
-
       {/* <LoginPage /> */}
       {/* </Router> */}
     </div>
