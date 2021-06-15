@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../ProfilePage.css";
 import { Card, Image, Nav, Button } from "react-bootstrap";
-import { Pencil } from "react-bootstrap-icons";
+import { Pencil, CameraFill } from "react-bootstrap-icons";
 
 //Modals for Updating
 import ProfileJumboUpdater from "./ProfileJumboUpdater";
@@ -29,16 +29,17 @@ export default class ProfileJumbo extends Component {
       <>
         <Card className="my-2 ">
           <div id="jumboProfile_header">
-            <img src="https://picsum.photos/900?grayscale"></img> />
-            <Pencil
-              style={styling}
-              onClick={() => this.setState({ showProfilePicModal: true })}
-            />
+            <img src="https://picsum.photos/900?grayscale"></img>
           </div>
           <Card.Body>
-            <div id="jumboProfile_img">
-              <Image src={image} />
-            </div>
+            <>
+              <div
+                id="jumboProfile_img"
+                onClick={() => this.setState({ showProfilePicModal: true })}
+              >
+                <Image src={image} />
+              </div>
+            </>
             <Card.Title id="jumboProfile_title" className="mt-5">
               <h5>
                 {name} {surname}
@@ -74,7 +75,7 @@ export default class ProfileJumbo extends Component {
         <ProfilePicUpdater
           image={image}
           open={this.state.showProfilePicModal}
-          close={this.closeProfilePicModal}
+          close={this.closeJumboModal}
         />
       </>
     );

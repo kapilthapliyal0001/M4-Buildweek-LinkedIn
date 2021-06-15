@@ -59,7 +59,7 @@ export default class ProfileJumboUpdater extends Component {
         >
           <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
-              Large Modal
+              Update Profile
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -72,6 +72,7 @@ export default class ProfileJumboUpdater extends Component {
                     type="text"
                     placeholder={this.props.name}
                     onChange={(e) => this.inputChange(e)}
+                    disabled
                   />
                 </Form.Group>
 
@@ -82,6 +83,7 @@ export default class ProfileJumboUpdater extends Component {
                     type="text"
                     placeholder={this.props.surname}
                     onChange={(e) => this.inputChange(e)}
+                    disabled
                   />
                 </Form.Group>
               </Row>

@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { Modal, Form, Row, Col, Button } from "react-bootstrap";
+import { Modal, Form, Row, Col, Button, Image } from "react-bootstrap";
+import { CameraFill } from "react-bootstrap-icons";
 
 export default class ProfilePicUpdater extends Component {
   state = { user: {} };
@@ -44,36 +45,50 @@ export default class ProfilePicUpdater extends Component {
   };
 
   render() {
+    const modalStyle = {
+      // background: "black",
+      overflow: "hidden",
+      padding: 0,
+      borderTop: "grey solid 1px",
+    };
     return (
       <>
         <Modal
           size="lg"
           show={this.props.open}
           onHide={this.props.close}
-          aria-labelledby="example-modal-sizes-title-lg"
+          aria-labelledby="profilePicModal"
         >
-          <Modal.Header closeButton>
-            <Modal.Title id="example-modal-sizes-title-lg">
-              Large Modal
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form onSubmit={(e) => this.handleProfileUpdate(e)}>
-              <Form.Group className="mb-3">
-                <Form.Label>Profile Pic</Form.Label>
-                <Form.Control
-                  id="image"
-                  type="text"
-                  placeholder={this.props.image}
-                  onChange={(e) => this.inputChange(e)}
-                />
-              </Form.Group>
-              <Button variant="secondary">Close</Button>
-              <Button variant="primary" type="submit">
-                Save changes
-              </Button>
-            </Form>
-          </Modal.Body>
+          <Form onSubmit={(e) => this.handleProfileUpdate(e)}>
+            <Modal.Body style={modalStyle} className="bg-dark">
+              <Row className="p-5 text-center">
+                <Col>
+                  <Image id="jumboProfile_img_update" src={this.props.image} />
+                </Col>
+              </Row>
+            </Modal.Body>
+            <Modal.Footer className="bg-dark text-white" style={modalStyle}>
+              <Row className="text-center flex-fill align-items-center">
+                <Col xs={8} className="mt-2">
+                  <Form.Group>
+                    <Form.Control
+                      id="image"
+                      type="text"
+                      placeholder={this.props.image}
+                      onChange={(e) => this.inputChange(e)}
+                    />
+                  </Form.Group>
+                </Col>
+                <Col xs={4}>
+                  <CameraFill
+                    onClick={(e) => this.handleProfileUpdate(e)}
+                    type="submit"
+                  />
+                  <p>Update Photo</p>
+                </Col>
+              </Row>
+            </Modal.Footer>
+          </Form>
         </Modal>
       </>
     );
