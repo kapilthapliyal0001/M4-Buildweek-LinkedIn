@@ -4,18 +4,18 @@ import React from "react";
 import "../MainFeed/MainFeed.css";
 import InputOptions from "../MainFeed/InputOptions";
 
-const MainFeed = ({ name, description, post, Icon }) => {
+const MainFeed = ({ name, description, post }) => {
   return (
     <div className="MainFeed">
       <div className="MainFeedHeader">
         <Avatar />
         <div className="MainHeaderInfo">
-          <h2>name</h2>
-          <p>description</p>
+          <h2>{name}</h2>
+          <p>{description}</p>
         </div>
       </div>
       <div className="MainFeedBody">
-        <p>post</p>
+        <p>{post}</p>
       </div>
       <div className="MainFeedBodyButtons">
         <InputOptions Icon={Icons.HandThumbsUp} title="Like" />
