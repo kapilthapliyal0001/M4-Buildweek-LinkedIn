@@ -66,14 +66,12 @@ class PostFeed extends Component {
       <>
         <Container className="main-cont">
           <div className="d-flex post-field">
-            {/* https://res.cloudinary.com/dmqsfltrf/image/upload/v1606999953/linkedin/dztgrstloinuosiu1nhp.webp */}
-            {/* <div className="post-image"> */}
             <Image
               className="img-circle post-img"
               src="https://res.cloudinary.com/dmqsfltrf/image/upload/v1606999953/linkedin/dztgrstloinuosiu1nhp.webp"
               alt="Linkdin Member"
               fluid
-              //   roundedCircle
+              roundedCircle
             ></Image>
             {/* </div> */}
             {/* <div className="text"> */}
