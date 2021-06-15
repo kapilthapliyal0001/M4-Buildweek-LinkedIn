@@ -7,7 +7,7 @@ const MyNavOptions = ({ Icons, title, avatar }) => {
     <div className="myNavOptions">
       {Icons && <Icons className="myNavOptionsIcon" />}
       {avatar && <Avatar className="myNavOptionsIcon" src={avatar} />}
-      <a className="myNavOptionsTitle" href="#">
+      <a className="myNavOptionsTitle" href={"/" + title}>
         {title}
       </a>
     </div>

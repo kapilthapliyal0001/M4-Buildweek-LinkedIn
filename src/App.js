@@ -12,22 +12,20 @@ import Sidebar from "./components/Sidebar/Sidebar";
 function App() {
   return (
     <div className="App">
-      {/* <Router>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-        <Route path="/profile">
-          <ProfilePage />
-        </Route>
-        <Route exact path="/">
-          <HomePage />
-        </Route> */}
       <MyNav />
-      <HomePage />
-      {/* <ProfilePage /> */}
-      {/* <MyFooter /> */}
-      {/* <LoginPage /> */}
-      {/* </Router> */}
+      <Router>
+        <Switch>
+          <Route exact path="/home">
+            <HomePage />
+          </Route>
+          <Route exact path="/me" component={ProfilePage} />
+        </Switch>
+
+        {/* <HomePage /> */}
+        {/* <ProfilePage /> */}
+        <MyFooter />
+        {/* <LoginPage /> */}
+      </Router>
     </div>
   );
 }
