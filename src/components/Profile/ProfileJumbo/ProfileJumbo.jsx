@@ -18,7 +18,9 @@ export default class ProfileJumbo extends Component {
     return (
       <>
         <Card className="my-2 ">
-          <div className="img-container"></div>
+          <div id="jumboProfile_header">
+            <Image src="https://picsum.photos/900?grayscale" />
+          </div>
           <Card.Body>
             <div id="jumboProfile_img">
               <Image src={img} />

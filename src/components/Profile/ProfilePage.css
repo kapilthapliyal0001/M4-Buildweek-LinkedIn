@@ -1,15 +1,27 @@
-.img-container {
+#loginPage_img {
+  border-radius: 50%;
+  border: 4px solid white;
+  height: 15rem;
+  width: 15rem;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+#jumboProfile_header {
   display: flex;
   left: auto;
   justify-content: center;
   align-items: center;
   height: 10rem;
-  background: url("https://picsum.photos/900?grayscale");
+  overflow: hidden;
   position: relative;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
+#jumboProfile_header > img {
+  position: absolute;
+  top: -220px;
+}
 #jumboProfile_img {
   position: absolute;
   border-radius: 50%;

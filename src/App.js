@@ -4,13 +4,29 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ProfilePage from "./components/ProfilePage.jsx";
 import MyNav from "./components/MyNav/MyNav";
 import MyFooter from "./components/MyFooter/MyFooter";
+import LoginPage from "./components/LoginPage";
+import HomePage from "./components/HomePage/HomePage";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
+      {/* <Router>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route path="/profile">
+          <ProfilePage />
+        </Route>
+        <Route exact path="/">
+          <HomePage />
+        </Route> */}
       <MyNav />
       <ProfilePage />
       <MyFooter />
+
+      {/* <LoginPage /> */}
+      {/* </Router> */}
     </div>
   );
 }
