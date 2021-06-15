@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./ProfilePage.css";
+import "../ProfilePage.css";
 
 import React, { Component } from "react";
 import { Card, Image, Nav, Button } from "react-bootstrap";

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import ProfileJumbo from "./Profile/ProfileJumbo";
 import { Col, Row, Container } from "react-bootstrap";
-import ProfileAbout from "./Profile/ProfileAbout";
+
+import ProfileJumbo from "./Profile/ProfileJumbo/ProfileJumbo";
+import ProfileAbout from "./Profile/ProfileAbout/ProfileAbout";
 import YourDashBoardProfile from "./Profile/YourDashBoardProfile";
+import ProfileUpdater from "./Profile/ProfileJumbo/ProfileJumboUpdater";
+import ProfileExperience from "./Profile/ProfileExperience/ProfileExperience";
 import Sidebar from "./Sidebar/Sidebar";
-import ProfileUpdater from "./Profile/ProfileJumboUpdater";
-import ProfileExperience from "./Profile/ProfileExperience";
-// import MainPage from "./components/Sidebar/MainPage";
 
 export default class ProfilePage extends Component {
   state = {

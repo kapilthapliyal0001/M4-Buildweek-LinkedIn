@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, Col, Row, Image } from "react-bootstrap";
 import { Plus } from "react-bootstrap-icons";
-import "./ProfilePage.css";
+import "../ProfilePage.css";
 import ProfileExperienceSingle from "./ProfileExperienceSingle";
 import ProfileExperiencePost from "./ProfileExperiencePost";
 

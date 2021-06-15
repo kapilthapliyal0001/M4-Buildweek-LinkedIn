@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Card, Image, Nav } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
 
-import "./ProfilePage.css";
+import "../ProfilePage.css";
 export default class ProfileAbout extends Component {
   state = {
     showModalAbout: false,
