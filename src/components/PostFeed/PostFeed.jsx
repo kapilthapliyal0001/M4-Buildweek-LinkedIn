@@ -106,29 +106,20 @@ class PostFeed extends Component {
           </div>
           <div className="post-icons d-flex justify-content-around">
             <div className="d-flex">
-              <FontAwesomeIcon
-                className=" ml-auto mr-4 fa-2x"
-                icon={faImages}
-              />
-              <span>Photos</span>
+              <FontAwesomeIcon className=" ml-auto fa-2x" icon={faImages} />
+              <span className="pt-2">Photos</span>
             </div>
             <div className="d-flex">
-              <FontAwesomeIcon className=" ml-auto mr-4 fa-2x" icon={faVideo} />
-              <span>Videos</span>
+              <FontAwesomeIcon className=" ml-auto fa-2x" icon={faVideo} />
+              <span className="pt-2">Videos</span>
             </div>
             <div className="d-flex">
-              <FontAwesomeIcon
-                className=" ml-auto mr-4 fa-2x"
-                icon={faCalendar}
-              />
-              <span>Events</span>
+              <FontAwesomeIcon className=" ml-auto fa-2x" icon={faCalendar} />
+              <span className="pt-2">Events</span>
             </div>
             <div className="d-flex">
-              <FontAwesomeIcon
-                className=" ml-auto mr-4 fa-2x"
-                icon={faNewspaper}
-              />
-              <span>Write Article</span>
+              <FontAwesomeIcon className=" ml-auto fa-2x" icon={faNewspaper} />
+              <span className="pt-2">Write Article</span>
             </div>
           </div>
         </Container>
