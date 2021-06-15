@@ -28,9 +28,17 @@ export default class ProfileExperienceSingle extends Component {
             <p>{this.props.date}</p>
             <p>{this.props.area}</p>
             <p>{this.props.desc}</p>
+            <p>{this.props.id}</p>
           </Col>
         </Row>
         <ProfileExpUpdater
+          idExp={this.props.id}
+          role={this.props.role}
+          company={this.props.company}
+          date={this.props.date}
+          area={this.props.area}
+          desc={this.props.desc}
+          // onClick={()=> this.setState(this.props.selected: experience)}
           open={this.state.showModalExpPut}
           close={this.closeExpModalPut}
         />

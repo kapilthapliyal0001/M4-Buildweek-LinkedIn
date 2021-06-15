@@ -7,6 +7,7 @@ import ProfileExperiencePost from "./ProfileExperiencePost";
 
 export default class ProfileExperience extends Component {
   state = {
+    selected: null,
     experience: [],
     showModalExpPost: false,
   };
@@ -37,7 +38,7 @@ export default class ProfileExperience extends Component {
   };
 
   render() {
-    const { experience } = this.state;
+    const { experience, selected } = this.state;
     return (
       <>
         <Card className="my-2" id="expProfile">
@@ -57,6 +58,8 @@ export default class ProfileExperience extends Component {
                   date={exp.startDate}
                   company={exp.company}
                   desc={exp.description}
+                  selected={selected}
+                  id={exp._id}
                 />
               </Col>
             ))}
