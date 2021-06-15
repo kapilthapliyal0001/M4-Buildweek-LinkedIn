@@ -30,8 +30,8 @@ class Sidebar extends Component {
       let data = await response.json();
       let result = console.log(data, "This is the result of the API");
       //   Updating the state with the profiles
-      let ran_a = Math.floor(Math.random() * 7) + 30;
-      let ran_b = Math.floor(Math.random() * 7) + ran_a + 1;
+      let ran_a = Math.floor(Math.random() * 4) + 30;
+      let ran_b = Math.floor(Math.random() * 4) + ran_a + 1;
       this.setState({
         profiles: data.slice(ran_a, ran_b),
       });
@@ -116,7 +116,7 @@ class Sidebar extends Component {
                 </div>
                 {/* Linkedin courses */}
                 <div>
-                  <div className="d-flex flex-column m-1">
+                  <div className="d-flex flex-column m-1 pl-1">
                     <span className="most-viewed-head">
                       1. The Six Morning Habits of High Perf...
                     </span>
@@ -124,13 +124,13 @@ class Sidebar extends Component {
                       Pete Mockaitis | How to Be Awesome at Yo...
                     </span>
                   </div>
-                  <div className="d-flex flex-column m-1">
+                  <div className="d-flex flex-column m-1 pl-1">
                     <span className="most-viewed-head">
                       2. What is Graphic Design ?
                     </span>
                     <span className="most-viewed-foot pl-3">Sean Adams</span>
                   </div>
-                  <div className="d-flex flex-column m-1">
+                  <div className="d-flex flex-column m-1 pl-1">
                     <span className="most-viewed-head">
                       3. Excel Essential Training Office 365..
                     </span>
@@ -152,6 +152,46 @@ class Sidebar extends Component {
                   </div>
                 </div>
               </div>
+              <div className="people pt-2 ">
+                <div className="ml-2 my-2 pl-2">
+                  <div className="text-center">
+                    <span className="add-personal-txt">
+                      Get the latest jobs and Industry news
+                    </span>
+                  </div>
+                  <div className="d-flex justify-content-center">
+                    <Image
+                      className="profile-img mt-1 w-25"
+                      src="https://static.thenounproject.com/png/17241-200.png"
+                      alt="Linkdin Member"
+                      fluid
+                      roundedCircle
+                    ></Image>
+                    <Image
+                      className="profile-img mt-1 w-25"
+                      src="https://www.wallstreet.it/scuola-inglese-senigallia/wp-content/uploads/sites/73/2017/03/poste.png"
+                      alt="Linkdin Member"
+                      fluid
+                      roundedCircle
+                    ></Image>
+                  </div>
+                  <div className="my-2 text-center d-flex">
+                    <span className="add-personal-txt px-5">
+                      Hello User, Explore relevant opportunities with Posta
+                      Italiane
+                    </span>
+                  </div>
+                  <Button
+                    className="rounded-pill btn-sm adv-button"
+                    variant="outline-primary"
+                  >
+                    + Follow{" "}
+                  </Button>
+                </div>
+              </div>
+              {/* Personalizes suggestions */}
+
+              {/*  */}
             </Col>
           </Row>
         </Container>

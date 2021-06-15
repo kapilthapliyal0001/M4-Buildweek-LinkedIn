@@ -73,6 +73,7 @@
 
 .profile-img {
   object-fit: cover;
+  /* padding-left: 7%; */
 }
 
 .text-recomendations {
@@ -88,4 +89,14 @@
   color: grey;
   font-size: 80%;
   /* font-weight:  */
+}
+.add-personal-txt {
+  color: grey;
+  font-size: 80%;
+  /* text-align: center; */
+}
+
+.adv-button {
+  margin-left: 35%;
+  margin-bottom: 5%;
 }
