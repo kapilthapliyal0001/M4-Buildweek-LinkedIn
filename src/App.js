@@ -4,12 +4,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ProfilePage from "./components/ProfilePage.jsx";
 import MyNav from "./components/MyNav/MyNav";
 import MyFooter from "./components/MyFooter/MyFooter";
+import Sidebar from "./components/Sidebar/Sidebar";
+import MainFeed from "./components/HomePage/MainFeed/MainFeed";
 
 function App() {
   return (
     <div className="App">
       <MyNav />
-
+      <MainFeed />
       <MyFooter />
     </div>
   );
