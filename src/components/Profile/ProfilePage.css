@@ -57,7 +57,7 @@
   flex: end;
   float: inline-end;
 }
-#dasboardProfile_title,
+
 #jumboProfile_title,
 #aboutProfile_title {
   font-weight: 400;
@@ -65,6 +65,15 @@
   justify-content: space-between;
   align-items: baseline;
 }
+#dasboardProfile_title span {
+  margin: 0;
+}
+#dasboardProfile_title > span:nth-child(3) {
+  color: rgb(129, 129, 129);
+  font-size: 14px;
+  font-weight: 400;
+}
+
 #dasboardProfile_body,
 #aboutProfile_body {
   display: flex;
@@ -95,28 +104,41 @@ svg:hover {
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+#rowone,
+#rowtwo {
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: #fff;
   align-self: stretch;
+  border-radius: 10px;
+  border: solid rgb(224, 224, 224) 1px;
 }
 
 #rowone {
-  align-self: stretch;
-  background-color: rgb(158, 158, 155);
-  border-radius: 10px;
+  flex-direction: row;
+  margin-bottom: 10px;
 }
-#rowone > .col {
-  border-radius: 10px;
-  border: crimson 1px solid;
+#rowone .col h2 {
+  color: rgb(62, 98, 214);
+  font-weight: 300;
+}
+
+#rowone > .col:nth-child(1) {
+  border-right: solid rgb(224, 224, 224) 1px;
+}
+#rowone > .col:nth-child(2) {
+  border-right: solid rgb(224, 224, 224) 1px;
+}
+#rowone > .col:nth-child(3) {
 }
 
 #rowtwo {
-  background-color: rgb(179, 150, 35);
   flex-direction: column;
-  align-self: stretch;
-  border-radius: 10px;
 }
 #rowtwo > .col {
   border-radius: 10px;
-  border: crimson 1px solid;
+  /* border: crimson 1px solid; */
 }
 
 #expProfileSingle > div > img {
