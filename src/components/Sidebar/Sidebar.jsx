@@ -32,6 +32,12 @@ class Sidebar extends Component {
       //   Updating the state with the profiles
       let ran_a = Math.floor(Math.random() * 4) + 30;
       let ran_b = Math.floor(Math.random() * 4) + ran_a + 1;
+      // checking my data
+      // let obj = await data
+      //   .filter((m) => m.email.includes("ari"))
+      //   .then((c) => {
+      //     console.log(c, "this is my id").error();
+      //   });
       this.setState({
         profiles: data.slice(ran_a, ran_b),
       });
