@@ -1,6 +1,7 @@
 import {Component} from "react";
 import {Col, Row, Container, Button, Image} from "react-bootstrap";
 import "./Sidebar.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // get the fontawesome imports
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";

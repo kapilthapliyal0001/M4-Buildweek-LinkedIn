@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Col, Row, Container } from "react-bootstrap";
+import React, {Component} from "react";
+import {Col, Row, Container} from "react-bootstrap";
 
 import ProfileJumbo from "./Profile/ProfileJumbo/ProfileJumbo";
 import ProfileAbout from "./Profile/ProfileAbout/ProfileAbout";
@@ -7,6 +7,7 @@ import YourDashBoardProfile from "./Profile/YourDashBoardProfile";
 import ProfileUpdater from "./Profile/ProfileJumbo/ProfileJumboUpdater";
 import ProfileExperience from "./Profile/ProfileExperience/ProfileExperience";
 import Sidebar from "./Sidebar/Sidebar";
+import PostFeed from "./PostFeed/PostFeed";
 
 export default class ProfilePage extends Component {
   state = {
@@ -29,7 +30,7 @@ export default class ProfilePage extends Component {
 
       let myProfileData = await getResponse.json();
       console.log(myProfileData);
-      this.setState({ user: myProfileData });
+      this.setState({user: myProfileData});
     } catch (err) {
       console.log(err);
     }
@@ -44,6 +45,9 @@ export default class ProfilePage extends Component {
               <Row>
                 <ProfileUpdater />
                 <Col xs={8} className="mt-2">
+                  {/* Main Post Feed Stats */}
+                  <PostFeed />
+                  {/* Main Post Feed Ends */}
                   <ProfileJumbo
                     userId={this.state.user._id}
                     name={this.state.user.name}
