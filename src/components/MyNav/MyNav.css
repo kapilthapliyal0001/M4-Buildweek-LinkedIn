@@ -1,13 +1,14 @@
 .header {
-  display: flex;
   position: sticky;
   top: 0;
+  display: flex;
   justify-content: space-evenly;
-  border-bottom: 0.1px solid lightgray;
+  border-bottom: 0.1px solid lightgrey;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 100%;
   z-index: 999;
+  background-color: white;
 }
 .headerLeft {
   display: flex;
@@ -17,23 +18,42 @@
   height: 40px;
   margin-right: 10px;
 }
+
 .headerSearch {
   padding: 10px;
   display: flex;
   align-items: center;
-  border-radius: 5px;
-  height: 22px;
+  border-radius: 6px;
+  height: 45px;
   color: gray;
   background-color: #eef3f8;
 }
 
-.headerSearchInput {
+.headerSearch > input {
+  width: 300px;
   outline: none;
   border: none;
   background: none;
-  background-color: #eef3f8;
 }
 .headerRight {
   display: flex;
-  padding: 10px;
+}
+
+.headerRight .MuiAvatar-colorDefault {
+  background-color: #70b5f9;
+}
+
+@media screen and (max-width: 750px) {
+  .headerSearch {
+    display: none;
+  }
+  .headerSearch > input {
+    display: none;
+  }
+
+  .headerLeft > img {
+    object-fit: contain;
+    height: 30px;
+    margin-right: 10px;
+  }
 }
