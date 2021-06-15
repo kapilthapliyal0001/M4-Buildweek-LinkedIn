@@ -13,7 +13,7 @@ export default class ProfileExpUpdater extends Component {
     },
   };
 
-  handleSubmit = async (e) => {
+  handleUpdateExp = async (e) => {
     e.preventDefault();
     console.log("Gonna submit Exp now");
     console.log(this.state.experience);
@@ -56,6 +56,51 @@ export default class ProfileExpUpdater extends Component {
       console.log(err);
     }
   };
+
+  handleDeleteExp = async () => {
+    // e.preventDefault();
+    console.log("Gonna submit Exp now");
+    console.log(this.state.experience);
+    let expId = this.props.idExp;
+    const userId = "60c73bf1291930001560aba3";
+    const endpointDELETEexp = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}`;
+    const bearerTokenHedri =
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2JmMTI5MTkzMDAwMTU2MGFiYTMiLCJpYXQiOjE2MjM2Njk3NDUsImV4cCI6MTYyNDg3OTM0NX0.Lk5Z-l56SBkY6YCIvoiHpVg_0J0rEZHaO4PzAuep3bo";
+
+    try {
+      let response = await fetch(endpointDELETEexp, {
+        method: "DELETE",
+        headers: {
+          Authorization: bearerTokenHedri,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(this.state.experience),
+      });
+      console.log(response.ok);
+      if (response.ok) {
+        alert("Experience saved!");
+        this.setState({
+          selected: "",
+          experience: {
+            role: "",
+            company: "",
+            area: "",
+            description: "",
+            startDate: "",
+            endDate: null,
+          },
+        });
+        // let updateData = await putExpResponse.json();
+        // console.log(updateData);
+        // this.setState({ experience: updateData });
+      } else {
+        alert("We have another issue");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   inputChange = (e) => {
     let id = e.target.id;
     this.setState({
@@ -78,11 +123,11 @@ export default class ProfileExpUpdater extends Component {
         >
           <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
-              Update A Experience
+              Update {this.props.id}
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form onSubmit={(e) => this.handleSubmit(e)}>
+            <Form onSubmit={(e) => this.handleUpdateExp(e)}>
               <Row className="mb-3">
                 <Form.Group as={Col}>
                   <Form.Label>Role</Form.Label>
@@ -134,7 +179,12 @@ export default class ProfileExpUpdater extends Component {
                   onChange={(e) => this.inputChange(e)}
                 />
               </Form.Group>
-              <Button variant="secondary">Reset Form</Button>
+              <Button
+                variant="secondary"
+                onClick={() => this.handleDeleteExp()}
+              >
+                Delete
+              </Button>
               <Button variant="primary" type="submit">
                 Save changes
               </Button>

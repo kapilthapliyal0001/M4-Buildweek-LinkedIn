@@ -14,7 +14,7 @@ export default class ProfileJumbo extends Component {
     this.setState({ showModalJumbo: false });
   };
   render() {
-    const { img, surname, name, title, area } = this.props;
+    const { image, surname, name, title, area, username, bio } = this.props;
     return (
       <>
         <Card className="my-2 ">
@@ -23,7 +23,7 @@ export default class ProfileJumbo extends Component {
           </div>
           <Card.Body>
             <div id="jumboProfile_img">
-              <Image src={img} />
+              <Image src={image} />
             </div>
             <Card.Title id="jumboProfile_title" className="mt-5">
               <h5>
@@ -47,6 +47,13 @@ export default class ProfileJumbo extends Component {
           </Card.Body>
         </Card>
         <ProfileJumboUpdater
+          area={area}
+          name={name}
+          title={title}
+          username={username}
+          surname={surname}
+          image={image}
+          bio={bio}
           open={this.state.showModalJumbo}
           close={this.closeJumboModal}
         />
