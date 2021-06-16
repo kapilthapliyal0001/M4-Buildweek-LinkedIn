@@ -8,8 +8,10 @@ import LoginPage from "./components/LoginPage";
 import HomePage from "./components/HomePage/HomePage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
+import ContentLoader from "react-content-loader";
 
 function App() {
+  // let { id } = useParams();
   return (
     <div className="App">
       <MyNav />
@@ -18,11 +20,8 @@ function App() {
           <Route exact path="/home">
             <HomePage />
           </Route>
-          <Route exact path="/me" component={ProfilePage} />
+          <Route exact path="/profile/:id" component={ProfilePage} />
         </Switch>
-
-        {/* <HomePage /> */}
-        {/* <ProfilePage /> */}
         <MyFooter />
         {/* <LoginPage /> */}
       </Router>

@@ -1,10 +1,10 @@
-import {Component} from "react";
-import {Col, Row, Container, Button, Image} from "react-bootstrap";
+import { Component } from "react";
+import { Col, Row, Container, Button, Image, Nav } from "react-bootstrap";
 import "./Sidebar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // get the fontawesome imports
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
   faGlobe,
@@ -67,34 +67,37 @@ class Sidebar extends Component {
                 <div className="pl-3 pt-2">
                   {/* Loading random profiles */}
                   {this.state.profiles.map((p) => (
-                    <div key={p._id}>
-                      <div className="d-flex img-cont">
-                        {/* <div className="profile-img mt-1"> */}
-                        {/* {" "} */}
-                        <Image
-                          className="w-25 img-circle profile-img mt-1"
-                          src={p.image}
-                          alt="Linkdin Member"
-                          fluid
-                          roundedCircle
-                        ></Image>
-                        {/* </div> */}
-                        <div className="profile-details ml-4 mb-2">
-                          <div className="profile-name">
-                            {p.name} {p.surname}
-                          </div>
-                          <div className="profile-title">{p.title}</div>
-                          <div className="profile-message">
-                            <Button
-                              className="rounded-pill btn-sm"
-                              variant="outline-dark"
-                            >
-                              + Follow
-                            </Button>
+                    <Nav.Link href={`/profile/${p._id}`}>
+                      <div key={p._id}>
+                        <div className="d-flex img-cont">
+                          {/* <div className="profile-img mt-1"> */}
+                          {/* {" "} */}
+                          <Image
+                            className="w-25 img-circle profile-img mt-1"
+                            src={p.image}
+                            alt="Linkdin Member"
+                            fluid
+                            roundedCircle
+                          ></Image>
+                          {/* </div> */}
+                          <div className="profile-details ml-4 mb-2">
+                            <div className="profile-name">
+                              {p.name} {p.surname}
+                              {p.id}
+                            </div>
+                            <div className="profile-title">{p.title}</div>
+                            <div className="profile-message">
+                              <Button
+                                className="rounded-pill btn-sm"
+                                variant="outline-dark"
+                              >
+                                + Follow
+                              </Button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </Nav.Link>
                   ))}
                 </div>
                 <div className="d-flex ml-2 my-2 pl-2">

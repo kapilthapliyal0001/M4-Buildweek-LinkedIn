@@ -4,8 +4,8 @@ import { Plus } from "react-bootstrap-icons";
 import "../ProfilePage.css";
 import ProfileExperienceSingle from "./ProfileExperienceSingle";
 import ProfileExperiencePost from "./ProfileExperiencePost";
-
-export default class ProfileExperience extends Component {
+import { withRouter } from "react-router-dom";
+class ProfileExperience extends Component {
   state = {
     selected: null,
     experience: [],
@@ -16,7 +16,10 @@ export default class ProfileExperience extends Component {
     this.setState({ showModalExpPost: false });
   };
   componentDidMount = async () => {
-    const userId = "60c73bf1291930001560aba3";
+    const userId =
+      this.props.match.params.id === "me"
+        ? "60c73bf1291930001560aba3"
+        : this.props.match.params.id;
     const endpointGetMyProfile = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`;
     const bearerTokenHedri =
       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2JmMTI5MTkzMDAwMTU2MGFiYTMiLCJpYXQiOjE2MjM2Njk3NDUsImV4cCI6MTYyNDg3OTM0NX0.Lk5Z-l56SBkY6YCIvoiHpVg_0J0rEZHaO4PzAuep3bo";
@@ -73,3 +76,4 @@ export default class ProfileExperience extends Component {
     );
   }
 }
+export default withRouter(ProfileExperience);
