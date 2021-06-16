@@ -2,7 +2,7 @@ import React, { Component } from "react";
 //Styling
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../ProfilePage.css";
-import { Card, Image, Nav, Button } from "react-bootstrap";
+import { Card, Image, Nav, Button, Modal } from "react-bootstrap";
 import { Pencil, CameraFill } from "react-bootstrap-icons";
 
 //Modals for Updating
@@ -12,6 +12,7 @@ export default class ProfileJumbo extends Component {
   state = {
     showModalJumbo: false,
     showModalProfilePic: false,
+    showContactInfoModal: false,
   };
   closeJumboModal = () => {
     this.setState({ showModalJumbo: false, showProfilePicModal: false });
@@ -24,7 +25,8 @@ export default class ProfileJumbo extends Component {
       zIndex: "99",
     };
 
-    const { image, surname, name, title, area, username, bio } = this.props;
+    const { image, surname, name, title, area, username, bio, email } =
+      this.props;
     return (
       <>
         <Card className="my-2 ">
@@ -55,7 +57,13 @@ export default class ProfileJumbo extends Component {
                 <br />
               </p>
               <span className="location-line text-muted">
-                {area} &#183; <a href="#">Contact Info</a>
+                {area} &#183;{" "}
+                <a
+                  type="button"
+                  onClick={() => this.setState({ showContactInfoModal: true })}
+                >
+                  Contact Info
+                </a>
               </span>
               <span></span>
               <p className="text-primary" id="jumboprofile_connections_text">
@@ -80,6 +88,22 @@ export default class ProfileJumbo extends Component {
           open={this.state.showProfilePicModal}
           close={this.closeJumboModal}
         />
+        <Modal
+          size="sm"
+          show={this.state.showContactInfoModal}
+          onHide={() => this.setState({ showContactInfoModal: false })}
+          aria-labelledby="example-modal-sizes-title-sm"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="example-modal-sizes-title-sm">
+              Contact info
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>{username}</p>
+            <p>{email}</p>
+          </Modal.Body>
+        </Modal>
       </>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row, Container } from "react-bootstrap";
+import { Col, Row, Container, Button, Modal } from "react-bootstrap";
 
 import ProfileJumbo from "./Profile/ProfileJumbo/ProfileJumbo";
 import ProfileAbout from "./Profile/ProfileAbout/ProfileAbout";
@@ -13,6 +13,7 @@ class ProfilePage extends Component {
   state = {
     user: {},
     isLoading: false,
+    showContactInfoModal: false,
   };
 
   componentDidMount = async () => {
@@ -64,7 +65,11 @@ class ProfilePage extends Component {
                     area={this.state.user.area}
                     username={this.state.user.username}
                   />
-                  <ProfileAbout bio={this.state.user.bio} title="About" />
+                  {this.state.user === "" ? (
+                    <MyLoader />
+                  ) : (
+                    <ProfileAbout bio={this.state.user.bio} title="About" />
+                  )}
                   {this.props.match.params.id === "me" ? (
                     <YourDashBoardProfile title="Your Dashboard" />
                   ) : (
@@ -81,6 +86,22 @@ class ProfilePage extends Component {
             </Col>
           </Row>
         </Container>
+        <Button onClick={() => this.setState({ showContactInfoModal: true })}>
+          Small modal
+        </Button>
+        <Modal
+          size="sm"
+          show={this.state.showContactInfoModal}
+          onHide={() => this.setState({ showContactInfoModal: false })}
+          aria-labelledby="example-modal-sizes-title-sm"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="example-modal-sizes-title-sm">
+              Small Modal
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>...</Modal.Body>
+        </Modal>
       </>
     );
   }
