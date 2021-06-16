@@ -4,6 +4,7 @@ import Feed from "./Feed/Feed";
 import MainFeed from "./MainFeed/MainFeed";
 import SidebarLeftMain from "./SidebarLeft/SidebarLeftMain";
 import "./SidebarLeft/SidebarLeft.css";
+import PostFeed from "../PostFeed/PostFeed";
 
 export default class HomePage extends Component {
   state = {

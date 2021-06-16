@@ -40,6 +40,7 @@
   object-fit: cover;
   top: 4rem;
   overflow: hidden;
+  cursor: pointer;
 }
 #jumboProfile_img > img {
   width: 100%;
@@ -104,15 +105,21 @@
   font-size: 14px;
 }
 
-svg {
+#pencil-icon {
   padding: 5px;
   margin: 5px;
   border-radius: 50px;
   font-size: 30px;
   overflow: visible;
   cursor: pointer;
+  position: absolute;
+  right: 20px;
+  z-index: 99;
+  opacity: 0.1;
 }
-svg:hover {
+
+#pencil-icon:hover {
+  opacity: 1;
   background-color: rgb(236, 236, 236);
 }
 
@@ -151,8 +158,8 @@ svg:hover {
 #rowone > .col:nth-child(2) {
   border-right: solid rgb(224, 224, 224) 1px;
 }
-#rowone > .col:nth-child(3) {
-}
+/* #rowone > .col:nth-child(3) {
+} */
 
 #rowtwo {
   flex-direction: column;
@@ -186,10 +193,4 @@ svg:hover {
 
 #expProfileSingle > div > p:nth-child(5) {
   margin-top: 5px;
-}
-
-#editIcon {
-  position: absolute;
-  right: 20px;
-  z-index: 99;
 }
