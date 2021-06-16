@@ -7,7 +7,6 @@ import YourDashBoardProfile from "./Profile/YourDashBoardProfile";
 import ProfileUpdater from "./Profile/ProfileJumbo/ProfileJumboUpdater";
 import ProfileExperience from "./Profile/ProfileExperience/ProfileExperience";
 import Sidebar from "./Sidebar/Sidebar";
-import PostFeed from "./PostFeed/PostFeed";
 
 export default class ProfilePage extends Component {
   state = {
@@ -46,7 +45,6 @@ export default class ProfilePage extends Component {
                 <ProfileUpdater />
                 <Col xs={8} className="mt-2">
                   {/* Main Post Feed Stats */}
-                  <PostFeed />
                   {/* Main Post Feed Ends */}
                   <ProfileJumbo
                     userId={this.state.user._id}
