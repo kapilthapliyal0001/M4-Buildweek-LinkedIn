@@ -45,7 +45,7 @@ export default class ProfileExperience extends Component {
           <Card.Title id="expProfile_title" className="mt-3 mb-3 mx-3">
             <span>{this.props.title}</span>
             <Plus
-              id="editIcon"
+              id="pencil-icon"
               onClick={() => this.setState({ showModalExpPost: true })}
             />
           </Card.Title>

@@ -17,7 +17,10 @@ export default class ProfileAbout extends Component {
         <Card className="my-2" id="aboutProfile">
           <Card.Title id="aboutProfile_title" className="mt-1">
             <span>{this.props.title}</span>
-            <Pencil onClick={() => this.setState({ showModalAbout: true })} />
+            <Pencil
+              id="pencil-icon"
+              onClick={() => this.setState({ showModalAbout: true })}
+            />
           </Card.Title>
           <Card.Body id="aboutProfile_body">
             <Card.Text>
