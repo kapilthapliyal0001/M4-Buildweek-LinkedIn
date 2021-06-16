@@ -70,3 +70,33 @@
 .edit-text {
   color: grey;
 }
+
+.profile-img {
+  object-fit: cover;
+  /* padding-left: 7%; */
+}
+
+.text-recomendations {
+  color: grey;
+}
+
+.most-viewed-head {
+  font-weight: bold;
+  font-size: 90%;
+}
+
+.most-viewed-foot {
+  color: grey;
+  font-size: 80%;
+  /* font-weight:  */
+}
+.add-personal-txt {
+  color: grey;
+  font-size: 80%;
+  /* text-align: center; */
+}
+
+.adv-button {
+  margin-left: 35%;
+  margin-bottom: 5%;
+}

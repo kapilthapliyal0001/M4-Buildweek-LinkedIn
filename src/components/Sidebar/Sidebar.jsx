@@ -1,10 +1,16 @@
-import { Component } from "react";
-import { Col, Row, Container, Button, Image } from "react-bootstrap";
+import {Component} from "react";
+import {Col, Row, Container, Button, Image} from "react-bootstrap";
 import "./Sidebar.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // get the fontawesome imports
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe, faQuestionCircle } from "@fortawesome/fontawesome-free-solid";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {
+  faArrowRight,
+  faGlobe,
+  faInfoCircle,
+  faQuestionCircle,
+} from "@fortawesome/fontawesome-free-solid";
 
 class Sidebar extends Component {
   state = {
@@ -25,8 +31,14 @@ class Sidebar extends Component {
       let data = await response.json();
       let result = console.log(data, "This is the result of the API");
       //   Updating the state with the profiles
-      let ran_a = Math.floor(Math.random() * 7) + 47;
-      let ran_b = Math.floor(Math.random() * 7) + ran_a + 1;
+      let ran_a = Math.floor(Math.random() * 4) + 30;
+      let ran_b = Math.floor(Math.random() * 4) + ran_a + 1;
+      // checking my data
+      // let obj = await data
+      //   .filter((m) => m.email.includes("ari"))
+      //   .then((c) => {
+      //     console.log(c, "this is my id").error();
+      //   });
       this.setState({
         profiles: data.slice(ran_a, ran_b),
       });
@@ -39,63 +51,24 @@ class Sidebar extends Component {
     return (
       <>
         <Container>
-          {/* Srction to see the main body of the page Day1 */}
+          {/* Srction to see the main body of the page Day2 */}
           <Row>
             {/*  Side bar start */}
             <Col className="sidebar-container">
-              {/* Button First sidebar-section starts */}
-              <div className="first-sidebar-container pb-1">
-                <div className="sidebar-btn mt-2 mb-2 d-flex">
-                  <div className="ml-3">
-                    <Button
-                      className="rounded-pill btn-sm long-btn pl-2"
-                      variant="primary"
-                    >
-                      English
-                    </Button>{" "}
-                    <Button
-                      className="rounded-pill btn-sm long-btn"
-                      variant="outline-dark"
-                    >
-                      {" "}
-                      Italiano
-                    </Button>
-                  </div>
-                  <FontAwesomeIcon
-                    className="button-icon globe-icon ml-auto mr-4"
-                    icon={faGlobe}
-                  />
-                </div>
-                <div className="d-flex justify-content-between m-2">
-                  <span className="edit-text ml-3">
-                    {" "}
-                    Edit Public profile and url
-                  </span>
-                  <FontAwesomeIcon
-                    className="button-icon question-icon ml-auto mr-3"
-                    icon={faQuestionCircle}
-                  />
-                  <div>{""}</div>
-                </div>
-              </div>
-              {/* Advertisement section starts */}
-              <div className="advertisement">
-                <Image
-                  className="pt-2 pb-2 pr-3 m-2 w-45"
-                  src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/simple-minimal-coffee-advertisement-design-template-a0f6db1e4cef609cc1865d9e44feb5f6_screen.jpg?ts=1601233298"
-                  alt="advertisement"
-                  fluid
-                />
-              </div>
-
-              {/* People also viewed section */}
+              {/* Add to your feed section */}
               <div className="people pt-3 ">
-                <span className="pl-3 pb-3 text">People also viewed</span>
+                <div className="d-flex justify-content-between">
+                  <span className="pl-3 pb-3 text">Add to your feed</span>
+                  <FontAwesomeIcon
+                    className=" ml-auto mr-4 fa-2x"
+                    icon={faInfoCircle}
+                  />
+                </div>
                 <div className="pl-3 pt-2">
                   {/* Loading random profiles */}
                   {this.state.profiles.map((p) => (
                     <div key={p._id}>
-                      <div className="d-flex">
+                      <div className="d-flex img-cont">
                         {/* <div className="profile-img mt-1"> */}
                         {/* {" "} */}
                         <Image
@@ -116,7 +89,7 @@ class Sidebar extends Component {
                               className="rounded-pill btn-sm"
                               variant="outline-dark"
                             >
-                              Message
+                              + Follow
                             </Button>
                           </div>
                         </div>
@@ -124,7 +97,108 @@ class Sidebar extends Component {
                     </div>
                   ))}
                 </div>
+                <div className="d-flex ml-2 my-2 pl-2">
+                  <div>
+                    <span className="text-recomendations">
+                      View all reccomendations
+                    </span>
+                  </div>
+                  <div>
+                    <FontAwesomeIcon
+                      className="button-icon globe-icon ml-auto mr-4 fa-lg"
+                      icon={faArrowRight}
+                    />
+                  </div>
+                </div>
               </div>
+              <div className="people pt-3 ">
+                <div className="d-flex justify-content-between">
+                  <span className="pl-3 pb-3 text">
+                    Today's Most viewed Courses
+                  </span>
+                  <FontAwesomeIcon
+                    className=" ml-auto mr-4 fa-2x"
+                    icon={faInfoCircle}
+                  />
+                </div>
+                {/* Linkedin courses */}
+                <div>
+                  <div className="d-flex flex-column m-1 pl-1">
+                    <span className="most-viewed-head">
+                      1. The Six Morning Habits of High Perf...
+                    </span>
+                    <span className="most-viewed-foot pl-3">
+                      Pete Mockaitis | How to Be Awesome at Yo...
+                    </span>
+                  </div>
+                  <div className="d-flex flex-column m-1 pl-1">
+                    <span className="most-viewed-head">
+                      2. What is Graphic Design ?
+                    </span>
+                    <span className="most-viewed-foot pl-3">Sean Adams</span>
+                  </div>
+                  <div className="d-flex flex-column m-1 pl-1">
+                    <span className="most-viewed-head">
+                      3. Excel Essential Training Office 365..
+                    </span>
+                    <span className="most-viewed-foot pl-3">Dennis Taylor</span>
+                  </div>
+                </div>
+                {/* See all courses */}
+                <div className="d-flex ml-2 my-3 pl-2">
+                  <div>
+                    <span className="text-recomendations">
+                      Show more on Linkedin Learning
+                    </span>
+                  </div>
+                  <div>
+                    <FontAwesomeIcon
+                      className="button-icon globe-icon ml-auto mr-4 fa-lg"
+                      icon={faArrowRight}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="people pt-2 ">
+                <div className="ml-2 my-2 pl-2">
+                  <div className="text-center">
+                    <span className="add-personal-txt">
+                      Get the latest jobs and Industry news
+                    </span>
+                  </div>
+                  <div className="d-flex justify-content-center">
+                    <Image
+                      className="profile-img mt-1 w-25"
+                      src="https://static.thenounproject.com/png/17241-200.png"
+                      alt="Linkdin Member"
+                      fluid
+                      roundedCircle
+                    ></Image>
+                    <Image
+                      className="profile-img mt-1 w-25"
+                      src="https://www.wallstreet.it/scuola-inglese-senigallia/wp-content/uploads/sites/73/2017/03/poste.png"
+                      alt="Linkdin Member"
+                      fluid
+                      roundedCircle
+                    ></Image>
+                  </div>
+                  <div className="my-2 text-center d-flex">
+                    <span className="add-personal-txt px-5">
+                      Hello User, Explore relevant opportunities with Posta
+                      Italiane
+                    </span>
+                  </div>
+                  <Button
+                    className="rounded-pill btn-sm adv-button"
+                    variant="outline-primary"
+                  >
+                    + Follow{" "}
+                  </Button>
+                </div>
+              </div>
+              {/* Personalizes suggestions */}
+
+              {/*  */}
             </Col>
           </Row>
         </Container>

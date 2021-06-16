@@ -1,0 +1,20 @@
+.main-cont {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.post-img {
+  object-fit: cover;
+  width: 15%;
+}
+
+/* .post-text {
+  border-radius: 20%;
+  border-color: grey;
+  width: 80%;
+} */
+
+.form-text-control {
+  width: 300%;
+  border-radius: 15px;
+}
