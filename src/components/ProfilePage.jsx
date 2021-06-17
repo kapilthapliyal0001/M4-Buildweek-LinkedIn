@@ -13,7 +13,6 @@ class ProfilePage extends Component {
   state = {
     user: {},
     isLoading: false,
-
   };
 
   componentDidMount = async () => {
@@ -86,10 +85,8 @@ class ProfilePage extends Component {
             </Col>
           </Row>
         </Container>
-        <Button >
-          Small modal
-        </Button>
-   
+        <Button>Small modal</Button>
+      </>
     );
   }
 }

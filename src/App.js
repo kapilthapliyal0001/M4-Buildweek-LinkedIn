@@ -9,13 +9,12 @@ import HomePage from "./components/HomePage/HomePage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
 
-
 function App() {
   // let { id } = useParams();
   return (
     <div className="App">
-      <MyNav />
       <Router>
+        <MyNav />
         <Switch>
           <Route exact path="/home">
             <HomePage />
