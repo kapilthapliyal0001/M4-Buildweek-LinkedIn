@@ -1,24 +1,29 @@
-import { Component } from "react";
+import { Component, createRef, React } from "react";
 import { Modal, Form, Row, Col, Button, Image } from "react-bootstrap";
 import { CameraFill } from "react-bootstrap-icons";
 
 export default class ProfilePicUpdater extends Component {
   state = { user: {} };
 
+  onFileChange = (event) => {
+    this.setState({ user: { image: event.target.files } });
+  };
+
   handleProfileUpdate = async (e) => {
+    const formData = new FormData();
+    formData.append("profile", this.state.user.image);
     // const userId = "60c73bf1291930001560aba3";
-    const endpointPUTprofile = `https://striveschool-api.herokuapp.com/api/profile/`;
+    const endpointPUTprofile = `https://striveschool-api.herokuapp.com/api/profile/me/picture`;
     const bearerTokenHedri =
       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2JmMTI5MTkzMDAwMTU2MGFiYTMiLCJpYXQiOjE2MjM2Njk3NDUsImV4cCI6MTYyNDg3OTM0NX0.Lk5Z-l56SBkY6YCIvoiHpVg_0J0rEZHaO4PzAuep3bo";
 
     try {
       let response = await fetch(endpointPUTprofile, {
-        method: "PUT",
+        method: "POST",
         headers: {
           Authorization: bearerTokenHedri,
-          "Content-Type": "application/json",
         },
-        body: JSON.stringify(this.state.user),
+        body: formData,
       });
       console.log(response.ok);
       if (response.ok) {
@@ -37,12 +42,6 @@ export default class ProfilePicUpdater extends Component {
       console.log(err);
     }
   };
-  inputChange = (e) => {
-    let id = e.target.id;
-    this.setState({
-      user: { ...this.state.user, [id]: e.target.value },
-    });
-  };
 
   render() {
     const modalStyle = {
@@ -51,6 +50,7 @@ export default class ProfilePicUpdater extends Component {
       padding: 0,
       borderTop: "grey solid 1px",
     };
+    console.log("ref -", this.fileInput);
     return (
       <>
         <Modal
@@ -73,9 +73,9 @@ export default class ProfilePicUpdater extends Component {
                   <Form.Group>
                     <Form.Control
                       id="image"
-                      type="text"
+                      type="file"
                       placeholder={this.props.image}
-                      onChange={(e) => this.inputChange(e)}
+                      onChange={this.onFileChange}
                     />
                   </Form.Group>
                 </Col>
