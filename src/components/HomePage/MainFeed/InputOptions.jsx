@@ -1,5 +1,5 @@
 import React from "react";
-
+import { BsFill } from "react";
 import "../MainFeed/InputOptions.css";
 
 const InputOptions = ({ title, color, Icon }) => {

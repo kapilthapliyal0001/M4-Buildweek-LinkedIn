@@ -24,7 +24,7 @@ const GetPosts = () => {
       let posts = await response.json();
       console.log(posts);
 
-      setPosts(posts.slice(0, 10));
+      setPosts(posts.slice(1).slice(-20));
       console.log("Posts", posts);
     } catch (error) {
       console.log(error);

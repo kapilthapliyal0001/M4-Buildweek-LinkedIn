@@ -20,7 +20,6 @@ const MainFeed = ({ post }) => {
         <img src={post.image}></img>
       </div>
       <hr></hr>
-
       <div className="MainFeedBodyButtons">
         <InputOptions Icon={Icons.HandThumbsUp} title="Like" />
         <InputOptions Icon={Icons.ChatLeftText} title="Comments" />

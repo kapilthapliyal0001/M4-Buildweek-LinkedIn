@@ -28,7 +28,7 @@ const Divider = () => {
             <Popover.Content className="dividerHover">Recent</Popover.Content>
           </Popover>
         </Overlay>
-        <hr></hr>
+        <hr className="dividerHr"></hr>
         <span className="dividerSpan1">Sort by: </span>
         <span className="dividerSpan2">Top</span>
         <span>
