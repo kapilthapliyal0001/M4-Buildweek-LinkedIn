@@ -4,24 +4,23 @@ import React from "react";
 import "../MainFeed/MainFeed.css";
 import InputOptions from "../MainFeed/InputOptions";
 import { useState } from "react";
-import PostFeed from "../PostFeed/PostFeed";
-import GetPosts from "./GetPosts";
 
-const MainFeed = ({ name, description, post }) => {
-  const [posts, setPosts] = useState([]);
-
+const MainFeed = ({ post }) => {
   return (
     <div className="MainFeed">
       <div className="MainFeedHeader">
-        <Avatar />
+        <Avatar src={post.user.image} />
         <div className="MainHeaderInfo">
-          <h2>{name || ""}</h2>
-          <p>{description || ""}</p>
+          <h2>{post.user.name + " " + post.user.surname || ""}</h2>
+          <p>{post.user.title || ""}</p>
         </div>
       </div>
       <div className="MainFeedBody">
         <p>{post.text}</p>
+        <img src={post.image}></img>
       </div>
+      <hr></hr>
+
       <div className="MainFeedBodyButtons">
         <InputOptions Icon={Icons.HandThumbsUp} title="Like" />
         <InputOptions Icon={Icons.ChatLeftText} title="Comments" />

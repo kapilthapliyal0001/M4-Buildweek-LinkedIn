@@ -8,6 +8,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import PostFeed from "./PostFeed/PostFeed";
 import MyLoader from "../MyLoader";
 import GetPosts from "../HomePage/MainFeed/GetPosts";
+import Divider from "./MainFeed/Divider";
 
 export default class HomePage extends Component {
   state = {
@@ -97,6 +98,7 @@ export default class HomePage extends Component {
             <Col xs={6}>
               <MyLoader />
               <PostFeed id={user} />
+              <Divider />
               <GetPosts />
             </Col>
             <Col xs={3}>

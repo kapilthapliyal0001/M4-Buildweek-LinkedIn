@@ -1,0 +1,35 @@
+.divider {
+  display: flex;
+  align-items: center;
+}
+hr {
+  width: 100%;
+  margin-right: 10px;
+  display: inline;
+  flex-grow: 1;
+}
+.divider .dividerSpan1 {
+  font-size: 12px;
+
+  white-space: nowrap;
+
+  margin-top: 5px;
+  color: gray;
+}
+.dividerSpan2 {
+  font-weight: 550;
+  font-size: 12px;
+  margin-left: 3px;
+  margin-top: 5px;
+}
+button {
+  border: none;
+  background-color: none;
+  background: none;
+  display: flex;
+  width: 100%;
+}
+#popover-contained > .dividerHover:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
