@@ -64,7 +64,7 @@ class PostFeed extends Component {
   render() {
     return (
       <>
-        <Container className="main-cont">
+        <Container className="main-cont my-2 py-3">
           <div className="d-flex post-field">
             <Image
               className="img-circle post-img"
@@ -104,20 +104,32 @@ class PostFeed extends Component {
           </div>
           <div className="post-icons d-flex justify-content-around">
             <div className="d-flex">
-              <FontAwesomeIcon className=" ml-auto fa-2x" icon={faImages} />
-              <span className="pt-2">Photos</span>
+              <FontAwesomeIcon
+                className=" ml-auto font-aw-post"
+                icon={faImages}
+              />
+              <span className="ml-2">Photos</span>
             </div>
             <div className="d-flex">
-              <FontAwesomeIcon className=" ml-auto fa-2x" icon={faVideo} />
-              <span className="pt-2">Videos</span>
+              <FontAwesomeIcon
+                className=" ml-auto font-aw-post"
+                icon={faVideo}
+              />
+              <span className="ml-2">Videos</span>
             </div>
             <div className="d-flex">
-              <FontAwesomeIcon className=" ml-auto fa-2x" icon={faCalendar} />
-              <span className="pt-2">Events</span>
+              <FontAwesomeIcon
+                className=" ml-auto font-aw-post"
+                icon={faCalendar}
+              />
+              <span className="ml-2">Events</span>
             </div>
             <div className="d-flex">
-              <FontAwesomeIcon className=" ml-auto fa-2x" icon={faNewspaper} />
-              <span className="pt-2">Write Article</span>
+              <FontAwesomeIcon
+                className=" ml-auto font-aw-post"
+                icon={faNewspaper}
+              />
+              <span className="ml-2">Write Article</span>
             </div>
           </div>
         </Container>

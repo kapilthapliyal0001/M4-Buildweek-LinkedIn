@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { Col, Row, Container, Button, Modal } from "react-bootstrap";
+import React, {Component} from "react";
+import {Col, Row, Container, Button, Modal} from "react-bootstrap";
 
 import ProfileJumbo from "./Profile/ProfileJumbo/ProfileJumbo";
 import ProfileAbout from "./Profile/ProfileAbout/ProfileAbout";
 import YourDashBoardProfile from "./Profile/YourDashBoardProfile";
 import ProfileUpdater from "./Profile/ProfileJumbo/ProfileJumboUpdater";
 import ProfileExperience from "./Profile/ProfileExperience/ProfileExperience";
-import Sidebar from "./Sidebar/Sidebar";
-import { withRouter } from "react-router-dom";
+import Sidebar from "./Profile/Sidebar/Sidebar";
+import {withRouter} from "react-router-dom";
 import MyLoader from "./MyLoader";
 class ProfilePage extends Component {
   state = {
@@ -35,7 +35,7 @@ class ProfilePage extends Component {
 
       let myProfileData = await getResponse.json();
       console.log(myProfileData);
-      this.setState({ user: myProfileData });
+      this.setState({user: myProfileData});
     } catch (err) {
       console.log(err);
     }
