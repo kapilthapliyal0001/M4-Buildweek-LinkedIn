@@ -3,11 +3,13 @@ import * as Icons from "react-bootstrap-icons";
 import React from "react";
 import "../MainFeed/MainFeed.css";
 import InputOptions from "../MainFeed/InputOptions";
+import MyLoader from "../../Loaders/MyLoader";
 import { useState } from "react";
 
 const MainFeed = ({ post }) => {
   return (
     <div className="MainFeed">
+      <MyLoader />
       <div className="MainFeedHeader">
         <Avatar src={post.user.image} />
         <div className="MainHeaderInfo">

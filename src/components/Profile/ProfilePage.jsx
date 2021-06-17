@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { Col, Row, Container, Button, Modal } from "react-bootstrap";
 
-import ProfileJumbo from "./Profile/ProfileJumbo/ProfileJumbo";
-import ProfileAbout from "./Profile/ProfileAbout/ProfileAbout";
-import YourDashBoardProfile from "./Profile/YourDashBoardProfile";
-import ProfileUpdater from "./Profile/ProfileJumbo/ProfileJumboUpdater";
-import ProfileExperience from "./Profile/ProfileExperience/ProfileExperience";
-import Sidebar from "./Profile/Sidebar/Sidebar";
+import ProfileJumbo from "./ProfileJumbo/ProfileJumbo";
+import ProfileAbout from "./ProfileAbout/ProfileAbout";
+import YourDashBoardProfile from "./YourDashBoardProfile";
+import ProfileUpdater from "./ProfileJumbo/ProfileJumboUpdater";
+import ProfileExperience from "./ProfileExperience/ProfileExperience";
+import Sidebar from "./Sidebar/Sidebar";
 import { withRouter } from "react-router-dom";
-import MyLoader from "./MyLoader";
+import MyLoader from "../Loaders/MyLoader";
 class ProfilePage extends Component {
   state = {
     user: {},

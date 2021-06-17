@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "react-bootstrap";
-import Feed from "./Feed/Feed";
-import MainFeed from "./MainFeed/MainFeed";
 import SidebarLeftMain from "./SidebarLeft/SidebarLeftMain";
 import "./SidebarLeft/SidebarLeft.css";
 import Sidebar from "./Sidebar/Sidebar";
 import PostFeed from "./PostFeed/PostFeed";
-import MyLoader from "../MyLoader";
+// import MyLoader from "../Loaders/MyLoader";
 import GetPosts from "../HomePage/MainFeed/GetPosts";
 import Divider from "./MainFeed/Divider";
 
