@@ -1,6 +1,6 @@
 .main-cont {
   background-color: white;
-  border-radius: 5px;
+  border-radius: 7px;
 }
 
 .post-img {
@@ -15,6 +15,10 @@
 } */
 
 .form-text-control {
-  width: 300%;
+  width: 220%;
   border-radius: 15px;
+}
+
+.font-aw-post {
+  font-size: 150%;
 }

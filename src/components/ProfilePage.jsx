@@ -6,7 +6,7 @@ import ProfileAbout from "./Profile/ProfileAbout/ProfileAbout";
 import YourDashBoardProfile from "./Profile/YourDashBoardProfile";
 import ProfileUpdater from "./Profile/ProfileJumbo/ProfileJumboUpdater";
 import ProfileExperience from "./Profile/ProfileExperience/ProfileExperience";
-import Sidebar from "./Sidebar/Sidebar";
+import Sidebar from "./Profile/Sidebar/Sidebar";
 import { withRouter } from "react-router-dom";
 import MyLoader from "./MyLoader";
 class ProfilePage extends Component {
