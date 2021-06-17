@@ -13,7 +13,7 @@ class ProfilePage extends Component {
   state = {
     user: {},
     isLoading: false,
-    showContactInfoModal: false,
+
   };
 
   componentDidMount = async () => {
@@ -86,23 +86,10 @@ class ProfilePage extends Component {
             </Col>
           </Row>
         </Container>
-        <Button onClick={() => this.setState({ showContactInfoModal: true })}>
+        <Button >
           Small modal
         </Button>
-        <Modal
-          size="sm"
-          show={this.state.showContactInfoModal}
-          onHide={() => this.setState({ showContactInfoModal: false })}
-          aria-labelledby="example-modal-sizes-title-sm"
-        >
-          <Modal.Header closeButton>
-            <Modal.Title id="example-modal-sizes-title-sm">
-              Small Modal
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>...</Modal.Body>
-        </Modal>
-      </>
+   
     );
   }
 }
