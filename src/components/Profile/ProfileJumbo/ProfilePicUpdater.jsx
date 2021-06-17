@@ -1,18 +1,11 @@
-import { Component, React } from "react";
+import { Component } from "react";
 import { Modal, Form, Row, Col, Button, Image } from "react-bootstrap";
 import { CameraFill } from "react-bootstrap-icons";
 
 export default class ProfilePicUpdater extends Component {
   state = { user: {} };
 
-  fileInput = React.createRef();
-
   handleProfileUpdate = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("profile", this.fileInput.current.files[0]);
-    console.log(formData);
-
     // const userId = "60c73bf1291930001560aba3";
     const endpointPUTprofile = `https://striveschool-api.herokuapp.com/api/profile/`;
     const bearerTokenHedri =
@@ -80,10 +73,9 @@ export default class ProfilePicUpdater extends Component {
                   <Form.Group>
                     <Form.Control
                       id="image"
-                      type="file"
-                      ref={this.fileInput}
-                      // placeholder={this.props.image}
-                      // onChange={(e) => this.inputChange(e)}
+                      type="text"
+                      placeholder={this.props.image}
+                      onChange={(e) => this.inputChange(e)}
                     />
                   </Form.Group>
                 </Col>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 //Styling
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../ProfilePage.css";
-import { Card, Image, Nav, Button, Modal } from "react-bootstrap";
+import { Card, Image, Modal } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
 import { withRouter } from "react-router-dom";
 //Modals for Updating
@@ -18,7 +18,7 @@ class ProfileJumbo extends Component {
     this.setState({ showModalJumbo: false, showProfilePicModal: false });
   };
   render() {
-    const toRender = this.props.match.params.id;
+    // const toRender = this.props.match.params.id;
     const { image, surname, name, title, area, username, bio, email } =
       this.props;
     return (
@@ -40,14 +40,14 @@ class ProfileJumbo extends Component {
               <h5>
                 {name} {surname}
               </h5>
-              {this.toRender === "me" ? (
-                <Pencil
-                  id="pencil-icon"
-                  onClick={() => this.setState({ showModalJumbo: true })}
-                />
-              ) : (
+              {/* {this.toRender === "me" ? ( */}
+              <Pencil
+                id="pencil-icon"
+                onClick={() => this.setState({ showModalJumbo: true })}
+              />
+              {/* ) : (
                 <></>
-              )}
+              )} */}
             </Card.Title>
             <Card.Text>
               <p>
