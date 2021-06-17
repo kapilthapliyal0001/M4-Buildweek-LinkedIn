@@ -59,6 +59,10 @@ class PostFeed extends Component {
     const formData = new FormData();
     formData.append("post", this.state.image);
     const url = `https://striveschool-api.herokuapp.com/api/posts/${this.state.post_id}`;
+    console.log(
+      "For the image to load the post id is ::: ",
+      this.state.post_id
+    );
     const bearer_token =
       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I";
     try {
@@ -110,6 +114,12 @@ class PostFeed extends Component {
             // },
             post_id: finalWork._id,
           });
+          console.log(
+            "Check the post id: ",
+            this.state.post_id,
+            "is same as ",
+            finalWork._id
+          );
           alert("Successfully posted");
         });
     } catch (error) {
