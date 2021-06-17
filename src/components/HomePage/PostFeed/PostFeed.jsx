@@ -52,9 +52,9 @@ class PostFeed extends Component {
   uploadPostImage = async (e) => {
     // when the user submits the button => the text feed written is posted and then the id of the posted text is used again
     // to post an image via this funcnction after the SubmitPost function
-    this.submitPost();
+    await this.submitPost();
     // post id updated.
-    console.log("The image needs to be posted");
+    console.log("The image needs to be posted"); // 1
     this.handleClose();
     const formData = new FormData();
     formData.append("post", this.state.image);
@@ -85,11 +85,11 @@ class PostFeed extends Component {
     }
   };
 
-  submitPost = (e) => {
+  submitPost = async (e) => {
     e ? e.preventDefault() : console.log(" I am been touched");
 
     try {
-      let response = fetch(
+      let response = await fetch(
         "https://striveschool-api.herokuapp.com/api/posts/",
         {
           method: "POST",
@@ -120,6 +120,7 @@ class PostFeed extends Component {
             "is same as ",
             finalWork._id
           );
+          console.log("I am being worked first");
           alert("Successfully posted");
         });
     } catch (error) {
