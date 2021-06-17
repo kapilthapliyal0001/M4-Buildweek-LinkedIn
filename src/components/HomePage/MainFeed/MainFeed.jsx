@@ -16,7 +16,7 @@ const MainFeed = ({ post }) => {
         </div>
       </div>
       <div className="MainFeedBody">
-        <p>{post.text}</p>
+        <p>{post.text} </p>
         <img src={post.image} className="img-fluid"></img>
       </div>
       <hr></hr>
