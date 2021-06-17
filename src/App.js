@@ -7,7 +7,6 @@ import MyFooter from "./components/MyFooter/MyFooter";
 import LoginPage from "./components/LoginPage";
 import HomePage from "./components/HomePage/HomePage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
   // let { id } = useParams();
