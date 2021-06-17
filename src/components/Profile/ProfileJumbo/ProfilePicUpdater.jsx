@@ -6,7 +6,7 @@ export default class ProfilePicUpdater extends Component {
   state = { user: {} };
 
   onFileChange = (event) => {
-    this.setState({ user: { image: event.target.files } });
+    this.setState({ user: { image: event.target.files[0] } });
   };
 
   handleProfileUpdate = async (e) => {

@@ -21,6 +21,8 @@ class ProfilePage extends Component {
         ? "60c73bf1291930001560aba3"
         : this.props.match.params.id;
     // const userId = "60c73bf1291930001560aba3";
+
+    this.setState({ isLoading: true });
     const endpointGetMyProfile = `https://striveschool-api.herokuapp.com/api/profile/${userID}`;
     const bearerTokenHedri =
       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2JmMTI5MTkzMDAwMTU2MGFiYTMiLCJpYXQiOjE2MjM2Njk3NDUsImV4cCI6MTYyNDg3OTM0NX0.Lk5Z-l56SBkY6YCIvoiHpVg_0J0rEZHaO4PzAuep3bo";
@@ -35,7 +37,7 @@ class ProfilePage extends Component {
 
       let myProfileData = await getResponse.json();
       console.log(myProfileData);
-      this.setState({ user: myProfileData });
+      this.setState({ user: myProfileData, isLoading: false });
     } catch (err) {
       console.log(err);
     }
@@ -52,31 +54,41 @@ class ProfilePage extends Component {
               <Row>
                 <ProfileUpdater />
                 <Col xs={8} className="mt-2">
-                  {/* Main Post Feed Stats */}
-                  {/* Main Post Feed Ends */}
-                  <ProfileJumbo
-                    userId={this.state.user._id}
-                    name={this.state.user.name}
-                    surname={this.state.user.surname}
-                    image={this.state.user.image}
-                    bio={this.state.user.bio}
-                    title={this.state.user.bio}
-                    area={this.state.user.area}
-                    username={this.state.user.username}
-                  />
-                  {this.state.user === "" ? (
+                  {this.state.isLoading === true ? (
+                    <MyLoader />
+                  ) : (
+                    <ProfileJumbo
+                      userId={this.state.user._id}
+                      name={this.state.user.name}
+                      surname={this.state.user.surname}
+                      image={this.state.user.image}
+                      bio={this.state.user.bio}
+                      title={this.state.user.bio}
+                      area={this.state.user.area}
+                      username={this.state.user.username}
+                    />
+                  )}
+                  {this.state.isLoading === true ? (
                     <MyLoader />
                   ) : (
                     <ProfileAbout bio={this.state.user.bio} title="About" />
                   )}
                   {this.props.match.params.id === "me" ? (
-                    <YourDashBoardProfile title="Your Dashboard" />
+                    this.state.isLoading !== true ? (
+                      <YourDashBoardProfile title="Your Dashboard" />
+                    ) : (
+                      <>
+                        <MyLoader />
+                      </>
+                    )
                   ) : (
-                    <>
-                      <MyLoader />
-                    </>
+                    <></>
                   )}
-                  <ProfileExperience title="Experience" />
+                  {this.state.isLoading === true ? (
+                    <MyLoader />
+                  ) : (
+                    <ProfileExperience title="Experience" />
+                  )}
                 </Col>
                 <Col xs={4} className="mt-2">
                   <Sidebar />

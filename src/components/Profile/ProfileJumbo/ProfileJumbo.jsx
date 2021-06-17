@@ -8,6 +8,8 @@ import { withRouter } from "react-router-dom";
 //Modals for Updating
 import ProfileJumboUpdater from "./ProfileJumboUpdater";
 import ProfilePicUpdater from "./ProfilePicUpdater";
+import banner from "../../../banner.jpg";
+import ThreeDotsLoader from "../../Loaders/ThreeDotsLoader";
 class ProfileJumbo extends Component {
   state = {
     showModalJumbo: false,
@@ -25,7 +27,7 @@ class ProfileJumbo extends Component {
       <>
         <Card className="my-2 ">
           <div id="jumboProfile_header">
-            <img src="https://picsum.photos/900?grayscale"></img>
+            <img src={banner}></img>
           </div>
           <Card.Body>
             <>

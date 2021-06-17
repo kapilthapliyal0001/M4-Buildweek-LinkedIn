@@ -63,6 +63,10 @@ class ProfileExperience extends Component {
                   desc={exp.description}
                   selected={selected}
                   id={exp._id}
+                  image={
+                    exp.image
+                    // "https://res.cloudinary.com/dmqsfltrf/image/upload/v1607933865/linkedin/d5ncpqvqrjwdxixjuyjr.ico"
+                  }
                 />
               </Col>
             ))}

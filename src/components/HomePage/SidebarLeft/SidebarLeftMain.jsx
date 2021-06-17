@@ -13,8 +13,9 @@ class SidebarLeftMain extends React.Component {
           title={this.props.user.title}
           area={this.props.user.area}
           image={this.props.user.image}
+          isLoading={this.props.isLoading}
         />
-        <SidebarLeftColTwo />
+        <SidebarLeftColTwo isLoading={this.props.isLoading} />
       </>
     );
   }

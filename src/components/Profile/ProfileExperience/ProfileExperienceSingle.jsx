@@ -2,13 +2,18 @@ import { Card, Col, Row, Image } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
 import React, { Component } from "react";
 import ProfileExpUpdater from "./ProfileExpUpdater";
+import ProfileExpImgUpdater from "./ProfileExpImgUpdater";
 
 export default class ProfileExperienceSingle extends Component {
   state = {
     showModalExpPut: false,
+    showModalExpImg: false,
   };
   closeExpModalPut = () => {
     this.setState({ showModalExpPut: false });
+  };
+  closeExpModalImg = () => {
+    this.setState({ showModalExpImg: false });
   };
   render() {
     return (
@@ -20,7 +25,17 @@ export default class ProfileExperienceSingle extends Component {
         />
         <Row id="expProfileSingle">
           <Col xs={2}>
-            <Image src="https://i.pravatar.cc/300" />
+            {this.props.image === undefined ? (
+              <Pencil
+                id="pencil-icon"
+                onClick={() => this.setState({ showModalExpImg: true })}
+              />
+            ) : (
+              <Image
+                src={this.props.image}
+                onClick={() => this.setState({ showModalExpImg: true })}
+              />
+            )}
           </Col>
           <Col xs={10}>
             <p>{this.props.role}</p>
@@ -31,6 +46,7 @@ export default class ProfileExperienceSingle extends Component {
             <p>{this.props.id}</p>
           </Col>
         </Row>
+
         <ProfileExpUpdater
           idExp={this.props.id}
           role={this.props.role}
@@ -41,6 +57,12 @@ export default class ProfileExperienceSingle extends Component {
           // onClick={()=> this.setState(this.props.selected: experience)}
           open={this.state.showModalExpPut}
           close={this.closeExpModalPut}
+        />
+        <ProfileExpImgUpdater
+          idExp={this.props.id}
+          img={this.props.image}
+          open={this.state.showModalExpImg}
+          close={this.closeExpModalImg}
         />
       </>
     );
