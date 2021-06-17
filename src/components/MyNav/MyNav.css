@@ -5,7 +5,7 @@
   justify-content: space-evenly;
   border-bottom: 0.1px solid lightgrey;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   width: 100%;
   z-index: 999;
   background-color: white;
@@ -15,7 +15,7 @@
 }
 .headerLeft > img {
   object-fit: contain;
-  height: 40px;
+  height: 50px;
   margin-right: 10px;
 }
 
@@ -24,9 +24,9 @@
   display: flex;
   align-items: center;
   border-radius: 6px;
-  height: 45px;
   color: gray;
   background-color: #eef3f8;
+  height: 50px;
 }
 
 .headerSearch > input {
@@ -34,22 +34,9 @@
   outline: none;
   border: none;
   background: none;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .headerRight {
   display: flex;
-}
-
-@media screen and (max-width: 750px) {
-  .headerSearch {
-    display: none;
-  }
-  .headerSearch > input {
-    display: none;
-  }
-
-  .headerLeft > img {
-    object-fit: contain;
-    height: 30px;
-    margin-right: 10px;
-  }
 }
