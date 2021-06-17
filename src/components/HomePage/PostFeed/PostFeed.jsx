@@ -76,6 +76,7 @@ class PostFeed extends Component {
 
       let data = await response.json();
       console.log("The data recieved is: ", data);
+      alert("Successfully posted");
       // .then((data) => data.json())
       // .then((result) => {
       //   console.log("The result of the post is: ", result);
@@ -109,9 +110,9 @@ class PostFeed extends Component {
         })
         .then((finalWork) => {
           this.setState({
-            // feed: {
-            //   text: "Check the image...",
-            // },
+            feed: {
+              text: "",
+            },
             post_id: finalWork._id,
           });
           console.log(
@@ -121,7 +122,7 @@ class PostFeed extends Component {
             finalWork._id
           );
           console.log("I am being worked first");
-          alert("Successfully posted");
+          // alert("Successfully posted");
         });
     } catch (error) {
       console.log(error);
