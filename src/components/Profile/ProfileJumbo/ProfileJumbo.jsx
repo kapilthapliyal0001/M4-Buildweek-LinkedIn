@@ -3,12 +3,12 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../ProfilePage.css";
 import { Card, Image, Nav, Button, Modal } from "react-bootstrap";
-import { Pencil, CameraFill } from "react-bootstrap-icons";
-
+import { Pencil } from "react-bootstrap-icons";
+import { withRouter } from "react-router-dom";
 //Modals for Updating
 import ProfileJumboUpdater from "./ProfileJumboUpdater";
 import ProfilePicUpdater from "./ProfilePicUpdater";
-export default class ProfileJumbo extends Component {
+class ProfileJumbo extends Component {
   state = {
     showModalJumbo: false,
     showModalProfilePic: false,
@@ -18,13 +18,7 @@ export default class ProfileJumbo extends Component {
     this.setState({ showModalJumbo: false, showProfilePicModal: false });
   };
   render() {
-    const styling = {
-      position: "absolute",
-      left: "0px",
-      bottom: "0px",
-      zIndex: "99",
-    };
-
+    const toRender = this.props.match.params.id;
     const { image, surname, name, title, area, username, bio, email } =
       this.props;
     return (
@@ -46,10 +40,14 @@ export default class ProfileJumbo extends Component {
               <h5>
                 {name} {surname}
               </h5>
-              <Pencil
-                id="pencil-icon"
-                onClick={() => this.setState({ showModalJumbo: true })}
-              />
+              {this.toRender === "me" ? (
+                <Pencil
+                  id="pencil-icon"
+                  onClick={() => this.setState({ showModalJumbo: true })}
+                />
+              ) : (
+                <></>
+              )}
             </Card.Title>
             <Card.Text>
               <p>
@@ -108,3 +106,4 @@ export default class ProfileJumbo extends Component {
     );
   }
 }
+export default withRouter(ProfileJumbo);
