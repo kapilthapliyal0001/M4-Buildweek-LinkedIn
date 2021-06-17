@@ -1,8 +1,16 @@
 import {Component} from "react";
-import {Container, Image, FormControl, Form, Button} from "react-bootstrap";
+import {
+  Container,
+  Image,
+  FormControl,
+  Form,
+  Button,
+  Modal,
+} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./PostFeed.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import FeedPostImage from "./FeedPostImage";
 import {
   faArrowRight,
   faCalendar,
@@ -19,6 +27,10 @@ class PostFeed extends Component {
     feed: {
       text: "",
     },
+    upload: false,
+    close: true,
+    image: null,
+    post_id: "60cb3cd5956ccd00158537bb",
   };
 
   fetch = () => {
@@ -26,10 +38,52 @@ class PostFeed extends Component {
   };
 
   //   Submit post starts;
+  handleClose = () => {
+    console.log("Handle close been clicked!");
+    this.setState({upload: false});
+  };
+
+  onFileChange = (e) => {
+    this.setState({
+      image: e.target.files[0],
+    });
+  };
+
+  uploadPostImage = async (e) => {
+    // when the user submits the button => the text feed written is posted and then the id of the posted text is used again
+    // to post an image via this funcnction after the SubmitPost function
+    this.submitPost();
+    // post id updated.
+    console.log("The image needs to be posted");
+    this.handleClose();
+    const formData = new FormData();
+    formData.append("post", this.state.image);
+    const url = `https://striveschool-api.herokuapp.com/api/posts/${this.state.post_id}`;
+    const bearer_token =
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I";
+    try {
+      let response = await fetch(url, {
+        method: "POST",
+        headers: {
+          Authorization: bearer_token,
+        },
+        body: formData,
+      });
+
+      let data = await response.json();
+      console.log("The data recieved is: ", data);
+      // .then((data) => data.json())
+      // .then((result) => {
+      //   console.log("The result of the post is: ", result);
+      // });
+    } catch (error) {
+      console.log("error in the image posting : ", error);
+    }
+  };
 
   submitPost = (e) => {
-    e.preventDefault();
-    console.log(" I am been touched");
+    e ? e.preventDefault() : console.log(" I am been touched");
+
     try {
       let response = fetch(
         "https://striveschool-api.herokuapp.com/api/posts/",
@@ -46,12 +100,15 @@ class PostFeed extends Component {
         .then((data) => data.json())
         .then((result) => {
           console.log(result, "The text has been updated");
+          console.log("text posted Image left and check it down");
+          return result;
         })
         .then((finalWork) => {
           this.setState({
-            feed: {
-              text: "",
-            },
+            // feed: {
+            //   text: "Check the image...",
+            // },
+            post_id: finalWork._id,
           });
           alert("Successfully posted");
         });
@@ -103,28 +160,50 @@ class PostFeed extends Component {
             {/* </div> */}
           </div>
           <div className="post-icons d-flex justify-content-around">
-            <div className="d-flex">
+            <div
+              className="d-flex"
+              onClick={() =>
+                this.setState({upload: this.state.upload ? false : true})
+              }
+            >
               <FontAwesomeIcon
                 className=" ml-auto font-aw-post"
                 icon={faImages}
               />
               <span className="ml-2">Photos</span>
             </div>
-            <div className="d-flex">
+
+            <div
+              className="d-flex"
+              onClick={() =>
+                this.setState({upload: this.state.upload ? false : true})
+              }
+            >
               <FontAwesomeIcon
                 className=" ml-auto font-aw-post"
                 icon={faVideo}
               />
               <span className="ml-2">Videos</span>
             </div>
-            <div className="d-flex">
+
+            <div
+              className="d-flex"
+              onClick={() =>
+                this.setState({upload: this.state.upload ? false : true})
+              }
+            >
               <FontAwesomeIcon
                 className=" ml-auto font-aw-post"
                 icon={faCalendar}
               />
               <span className="ml-2">Events</span>
             </div>
-            <div className="d-flex">
+            <div
+              className="d-flex"
+              onClick={() =>
+                this.setState({upload: this.state.upload ? false : true})
+              }
+            >
               <FontAwesomeIcon
                 className=" ml-auto font-aw-post"
                 icon={faNewspaper}
@@ -132,6 +211,41 @@ class PostFeed extends Component {
               <span className="ml-2">Write Article</span>
             </div>
           </div>
+          {/* Modal section to upload images for the Feeds starts */}
+          {this.state.upload ? (
+            <Modal show={this.state.upload} onHide={this.state.close}>
+              <Modal.Header closeButton>
+                <Modal.Title>Place to upload the image</Modal.Title>
+              </Modal.Header>
+
+              <Form
+                onSubmit={(e) => {
+                  this.uploadPostImage(e);
+                }}
+              >
+                <Modal.Body>
+                  <Form.Group>
+                    <Form.Control
+                      id="image"
+                      type="file"
+                      placeholder="Upload image"
+                      onChange={this.onFileChange}
+                    />
+                  </Form.Group>
+                </Modal.Body>
+              </Form>
+              <Modal.Footer>
+                <Button variant="primary" onClick={this.uploadPostImage}>
+                  Upload Image
+                </Button>
+                <Button variant="secondary" onClick={this.handleClose}>
+                  Discard
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          ) : (
+            <div></div>
+          )}
         </Container>
       </>
     );
