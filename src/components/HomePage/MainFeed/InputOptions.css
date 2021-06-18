@@ -1,6 +1,6 @@
 .inputOptions {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   cursor: pointer;
   padding: 10px;
 }

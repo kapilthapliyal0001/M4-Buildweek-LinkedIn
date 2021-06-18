@@ -1,6 +1,6 @@
 import { Component } from "react";
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+
 import "./MyNav.css";
 import {
   HouseDoorFill,
@@ -15,20 +15,12 @@ import { Avatar } from "@material-ui/core";
 import myPic from "../MyNav/myPic.jpg";
 import "./MyNavOptions.css";
 import linkedin from "./linkedin.png";
+import { Link, withRouter } from "react-router-dom";
 
 // import MyNavOptions from "./MyNavOptions";
 // import myPic from "../MyNav/myPic.jpg";
-import {
-  InputGroup,
-  Container,
-  Form,
-  Col,
-  Row,
-  FormControl,
-  Navbar,
-  Nav,
-  NavDropdown,
-} from "react-bootstrap";
+import { InputGroup, Form, FormControl } from "react-bootstrap";
+
 class MyNav extends React.Component {
   render() {
     return (
@@ -37,7 +29,28 @@ class MyNav extends React.Component {
           <img src={linkedin} alt="logo" />
           <div className="headerSearch">
             <Search />
-            <input type="text" placeholder="Search" />
+
+            <Form
+              className="mt-2"
+              // onSubmit={() =>
+              // this.props.history.push(`/profile/${this.props.query}`)
+              // }
+            >
+              <InputGroup>
+                {/* <InputGroup.Prepend>
+                  <InputGroup.Text>
+                    <i id="search-icon" class="bi bi-search"></i>
+                  </InputGroup.Text>
+                </InputGroup.Prepend> */}
+                <FormControl
+                  type="text"
+                  id="search"
+                  // placeholder={this.props.user.id}
+                  // value={this.props.user.id}
+                  onChange={this.handleChangeQuery}
+                />
+              </InputGroup>
+            </Form>
           </div>
         </div>
         <div className="headerRight">

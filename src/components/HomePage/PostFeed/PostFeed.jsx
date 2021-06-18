@@ -31,7 +31,7 @@ class PostFeed extends Component {
     image: null,
     post_id: "60cb3cd5956ccd00158537bb", // subsitute post_id; null text input case;
   };
-
+  intervalID;
   componentDidMount() {
     console.log(
       this.props.user,
@@ -39,6 +39,10 @@ class PostFeed extends Component {
       this.props.isLoading,
       "is the Loading"
     );
+    // this.fetchNewPosts();
+  }
+  componentWillUnmount() {
+    // clearTimeout(this.intervalID);
   }
 
   fetch = () => {
@@ -58,6 +62,12 @@ class PostFeed extends Component {
     });
   };
 
+  _handleKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      console.log("do validate");
+    }
+  };
+
   // Main function via Modal Submit
 
   uploadPostImage = async (e) => {
@@ -75,8 +85,7 @@ class PostFeed extends Component {
       this.state.post_id
     );
     const bearer_token =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2JmMTI5MTkzMDAwMTU2MGFiYTMiLCJpYXQiOjE2MjM2Njk3NDUsImV4cCI6MTYyNDg3OTM0NX0.Lk5Z-l56SBkY6YCIvoiHpVg_0J0rEZHaO4PzAuep3bo";
-
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I";
     try {
       let response = await fetch(url, {
         method: "POST",
@@ -91,6 +100,31 @@ class PostFeed extends Component {
       alert("Successfully posted");
     } catch (error) {
       console.log("error in the image posting : ", error);
+    }
+  };
+
+  fetchNewPosts = async (e) => {
+    alert("Fetching....");
+    const token =
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2NmNzI5MTkzMDAwMTU2MGFiYTQiLCJpYXQiOjE2MjM2NzAwMDcsImV4cCI6MTYyNDg3OTYwN30.USHzFfeVTSKHLcrfBBYHNfhmiYlVmRCl_sts1-YCsz0";
+    // const [posts, setPosts] = useState([]);
+
+    try {
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/posts/",
+        {
+          method: "GET",
+          headers: {
+            Authorization: token,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      let data = await response.json();
+      console.log("Hedri data", data);
+    } catch (error) {
+      console.log(error);
+      console.log("There is some error");
     }
   };
 
@@ -137,6 +171,7 @@ class PostFeed extends Component {
       console.log("There is some error");
     }
   };
+
   checkStateUpload = () => {
     this.setState({ upload: this.state.upload ? false : true });
   };
@@ -151,6 +186,7 @@ class PostFeed extends Component {
                 console.log("ready to be clicked!");
                 this.submitPost(e);
               }}
+              onKeyDown={this._handleKeyDown}
             >
               <div id="testest" className="pb-0">
                 <Image
@@ -176,7 +212,7 @@ class PostFeed extends Component {
             </Form>
 
             <div id="buttonContainer">
-              <Button onClick={this.checkStateUpload}>
+              <Button onClick={this.fetchNewPosts}>
                 <CardImage id="post_icon" style={{ color: "#70b5f9" }} />
                 Photos
               </Button>
