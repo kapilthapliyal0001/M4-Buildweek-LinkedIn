@@ -17,6 +17,43 @@ import {
 import {useState} from "react";
 
 const MainFeed = ({post}) => {
+  function greetUser() {
+    console.log("Hi there, user!");
+  }
+
+  // function to delete the post;
+
+  async function DeletePost() {
+    console.log("Delete the post", post._id);
+
+    try {
+      console.log(
+        `https://striveschool-api.herokuapp.com/api/posts/${post._id}`
+      );
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/posts/${post._id}`,
+        {
+          method: "DELETE",
+          // body: JSON.stringify(this.state.feed),
+          headers: {
+            // "Content-type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I",
+          },
+        }
+      );
+      alert("The post has been deleted! ");
+      // .then((result) => {
+      //   console.log(result, "The text has been deleted");
+      //   // console.log("text posted Image left and check it down");
+      //   return result;
+      // });
+    } catch (error) {
+      console.log(error);
+      console.log("There is some error");
+    }
+  }
+
   return (
     <Accordion defaultActiveKey="0">
       <Card className="MainFeed p-0">
@@ -36,13 +73,16 @@ const MainFeed = ({post}) => {
             id="accordion_toggle_button"
             as={Button}
             eventKey="1"
+            className="d-flex justify-content-between"
           >
             <div className="MainFeedBodyButtons text-muted ">
               <InputOptions Icon={Icons.HandThumbsUp} title="Like" />
               <InputOptions Icon={Icons.ChatLeftText} title="Comments" />
               <InputOptions Icon={Icons.ShareFill} title="Share" />
               <InputOptions Icon={Icons.ArrowRightCircle} title="Send" />
-              {/* <InputOptions Icon={Icons.Delete} title="Send" /> */}
+              <div onClick={DeletePost}>
+                <InputOptions Icon={Icons.TrashFill} title="Delete" />
+              </div>
             </div>
           </Accordion.Toggle>
         ) : (
@@ -51,7 +91,9 @@ const MainFeed = ({post}) => {
             <InputOptions Icon={Icons.ChatLeftText} title="Comments" />
             <InputOptions Icon={Icons.ShareFill} title="Share" />
             <InputOptions Icon={Icons.ArrowRightCircle} title="Send" />
-            {/* <InputOptions Icon={Icons.Delete} title="Send" /> */}
+            <div onClick={DeletePost}>
+              <InputOptions Icon={Icons.TrashFill} title="Delete" />
+            </div>
           </div>
         )}
         <Accordion.Collapse eventKey="1">
