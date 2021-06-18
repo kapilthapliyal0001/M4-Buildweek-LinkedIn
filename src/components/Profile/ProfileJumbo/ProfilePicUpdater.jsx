@@ -50,15 +50,10 @@ export default class ProfilePicUpdater extends Component {
       padding: 0,
       borderTop: "grey solid 1px",
     };
-    console.log("ref -", this.fileInput);
+
     return (
       <>
-        <Modal
-          size="lg"
-          show={this.props.open}
-          onHide={this.props.close}
-          aria-labelledby="profilePicModal"
-        >
+        <Modal size="lg" show={this.props.open} onHide={this.props.close}>
           <Form onSubmit={(e) => this.handleProfileUpdate(e)}>
             <Modal.Body style={modalStyle} className="bg-dark">
               <Row className="p-5 text-center">

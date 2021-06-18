@@ -50,7 +50,7 @@ class ProfilePage extends Component {
             <Col>
               <Row>
                 <ProfileUpdater />
-                <Col xs={8} className="mt-2">
+                <Col xs={8}>
                   {this.state.isLoading === true ? (
                     <MyLoader />
                   ) : (

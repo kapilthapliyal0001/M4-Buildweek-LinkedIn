@@ -2,16 +2,16 @@ import { Component } from "react";
 import { Col, Row, Container, Button, Image, Nav, Card } from "react-bootstrap";
 import "./Sidebar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { InfoSquareFill, Globe, ArrowRight } from "react-bootstrap-icons";
+import {
+  InfoSquareFill,
+  Globe,
+  ArrowRight,
+  InfoSquare,
+} from "react-bootstrap-icons";
 
 // get the fontawesome imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowRight,
-  faGlobe,
-  faInfoCircle,
-  faQuestionCircle,
-} from "@fortawesome/fontawesome-free-solid";
+import { faQuestionCircle } from "@fortawesome/fontawesome-free-solid";
 
 class Sidebar extends Component {
   state = {
@@ -83,15 +83,13 @@ class Sidebar extends Component {
                   <Globe id="globe_icon" />
                 </div>
                 <div className="d-flex justify-content-between m-2">
-                  <span className="edit-text ml-3">
-                    {" "}
+                  <span
+                    className="edit-text ml-3 "
+                    style={{ fontSize: "12px" }}
+                  >
                     Edit Public profile and url
                   </span>
-                  <FontAwesomeIcon
-                    className="button-icon question-icon ml-auto mr-3"
-                    icon={faQuestionCircle}
-                  />
-                  <div>{""}</div>
+                  <InfoSquareFill className="mr-2" />
                 </div>
               </div>
             </Card>

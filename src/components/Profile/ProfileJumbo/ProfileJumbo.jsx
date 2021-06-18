@@ -27,7 +27,7 @@ class ProfileJumbo extends Component {
       <>
         <Card className="my-2 ">
           <div id="jumboProfile_header">
-            <img src={banner}></img>
+            <Image src={banner} />
           </div>
           <Card.Body>
             <>
@@ -42,14 +42,11 @@ class ProfileJumbo extends Component {
               <h5>
                 {name} {surname}
               </h5>
-              {/* {this.toRender === "me" ? ( */}
+
               <Pencil
                 id="pencil-icon"
                 onClick={() => this.setState({ showModalJumbo: true })}
               />
-              {/* ) : (
-                <></>
-              )} */}
             </Card.Title>
             <Card.Text>
               <p>
