@@ -1,8 +1,7 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import MainFeed from "./MainFeed";
 // import PostFeed from "../PostFeed/PostFeed";
-import {DropdownButton, Dropdown} from "react-bootstrap";
-import {Button} from "@material-ui/core";
+import { DropdownButton, Dropdown } from "react-bootstrap";
 import MyLoader from "../../Loaders/MyLoader";
 
 const GetPosts = (props) => {

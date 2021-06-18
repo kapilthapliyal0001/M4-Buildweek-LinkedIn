@@ -2,16 +2,9 @@ import { Component } from "react";
 import { Col, Row, Container, Button, Image, Nav, Card } from "react-bootstrap";
 import "./Sidebar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  InfoSquareFill,
-  Globe,
-  ArrowRight,
-  InfoSquare,
-} from "react-bootstrap-icons";
+import { InfoSquareFill, Globe } from "react-bootstrap-icons";
 
-// get the fontawesome imports
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faQuestionCircle } from "@fortawesome/fontawesome-free-solid";
+import SidebarPerson from "../../HomePage/Sidebar/SidebarPerson";
 
 class Sidebar extends Component {
   state = {
@@ -109,34 +102,7 @@ class Sidebar extends Component {
               <div className="pl-3 pt-2">
                 {/* Loading random profiles */}
                 {this.state.profiles.map((p) => (
-                  <div key={p._id}>
-                    <div className="d-flex">
-                      {/* <div className="profile-img mt-1"> */}
-                      {/* {" "} */}
-                      <Image
-                        id="sidebar_profile_img"
-                        src={p.image}
-                        alt="Linkdin Member"
-                        fluid
-                        roundedCircle
-                      ></Image>
-                      {/* </div> */}
-                      <div className="profile-details ml-4 mb-2">
-                        <div className="profile-name">
-                          {p.name} {p.surname}
-                        </div>
-                        <div className="profile-title">{p.title}</div>
-                        <div className="profile-message">
-                          <Button
-                            className="rounded-pill btn-sm"
-                            variant="outline-dark"
-                          >
-                            Message
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <SidebarPerson p={p} />
                 ))}
               </div>
             </Card>
@@ -146,33 +112,7 @@ class Sidebar extends Component {
               <div className="pl-3 pt-2">
                 {/* Loading random profiles */}
                 {this.state.profiles_other.map((p) => (
-                  <div key={p._id}>
-                    <div className="d-flex">
-                      {/* <div className="profile-img mt-1"> */}
-                      {/* {" "} */}
-                      <Image
-                        id="sidebar_profile_img"
-                        src={p.image}
-                        alt="Linkdin Member"
-                        fluid
-                      ></Image>
-                      {/* </div> */}
-                      <div className="profile-details ml-4 mb-2">
-                        <div className="profile-name">
-                          {p.name} {p.surname}
-                        </div>
-                        <div className="profile-title">{p.title}</div>
-                        <div className="profile-message">
-                          <Button
-                            className="rounded-pill btn-sm"
-                            variant="outline-dark"
-                          >
-                            Message
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <SidebarPerson p={p} />
                 ))}
               </div>
             </Card>
