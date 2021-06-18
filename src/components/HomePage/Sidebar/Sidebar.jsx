@@ -1,8 +1,9 @@
 import { Component } from "react";
-import { Col, Row, Container, Button, Image, Nav } from "react-bootstrap";
+import { Col, Row, Card, Button, Image, Accordion } from "react-bootstrap";
 import { ArrowRight, InfoSquareFill } from "react-bootstrap-icons";
 import "./Sidebar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import SidebarPerson from "./SidebarPerson";
 
 // get the fontawesome imports
 
@@ -25,8 +26,7 @@ class Sidebar extends Component {
       let data = await response.json();
       let result = console.log(data, "This is the result of the API");
       //   Updating the state with the profiles
-      let ran_a = Math.floor(Math.random() * 4) + 30;
-      let ran_b = Math.floor(Math.random() * 4) + ran_a + 1;
+
       // checking my data
       // let obj = await data
       //   .filter((m) => m.email.includes("ari"))
@@ -34,14 +34,30 @@ class Sidebar extends Component {
       //     console.log(c, "this is my id").error();
       //   });
       this.setState({
-        profiles: data.slice(ran_a, ran_b),
+        profiles: data,
       });
       console.log(this.state.profiles);
     } catch (error) {
       console.log(error, "The error");
     }
   };
+
   render() {
+    const { profiles } = this.state;
+    const randomInteger = (min, max) => {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+
+    const mapProfiles = (limit) => {
+      return profiles.slice(limit, randomInteger(114, 118)).map((p) => {
+        return <SidebarPerson p={p} />;
+      });
+    };
+    const mapProfileShowMore = (limit) => {
+      return profiles.slice(limit, randomInteger(55, 62)).map((p) => {
+        return <SidebarPerson p={p} />;
+      });
+    };
     return (
       <>
         {/* Srction to see the main body of the page Day2 */}
@@ -49,99 +65,71 @@ class Sidebar extends Component {
           {/*  Side bar start */}
           <Col className="sidebar-container">
             {/* Add to your feed section */}
-            <div className="people pt-3 mt-0">
-              <div className="d-flex justify-content-between">
-                <span className="pl-3 pb-3 text">Add to your feed</span>
+            <Card className="p-2">
+              <span className="pb-3 d-flex justify-content-between font-weight-bolder">
+                Add to your feed <InfoSquareFill />
+              </span>
+              {/* Loading random profiles */}
+              {mapProfiles(randomInteger(105, 110))}
+              <Accordion defaultActiveKey="0">
+                <Accordion.Collapse eventKey="1">
+                  <>{mapProfileShowMore(randomInteger(45, 49))}</>
+                </Accordion.Collapse>
+                <div className="d-flex ml-2 my-2 pl-2">
+                  <div>
+                    <Accordion.Toggle
+                      as={Button}
+                      eventKey="1"
+                      id="accordian_toggle_btn"
+                    >
+                      <span className="text-recomendations">
+                        View all reccomendations
+                      </span>
+                    </Accordion.Toggle>
+                  </div>
+                  <div>
+                    <ArrowRight />
+                  </div>
+                </div>
+              </Accordion>
+            </Card>
+            <Card className="p-2 text-muted mt-2" id="today_most_viewed">
+              <div className="d-flex justify-content-between font-weight-bolder">
+                <span className="pb-3">Today's Most viewed Courses</span>
                 <InfoSquareFill />
               </div>
-              <div className="pl-3 pt-2">
-                {/* Loading random profiles */}
-                {this.state.profiles.map((p) => (
-                  <Nav.Link href={`/profile/${p._id}`} id="sidebar_person">
-                    <div key={p._id}>
-                      <div className="d-flex img-cont" id="sidebar_person">
-                        <Image
-                          id="sidebar_profile_img"
-                          src={p.image}
-                          alt="Linkdin Member"
-                          fluid
-                          roundedCircle
-                        ></Image>
 
-                        <div className="profile-details ml-4 mb-2">
-                          <div className="profile-name">
-                            {p.name} {p.surname}
-                            {p.id}
-                          </div>
-                          <div className="profile-title">{p.title}</div>
-                          <div className="profile-message">
-                            <Button
-                              className="rounded-pill btn-sm"
-                              variant="outline-dark"
-                            >
-                              + Follow
-                            </Button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Nav.Link>
-                ))}
-              </div>
-              <div className="d-flex ml-2 my-2 pl-2">
-                <div>
-                  <span className="text-recomendations">
-                    View all reccomendations
-                  </span>
-                </div>
-                <div>
-                  <ArrowRight />
-                </div>
-              </div>
-            </div>
-            <div className="people pt-3 ">
-              <div className="d-flex justify-content-between">
-                <span className="pl-3 pb-3 text">
-                  Today's Most viewed Courses
-                </span>
-                <InfoSquareFill />
-              </div>
-              {/* Linkedin courses */}
               <div>
-                <div className="d-flex flex-column m-1 pl-1">
+                <div className="d-flex flex-column">
                   <span className="most-viewed-head">
                     1. The Six Morning Habits of High Perf...
                   </span>
-                  <span className="most-viewed-foot pl-3">
+                  <span className="most-viewed-foot">
                     Pete Mockaitis | How to Be Awesome at Yo...
                   </span>
                 </div>
-                <div className="d-flex flex-column m-1 pl-1">
+                <div className="d-flex flex-column">
                   <span className="most-viewed-head">
                     2. What is Graphic Design ?
                   </span>
-                  <span className="most-viewed-foot pl-3">Sean Adams</span>
+                  <span className="most-viewed-foot">Sean Adams</span>
                 </div>
-                <div className="d-flex flex-column m-1 pl-1">
+                <div className="d-flex flex-column">
                   <span className="most-viewed-head">
                     3. Excel Essential Training Office 365..
                   </span>
-                  <span className="most-viewed-foot pl-3">Dennis Taylor</span>
+                  <span className="most-viewed-foot">Dennis Taylor</span>
                 </div>
               </div>
               {/* See all courses */}
-              <div className="d-flex ml-2 my-3 pl-2">
-                <div>
-                  <span className="text-recomendations">
-                    Show more on Linkedin Learning
-                  </span>
-                </div>
-                <div>
-                  <ArrowRight />
-                </div>
+              <div className="d-flex ml-2 my-2 ">
+                <span className="p-0 text-recomendations">
+                  Show more on Linkedin Learning
+                </span>
+                <ArrowRight />
               </div>
-            </div>
-            <div className="people pt-2 ">
+            </Card>
+            <Card className="people pt-2 ">
               <div className="ml-2 my-2 pl-2">
                 <div className="text-center">
                   <span className="add-personal-txt">
@@ -174,13 +162,10 @@ class Sidebar extends Component {
                   className="rounded-pill btn-sm adv-button"
                   variant="outline-primary"
                 >
-                  + Follow{" "}
+                  + Follow
                 </Button>
               </div>
-            </div>
-            {/* Personalizes suggestions */}
-
-            {/*  */}
+            </Card>
           </Col>
         </Row>
       </>
