@@ -29,7 +29,10 @@ import {
   Nav,
   NavDropdown,
 } from "react-bootstrap";
+
 class MyNav extends React.Component {
+  componentDidMount = () => {};
+
   render() {
     return (
       <div className="header">
@@ -37,7 +40,29 @@ class MyNav extends React.Component {
           <img src={linkedin} alt="logo" />
           <div className="headerSearch">
             <Search />
-            <input type="text" placeholder="Search" />
+
+            <Form
+              className="mt-2"
+              onSubmit={() =>
+                this.props.history.push(`/search/${this.props.query}`)
+              }
+            >
+              <InputGroup>
+                <InputGroup.Prepend>
+                  <InputGroup.Text>
+                    <i id="search-icon" class="bi bi-search"></i>
+                  </InputGroup.Text>
+                </InputGroup.Prepend>
+                <FormControl
+                  id="query"
+                  value={this.props.query}
+                  onChange={this.props.handleChange}
+                  type="text"
+                  placeholder="Search"
+                  className="mr-sm-2"
+                />
+              </InputGroup>
+            </Form>
           </div>
         </div>
         <div className="headerRight">
