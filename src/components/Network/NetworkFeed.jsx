@@ -30,7 +30,7 @@ const NetworkFeed = () => {
       let profiles = await response.json();
       console.log(profiles);
 
-      setProfiles(profiles.slice(1).slice(-12));
+      setProfiles(profiles.slice(1).slice(40));
       console.log("Profiles", profiles);
     } catch (error) {
       console.log(error);
