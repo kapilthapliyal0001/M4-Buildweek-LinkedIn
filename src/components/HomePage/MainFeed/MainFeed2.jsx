@@ -102,8 +102,11 @@ const MainFeed = ({post}) => {
 
   return (
     <Accordion defaultActiveKey="0">
-      <Card className="MainFeed p-0">
-        <div className="MainFeedHeader p-3">
+      <Card
+        className="MainFeed p-0 d-flex"
+        style={{backgroundColor: "rgb(160, 184, 178)"}}
+      >
+        <div className="MainFeedHeader d-flex justify-content-center">
           <Avatar src={post.user.image} />
           <div className="MainHeaderInfo">
             <h2>{post.user.name + " " + post.user.surname || ""}</h2>
@@ -111,8 +114,7 @@ const MainFeed = ({post}) => {
           </div>
         </div>
 
-        <p className="p-3">{post.text}</p>
-        <Image src={post.image} className="img-fluid" />
+        <p className="px-3">{post.text.slice(0, 100)}</p>
         <hr className="p-0 m-0"></hr>
         {post.user._id === "60c8aef9a3a3d700151cb054" ? (
           <Accordion.Toggle
@@ -120,26 +122,9 @@ const MainFeed = ({post}) => {
             as={Button}
             eventKey="1"
             className="d-flex justify-content-between"
-          >
-            <div className="MainFeedBodyButtons text-muted ">
-              <InputOptions Icon={Icons.HandThumbsUp} title="Like" />
-              <InputOptions Icon={Icons.ChatLeftText} title="Comments" />
-              <InputOptions Icon={Icons.ShareFill} title="Share" />
-              <InputOptions Icon={Icons.ArrowRightCircle} title="Send" />
-              <div onClick={DeletePost}>
-                <InputOptions Icon={Icons.TrashFill} title="Delete" />
-              </div>
-              <div onClick={EditPost}>
-                <InputOptions Icon={Icons.PencilFill} title="Edit" />
-              </div>
-            </div>
-          </Accordion.Toggle>
+          ></Accordion.Toggle>
         ) : (
           <div className="MainFeedBodyButtons text-muted" id="otr-usr">
-            <InputOptions Icon={Icons.HandThumbsUp} title="Like" />
-            <InputOptions Icon={Icons.ChatLeftText} title="Comments" />
-            <InputOptions Icon={Icons.ShareFill} title="Share" />
-            <InputOptions Icon={Icons.ArrowRightCircle} title="Send" />
             {/* <div onClick={DeletePost}>
               <InputOptions Icon={Icons.TrashFill} title="Delete" />
             </div> */}
@@ -148,47 +133,7 @@ const MainFeed = ({post}) => {
             </div> */}
           </div>
         )}
-        <Accordion.Collapse eventKey="1">
-          <Row>
-            <Col>
-              <InputGroup>
-                <FormControl
-                  placeholder="Update post text..."
-                  id="input_accordion_update"
-                />
-              </InputGroup>
-            </Col>
-          </Row>
-        </Accordion.Collapse>
       </Card>
-      {edited ? (
-        <Modal show={edited} onHide={!edited} id="modal-post">
-          <Modal.Header className="">
-            <Modal.Title>EDIT❤️ your post ✍🏻</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <FormControl
-              id="post_inputfield"
-              placeholder="Edit the text"
-              value={postText}
-              onChange={(e) => {
-                console.log(e.target.value, "Modal typing");
-                return setPostText(e.target.value);
-              }}
-            />
-          </Modal.Body>
-          <Modal.Footer className="d-flex justify-content-around">
-            <Button variant="light" onClick={EditPost}>
-              Discard
-            </Button>
-            <Button variant="success" onClick={SubmitEdit}>
-              Change
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      ) : (
-        <></>
-      )}
     </Accordion>
   );
 };

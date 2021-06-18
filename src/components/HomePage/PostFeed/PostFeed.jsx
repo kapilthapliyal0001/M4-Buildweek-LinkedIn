@@ -200,33 +200,39 @@ class PostFeed extends Component {
 
         {/* Modal section to upload images for the Feeds starts */}
         {this.state.upload ? (
-          <Modal show={this.state.upload} onHide={this.state.close}>
-            <Modal.Header closeButton>
+          <Modal
+            show={this.state.upload}
+            onHide={this.state.close}
+            id="modal-post"
+          >
+            <Modal.Header className="d-flex justify-content-center">
               <Modal.Title>Place to upload the image</Modal.Title>
             </Modal.Header>
-
-            <Form
-              onSubmit={(e) => {
-                this.uploadPostImage(e);
-              }}
-            >
-              <Modal.Body>
-                <Form.Group>
-                  <Form.Control
-                    id="image"
-                    type="file"
-                    placeholder="Upload image"
-                    onChange={this.onFileChange}
-                  />
-                </Form.Group>
-              </Modal.Body>
-            </Form>
-            <Modal.Footer>
-              <Button variant="primary" onClick={this.uploadPostImage}>
-                Upload Image
-              </Button>
-              <Button variant="secondary" onClick={this.handleClose}>
+            <div className="d-flex justify-content-center">
+              <Form
+                className="pl-3"
+                onSubmit={(e) => {
+                  this.uploadPostImage(e);
+                }}
+              >
+                <Modal.Body>
+                  <Form.Group>
+                    <Form.Control
+                      id="image"
+                      type="file"
+                      placeholder="Upload image"
+                      onChange={this.onFileChange}
+                    />
+                  </Form.Group>
+                </Modal.Body>
+              </Form>
+            </div>
+            <Modal.Footer className="d-flex justify-content-between">
+              <Button variant="light" onClick={this.handleClose}>
                 Discard
+              </Button>
+              <Button variant="success" onClick={this.uploadPostImage}>
+                Upload Image
               </Button>
             </Modal.Footer>
           </Modal>

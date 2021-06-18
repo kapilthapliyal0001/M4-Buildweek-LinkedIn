@@ -76,3 +76,13 @@
 #accordion_toggle_button:focus {
   box-shadow: none;
 }
+
+#modal-post {
+  background: rgb(74, 173, 173);
+  background: linear-gradient(
+    9deg,
+    rgba(74, 173, 173, 1) 10%,
+    rgba(21, 91, 91, 1) 48%,
+    rgba(21, 66, 66, 1) 68%
+  );
+}

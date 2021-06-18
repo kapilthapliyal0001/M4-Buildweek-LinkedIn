@@ -1,6 +1,6 @@
-import { Component } from "react";
+import {Component} from "react";
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import "./MyNav.css";
 import {
   HouseDoorFill,
@@ -11,7 +11,7 @@ import {
   Search,
   Grid3x3GapFill,
 } from "react-bootstrap-icons";
-import { Avatar } from "@material-ui/core";
+import {Avatar} from "@material-ui/core";
 import myPic from "../MyNav/myPic.jpg";
 import "./MyNavOptions.css";
 import linkedin from "./linkedin.png";
@@ -37,7 +37,7 @@ class MyNav extends React.Component {
     return (
       <div className="header">
         <div className="headerLeft">
-          <img src={linkedin} alt="logo" />
+          <img src={linkedin} alt="logo" id="linkedin-img" />
           <div className="headerSearch">
             <Search />
 
@@ -98,7 +98,7 @@ class MyNav extends React.Component {
             </a>
           </div>
           <div className="myNavOptions">
-            <Avatar src={myPic} style={{ height: "30px", width: "30px" }} />
+            <Avatar src={myPic} style={{height: "30px", width: "30px"}} />
             <a className="myNavOptionsTitle" href="profile/me">
               Me
               <span>
@@ -116,18 +116,15 @@ class MyNav extends React.Component {
             </a>
           </div>
 
-          <div
-            className="myNavOptions"
-            style={{ borderLeft: "1px solid gray " }}
-          >
+          <div className="myNavOptions" style={{borderLeft: "1px solid gray "}}>
             <Grid3x3GapFill
               className="myNavOptionsIcon"
-              style={{ marginLeft: "15px" }}
+              style={{marginLeft: "15px"}}
             />
             <a
               className="myNavOptionsTitle"
               href="/work"
-              style={{ marginLeft: "15px" }}
+              style={{marginLeft: "15px"}}
             >
               Work{" "}
               <svg

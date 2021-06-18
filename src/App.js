@@ -6,19 +6,33 @@ import MyNav from "./components/MyNav/MyNav";
 import MyFooter from "./components/MyFooter/MyFooter";
 import LoginPage from "./components/LoginPage";
 import HomePage from "./components/HomePage/HomePage";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import NetworkFeed from "./components/Network/NetworkFeed";
+import {Form} from "react-bootstrap";
+import {useState} from "react";
 
 function App() {
   // let { id } = useParams();
   const myCallback = (dataFromChild) => {
-    this.setState({ listDataFromChild: dataFromChild });
+    this.setState({listDataFromChild: dataFromChild});
   };
+  const [back, setBack] = useState(false);
 
   return (
     <div className="App">
       <Router>
         <MyNav />
+        {/* <Form className="night-mode">
+          <Form.Check
+            type="switch"
+            id="app-night"
+            label="Night Mode"
+            data-onstyle="dark"
+            onClick={() => {
+              setBack(!back);
+            }}
+          />
+        </Form> */}
         <Switch>
           <Route exact path="/network" component={NetworkFeed} />
           <Route exact path="/" component={LoginPage} />
