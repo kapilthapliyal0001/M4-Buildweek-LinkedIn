@@ -1,4 +1,4 @@
-import { Component } from "react";
+import {Component} from "react";
 import {
   CardImage,
   Youtube,
@@ -18,7 +18,7 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./PostFeed.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 // import FeedPostImage from "./FeedPostImage";
 
 class PostFeed extends Component {
@@ -31,7 +31,7 @@ class PostFeed extends Component {
     image: null,
     post_id: "60cb3cd5956ccd00158537bb", // subsitute post_id; null text input case;
   };
-  intervalID;
+
   componentDidMount() {
     console.log(
       this.props.user,
@@ -39,10 +39,6 @@ class PostFeed extends Component {
       this.props.isLoading,
       "is the Loading"
     );
-    // this.fetchNewPosts();
-  }
-  componentWillUnmount() {
-    // clearTimeout(this.intervalID);
   }
 
   fetch = () => {
@@ -52,7 +48,7 @@ class PostFeed extends Component {
   // React Boostrap Modal class toggling
   handleClose = () => {
     console.log("Handle close been clicked!");
-    this.setState({ upload: false });
+    this.setState({upload: false});
   };
 
   // Form Data change state; Upload images;
@@ -60,12 +56,6 @@ class PostFeed extends Component {
     this.setState({
       image: e.target.files[0],
     });
-  };
-
-  _handleKeyDown = (e) => {
-    if (e.keyCode === 13) {
-      console.log("do validate");
-    }
   };
 
   // Main function via Modal Submit
@@ -100,31 +90,6 @@ class PostFeed extends Component {
       alert("Successfully posted");
     } catch (error) {
       console.log("error in the image posting : ", error);
-    }
-  };
-
-  fetchNewPosts = async (e) => {
-    alert("Fetching....");
-    const token =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2NmNzI5MTkzMDAwMTU2MGFiYTQiLCJpYXQiOjE2MjM2NzAwMDcsImV4cCI6MTYyNDg3OTYwN30.USHzFfeVTSKHLcrfBBYHNfhmiYlVmRCl_sts1-YCsz0";
-    // const [posts, setPosts] = useState([]);
-
-    try {
-      let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/",
-        {
-          method: "GET",
-          headers: {
-            Authorization: token,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      let data = await response.json();
-      console.log("Hedri data", data);
-    } catch (error) {
-      console.log(error);
-      console.log("There is some error");
     }
   };
 
@@ -173,7 +138,7 @@ class PostFeed extends Component {
   };
 
   checkStateUpload = () => {
-    this.setState({ upload: this.state.upload ? false : true });
+    this.setState({upload: this.state.upload ? false : true});
   };
 
   render() {
@@ -186,7 +151,6 @@ class PostFeed extends Component {
                 console.log("ready to be clicked!");
                 this.submitPost(e);
               }}
-              onKeyDown={this._handleKeyDown}
             >
               <div id="testest" className="pb-0">
                 <Image
@@ -204,7 +168,7 @@ class PostFeed extends Component {
                   onChange={(e) => {
                     console.log(e.target.value);
                     return this.setState({
-                      feed: { text: e.target.value },
+                      feed: {text: e.target.value},
                     });
                   }}
                 />
@@ -212,22 +176,22 @@ class PostFeed extends Component {
             </Form>
 
             <div id="buttonContainer">
-              <Button onClick={this.fetchNewPosts}>
-                <CardImage id="post_icon" style={{ color: "#70b5f9" }} />
+              <Button onClick={this.checkStateUpload}>
+                <CardImage id="post_icon" style={{color: "#70b5f9"}} />
                 Photos
               </Button>
 
               <Button onClick={this.checkStateUpload}>
-                <Youtube id="post_icon" style={{ color: "#7fc15e" }} />
+                <Youtube id="post_icon" style={{color: "#7fc15e"}} />
                 Videos
               </Button>
 
               <Button onClick={this.checkStateUpload}>
-                <CalendarDate id="post_icon" style={{ color: "#e7a33e" }} />
+                <CalendarDate id="post_icon" style={{color: "#e7a33e"}} />
                 Events
               </Button>
               <Button onClick={this.checkStateUpload}>
-                <Newspaper id="post_icon" style={{ color: "#f5987e" }} />
+                <Newspaper id="post_icon" style={{color: "#f5987e"}} />
                 Write Article
               </Button>
             </div>
@@ -236,33 +200,44 @@ class PostFeed extends Component {
 
         {/* Modal section to upload images for the Feeds starts */}
         {this.state.upload ? (
-          <Modal show={this.state.upload} onHide={this.state.close}>
-            <Modal.Header closeButton>
-              <Modal.Title>Place to upload the image</Modal.Title>
-            </Modal.Header>
-
-            <Form
-              onSubmit={(e) => {
-                this.uploadPostImage(e);
-              }}
+          <Modal
+            show={this.state.upload}
+            onHide={this.state.close}
+            id="modal-post"
+          >
+            <Modal.Header
+              className="d-flex justify-content-center"
+              style={{backgroundColor: "black"}}
             >
-              <Modal.Body>
-                <Form.Group>
-                  <Form.Control
-                    id="image"
-                    type="file"
-                    placeholder="Upload image"
-                    onChange={this.onFileChange}
-                  />
-                </Form.Group>
-              </Modal.Body>
-            </Form>
-            <Modal.Footer>
-              <Button variant="primary" onClick={this.uploadPostImage}>
-                Upload Image
-              </Button>
-              <Button variant="secondary" onClick={this.handleClose}>
+              <Modal.Title style={{color: "white"}}>
+                Place to upload the image
+              </Modal.Title>
+            </Modal.Header>
+            <div className="d-flex justify-content-center">
+              <Form
+                className="pl-3"
+                onSubmit={(e) => {
+                  this.uploadPostImage(e);
+                }}
+              >
+                <Modal.Body>
+                  <Form.Group>
+                    <Form.Control
+                      id="image"
+                      type="file"
+                      placeholder="Upload image"
+                      onChange={this.onFileChange}
+                    />
+                  </Form.Group>
+                </Modal.Body>
+              </Form>
+            </div>
+            <Modal.Footer className="d-flex justify-content-between">
+              <Button variant="light" onClick={this.handleClose}>
                 Discard
+              </Button>
+              <Button variant="success" onClick={this.uploadPostImage}>
+                Upload Image
               </Button>
             </Modal.Footer>
           </Modal>
