@@ -61,10 +61,16 @@ const GetPosts = (props) => {
       </Button>
       {quickRead ? (
         <Modal show={quickRead} onHide={handleClose}>
-          <Modal.Header closeButton className="d-flex justify-content-center">
-            <Modal.Title className="ml-5 pl-5">Quick Read Mode</Modal.Title>
+          <Modal.Header
+            closeButton
+            className="d-flex justify-content-center"
+            style={{backgroundColor: "black"}}
+          >
+            <Modal.Title className="ml-5 pl-5" style={{color: "grey"}}>
+              Quick Read Mode
+            </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body style={{backgroundColor: "black"}}>
             <>
               <div>
                 {false ? (

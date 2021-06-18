@@ -205,8 +205,13 @@ class PostFeed extends Component {
             onHide={this.state.close}
             id="modal-post"
           >
-            <Modal.Header className="d-flex justify-content-center">
-              <Modal.Title>Place to upload the image</Modal.Title>
+            <Modal.Header
+              className="d-flex justify-content-center"
+              style={{backgroundColor: "black"}}
+            >
+              <Modal.Title style={{color: "white"}}>
+                Place to upload the image
+              </Modal.Title>
             </Modal.Header>
             <div className="d-flex justify-content-center">
               <Form
