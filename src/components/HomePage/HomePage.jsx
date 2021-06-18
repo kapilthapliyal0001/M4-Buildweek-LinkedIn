@@ -17,8 +17,7 @@ export default class HomePage extends Component {
     this.setState({ isLoading: true });
     try {
       const bearerTokenHedri =
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2JmMTI5MTkzMDAwMTU2MGFiYTMiLCJpYXQiOjE2MjM2Njk3NDUsImV4cCI6MTYyNDg3OTM0NX0.Lk5Z-l56SBkY6YCIvoiHpVg_0J0rEZHaO4PzAuep3bo";
-
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I";
       const response = await fetch(
         `https://striveschool-api.herokuapp.com/api/profile/me`,
         {
@@ -47,7 +46,7 @@ export default class HomePage extends Component {
               <SidebarLeftMain user={user} isLoading={isLoading} />
             </Col>
             <Col xs={6}>
-              <PostFeed id={user} isLoading={isLoading} />
+              <PostFeed user={user} isLoading={isLoading} />
               <Divider />
               <GetPosts isLoading={isLoading} />
             </Col>

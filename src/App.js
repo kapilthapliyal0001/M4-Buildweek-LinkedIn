@@ -4,24 +4,28 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ProfilePage from "./components/Profile/ProfilePage.jsx";
 import MyNav from "./components/MyNav/MyNav";
 import MyFooter from "./components/MyFooter/MyFooter";
-// import LoginPage from "./components/LoginPage";
+import LoginPage from "./components/LoginPage";
 import HomePage from "./components/HomePage/HomePage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   // let { id } = useParams();
+  const myCallback = (dataFromChild) => {
+    this.setState({ listDataFromChild: dataFromChild });
+  };
+
   return (
     <div className="App">
       <Router>
         <MyNav />
         <Switch>
+          <Route exact path="/" component={LoginPage} />
           <Route exact path="/home">
-            <HomePage />
+            <HomePage test={myCallback} />
           </Route>
           <Route exact path="/profile/:id" component={ProfilePage} />
         </Switch>
         <MyFooter />
-        {/* <LoginPage /> */}
       </Router>
     </div>
   );

@@ -17,16 +17,13 @@ class ProfilePage extends Component {
 
   componentDidMount = async () => {
     const userID =
-      this.props.match.params.id === "me"
-        ? "60c73bf1291930001560aba3"
-        : this.props.match.params.id;
+      this.props.match.params.id === "me" ? "me" : this.props.match.params.id;
     // const userId = "60c73bf1291930001560aba3";
 
     this.setState({ isLoading: true });
     const endpointGetMyProfile = `https://striveschool-api.herokuapp.com/api/profile/${userID}`;
     const bearerTokenHedri =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2JmMTI5MTkzMDAwMTU2MGFiYTMiLCJpYXQiOjE2MjM2Njk3NDUsImV4cCI6MTYyNDg3OTM0NX0.Lk5Z-l56SBkY6YCIvoiHpVg_0J0rEZHaO4PzAuep3bo";
-
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I";
     try {
       let getResponse = await fetch(endpointGetMyProfile, {
         headers: {

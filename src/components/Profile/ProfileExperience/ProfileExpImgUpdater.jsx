@@ -27,7 +27,7 @@ export default class ProfileExpImgUpdater extends Component {
     const userId = "60c73bf1291930001560aba3";
     const endpointPUTExp = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}`;
     const bearerTokenHedri =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2JmMTI5MTkzMDAwMTU2MGFiYTMiLCJpYXQiOjE2MjM5MzQ1NDUsImV4cCI6MTYyNTE0NDE0NX0.Mj6R-PdAHLE1b2_mB2TCyFpCN4_I5Ppa_TADX20Bkpo";
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I";
     try {
       let response = await fetch(endpointPUTExp, {
         method: "POST",

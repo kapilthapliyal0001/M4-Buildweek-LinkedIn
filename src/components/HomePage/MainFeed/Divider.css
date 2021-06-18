@@ -22,13 +22,12 @@
   margin-left: 3px;
   margin-top: 5px;
 }
-button {
+/* button {
   border: none;
   background-color: none;
   background: none;
   display: flex;
-  width: 100%;
-}
+  /* width: 100%; */
 #popover-contained > .dividerHover:hover {
   background-color: whitesmoke;
   cursor: pointer;

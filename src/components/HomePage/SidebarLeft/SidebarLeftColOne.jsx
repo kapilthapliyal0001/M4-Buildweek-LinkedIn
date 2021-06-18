@@ -1,5 +1,4 @@
 import { Card, Image } from "react-bootstrap";
-import { ThreeDots } from "react-bootstrap-icons";
 import ThreeDotsLoader from "../../Loaders/ThreeDotsLoader";
 import { Component } from "react";
 import banner from "../../../banner.jpg";

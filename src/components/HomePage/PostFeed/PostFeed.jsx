@@ -1,4 +1,10 @@
-import {Component} from "react";
+import { Component } from "react";
+import {
+  CardImage,
+  Youtube,
+  CalendarDate,
+  Newspaper,
+} from "react-bootstrap-icons";
 import {
   Container,
   Image,
@@ -6,11 +12,14 @@ import {
   Form,
   Button,
   Modal,
+  Row,
+  Col,
+  Card,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./PostFeed.css";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import FeedPostImage from "./FeedPostImage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import FeedPostImage from "./FeedPostImage";
 import {
   faArrowRight,
   faCalendar,
@@ -40,7 +49,7 @@ class PostFeed extends Component {
   //   Submit post starts;
   handleClose = () => {
     console.log("Handle close been clicked!");
-    this.setState({upload: false});
+    this.setState({ upload: false });
   };
 
   onFileChange = (e) => {
@@ -64,7 +73,8 @@ class PostFeed extends Component {
       this.state.post_id
     );
     const bearer_token =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I";
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2JmMTI5MTkzMDAwMTU2MGFiYTMiLCJpYXQiOjE2MjM2Njk3NDUsImV4cCI6MTYyNDg3OTM0NX0.Lk5Z-l56SBkY6YCIvoiHpVg_0J0rEZHaO4PzAuep3bo";
+
     try {
       let response = await fetch(url, {
         method: "POST",
@@ -129,136 +139,103 @@ class PostFeed extends Component {
       console.log("There is some error");
     }
   };
+  checkStateUpload = () => {
+    this.setState({ upload: this.state.upload ? false : true });
+  };
 
   render() {
     return (
       <>
-        <Container className="main-cont my-2 py-3">
-          <div className="d-flex post-field">
-            <Image
-              className="img-circle post-img"
-              src="https://res.cloudinary.com/dmqsfltrf/image/upload/v1606999953/linkedin/dztgrstloinuosiu1nhp.webp"
-              alt="Linkdin Member"
-              fluid
-              roundedCircle
-            ></Image>
-            {/* </div> */}
-            {/* <div className="text"> */}
-            {/* <input class="post-text mt-4" type="text" placeholder="POST feed" /> */}
-            <div className="mt-4">
-              <Form
-                onSubmit={(e) => {
-                  console.log("ready to be clicked!");
-                  this.submitPost(e);
-                }}
-              >
+        <Card className="mt-4 pb-0" id="post_card">
+          <Card.Body id="post_card_body">
+            <Form
+              onSubmit={(e) => {
+                console.log("ready to be clicked!");
+                this.submitPost(e);
+              }}
+            >
+              <div id="testest" className="pb-0">
+                <Image
+                  className="border-white"
+                  id="post_img"
+                  src={this.props.user.image}
+                  alt="Linkdin Member"
+                  roundedCircle
+                />
+
                 <FormControl
-                  // type="submit"
+                  id="post_inputfield"
                   placeholder="Start a Post"
-                  aria-label="text"
-                  aria-describedby="basic-addon1"
-                  className="form-text-control"
                   value={this.state.feed.text}
                   onChange={(e) => {
                     console.log(e.target.value);
-                    return this.setState({feed: {text: e.target.value}});
+                    return this.setState({
+                      feed: { text: e.target.value },
+                    });
                   }}
                 />
-                {/* <Button variant="primary" type="submit">
-                  Submit
-                </Button> */}
-              </Form>
-            </div>
-            {/* </div> */}
-          </div>
-          <div className="post-icons d-flex justify-content-around">
-            <div
-              className="d-flex"
-              onClick={() =>
-                this.setState({upload: this.state.upload ? false : true})
-              }
-            >
-              <FontAwesomeIcon
-                className=" ml-auto font-aw-post"
-                icon={faImages}
-              />
-              <span className="ml-2">Photos</span>
-            </div>
+              </div>
+            </Form>
 
-            <div
-              className="d-flex"
-              onClick={() =>
-                this.setState({upload: this.state.upload ? false : true})
-              }
-            >
-              <FontAwesomeIcon
-                className=" ml-auto font-aw-post"
-                icon={faVideo}
-              />
-              <span className="ml-2">Videos</span>
-            </div>
+            <div id="buttonContainer">
+              <Button onClick={this.checkStateUpload}>
+                <CardImage id="post_icon" style={{ color: "#70b5f9" }} />
+                Photos
+              </Button>
 
-            <div
-              className="d-flex"
-              onClick={() =>
-                this.setState({upload: this.state.upload ? false : true})
-              }
-            >
-              <FontAwesomeIcon
-                className=" ml-auto font-aw-post"
-                icon={faCalendar}
-              />
-              <span className="ml-2">Events</span>
-            </div>
-            <div
-              className="d-flex"
-              onClick={() =>
-                this.setState({upload: this.state.upload ? false : true})
-              }
-            >
-              <FontAwesomeIcon
-                className=" ml-auto font-aw-post"
-                icon={faNewspaper}
-              />
-              <span className="ml-2">Write Article</span>
-            </div>
-          </div>
-          {/* Modal section to upload images for the Feeds starts */}
-          {this.state.upload ? (
-            <Modal show={this.state.upload} onHide={this.state.close}>
-              <Modal.Header closeButton>
-                <Modal.Title>Place to upload the image</Modal.Title>
-              </Modal.Header>
+              <Button onClick={this.checkStateUpload}>
+                <Youtube id="post_icon" style={{ color: "#7fc15e" }} />
+                Videos
+              </Button>
 
-              <Form
-                onSubmit={(e) => {
-                  this.uploadPostImage(e);
-                }}
-              >
-                <Modal.Body>
-                  <Form.Group>
-                    <Form.Control
-                      id="image"
-                      type="file"
-                      placeholder="Upload image"
-                      onChange={this.onFileChange}
-                    />
-                  </Form.Group>
-                </Modal.Body>
-              </Form>
-              <Modal.Footer>
-                <Button variant="primary" onClick={this.uploadPostImage}>
-                  Upload Image
-                </Button>
-                <Button variant="secondary" onClick={this.handleClose}>
-                  Discard
-                </Button>
-              </Modal.Footer>
-            </Modal>
-          ) : (
-            <div></div>
-          )}
-        </Container>
+              <Button onClick={this.checkStateUpload}>
+                <CalendarDate id="post_icon" style={{ color: "#e7a33e" }} />
+                Events
+              </Button>
+
+              <Button onClick={this.checkStateUpload}>
+                <Newspaper id="post_icon" style={{ color: "#f5987e" }} />
+                Write Article
+              </Button>
+            </div>
+          </Card.Body>
+        </Card>
+
+        {/* Modal section to upload images for the Feeds starts */}
+        {this.state.upload ? (
+          <Modal show={this.state.upload} onHide={this.state.close}>
+            <Modal.Header closeButton>
+              <Modal.Title>Place to upload the image</Modal.Title>
+            </Modal.Header>
+
+            <Form
+              onSubmit={(e) => {
+                this.uploadPostImage(e);
+              }}
+            >
+              <Modal.Body>
+                <Form.Group>
+                  <Form.Control
+                    id="image"
+                    type="file"
+                    placeholder="Upload image"
+                    onChange={this.onFileChange}
+                  />
+                </Form.Group>
+              </Modal.Body>
+            </Form>
+            <Modal.Footer>
+              <Button variant="primary" onClick={this.uploadPostImage}>
+                Upload Image
+              </Button>
+              <Button variant="secondary" onClick={this.handleClose}>
+                Discard
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        ) : (
+          <></>
+        )}
       </>
     );
   }
