@@ -4,6 +4,7 @@ import { ArrowRight, InfoSquareFill } from "react-bootstrap-icons";
 import "./Sidebar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SidebarPerson from "./SidebarPerson";
+import ProfilePictureLoader from "../../Loaders/ProfilePictureLoader";
 
 // get the fontawesome imports
 
@@ -43,34 +44,36 @@ class Sidebar extends Component {
   };
 
   render() {
-    const { profiles } = this.state;
+    const { profiles, isLoading } = this.state;
     const randomInteger = (min, max) => {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     };
 
     const mapProfiles = (limit) => {
       return profiles.slice(limit, randomInteger(114, 118)).map((p) => {
-        return <SidebarPerson p={p} />;
+        return <SidebarPerson isLoading={this.props.isLoading} p={p} />;
       });
     };
     const mapProfileShowMore = (limit) => {
       return profiles.slice(limit, randomInteger(55, 62)).map((p) => {
-        return <SidebarPerson p={p} />;
+        return <SidebarPerson isLoading={this.props.isLoading} p={p} />;
       });
     };
     return (
       <>
         {/* Srction to see the main body of the page Day2 */}
         <Row>
-          {/*  Side bar start */}
           <Col className="sidebar-container">
-            {/* Add to your feed section */}
             <Card className="p-2">
               <span className="pb-3 d-flex justify-content-between font-weight-bolder">
                 Add to your feed <InfoSquareFill />
               </span>
-              {/* Loading random profiles */}
-              {mapProfiles(randomInteger(105, 110))}
+
+              {this.props.isLoading === true ? (
+                <ProfilePictureLoader />
+              ) : (
+                mapProfiles(randomInteger(105, 110))
+              )}
               <Accordion defaultActiveKey="0">
                 <Accordion.Collapse eventKey="1">
                   <>{mapProfileShowMore(randomInteger(45, 49))}</>

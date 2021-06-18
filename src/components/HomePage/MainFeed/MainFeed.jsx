@@ -1,4 +1,4 @@
-import {Avatar} from "@material-ui/core";
+import { Avatar } from "@material-ui/core";
 import * as Icons from "react-bootstrap-icons";
 import React from "react";
 import "../MainFeed/MainFeed.css";
@@ -14,9 +14,9 @@ import {
   InputGroup,
   FormControl,
 } from "react-bootstrap";
-import {useState} from "react";
+import { useState } from "react";
 
-const MainFeed = ({post}) => {
+const MainFeed = ({ post }) => {
   function greetUser() {
     console.log("Hi there, user!");
   }
@@ -80,9 +80,11 @@ const MainFeed = ({post}) => {
               <InputOptions Icon={Icons.ChatLeftText} title="Comments" />
               <InputOptions Icon={Icons.ShareFill} title="Share" />
               <InputOptions Icon={Icons.ArrowRightCircle} title="Send" />
-              <div onClick={DeletePost}>
-                <InputOptions Icon={Icons.TrashFill} title="Delete" />
-              </div>
+              <InputOptions
+                onClick={DeletePost}
+                Icon={Icons.TrashFill}
+                title="Delete"
+              />
             </div>
           </Accordion.Toggle>
         ) : (
@@ -91,9 +93,6 @@ const MainFeed = ({post}) => {
             <InputOptions Icon={Icons.ChatLeftText} title="Comments" />
             <InputOptions Icon={Icons.ShareFill} title="Share" />
             <InputOptions Icon={Icons.ArrowRightCircle} title="Send" />
-            <div onClick={DeletePost}>
-              <InputOptions Icon={Icons.TrashFill} title="Delete" />
-            </div>
           </div>
         )}
         <Accordion.Collapse eventKey="1">

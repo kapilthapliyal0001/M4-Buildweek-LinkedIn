@@ -18,17 +18,7 @@ import linkedin from "./linkedin.png";
 
 // import MyNavOptions from "./MyNavOptions";
 // import myPic from "../MyNav/myPic.jpg";
-import {
-  InputGroup,
-  Container,
-  Form,
-  Col,
-  Row,
-  FormControl,
-  Navbar,
-  Nav,
-  NavDropdown,
-} from "react-bootstrap";
+import { InputGroup, Form, FormControl } from "react-bootstrap";
 
 class MyNav extends React.Component {
   componentDidMount = () => {};

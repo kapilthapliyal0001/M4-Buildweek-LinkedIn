@@ -90,7 +90,7 @@ class ProfilePage extends Component {
                   )}
                 </Col>
                 <Col xs={4} className="mt-2">
-                  <Sidebar />
+                  <Sidebar user={this.state.user} />
                 </Col>
               </Row>
             </Col>
