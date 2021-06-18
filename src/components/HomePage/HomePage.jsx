@@ -49,7 +49,6 @@ export default class HomePage extends Component {
         className="linkedin-page"
         style={{
           backgroundColor: this.state.back ? "rgb(27,26,26)" : "#ecebeb",
-          color: this.state.back ? "rgb(127,126,126)" : "rgb(27,26,26)",
         }}
       >
         <Form className="night-mode">
