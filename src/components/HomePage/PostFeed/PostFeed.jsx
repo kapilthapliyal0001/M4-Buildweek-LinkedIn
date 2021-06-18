@@ -192,7 +192,6 @@ class PostFeed extends Component {
                 <CalendarDate id="post_icon" style={{ color: "#e7a33e" }} />
                 Events
               </Button>
-
               <Button onClick={this.checkStateUpload}>
                 <Newspaper id="post_icon" style={{ color: "#f5987e" }} />
                 Write Article

@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import MainFeed from "./MainFeed";
 import PostFeed from "../PostFeed/PostFeed";
+import { DropdownButton, Dropdown } from "react-bootstrap";
+import { Button } from "@material-ui/core";
+
 const GetPosts = () => {
   const token =
     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2NmNzI5MTkzMDAwMTU2MGFiYTQiLCJpYXQiOjE2MjM2NzAwMDcsImV4cCI6MTYyNDg3OTYwN30.USHzFfeVTSKHLcrfBBYHNfhmiYlVmRCl_sts1-YCsz0";
@@ -36,12 +39,22 @@ const GetPosts = () => {
     getData();
   }, []);
 
+  // usage
+
   return (
     <>
+      <div id="hr_divider">
+        <hr class="horizontal" />
+        <span className="text-muted align-baseline">Sort by:</span>
+        <DropdownButton className="btn-sm">
+          <Dropdown.Item eventKey="1">Top</Dropdown.Item>
+          <Dropdown.Item eventKey="2">Recent</Dropdown.Item>
+        </DropdownButton>
+      </div>
+
       {posts.map((post) => {
         return <MainFeed key={post._id} post={post} />;
       })}
-      )
     </>
   );
 };

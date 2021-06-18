@@ -47,7 +47,7 @@ export default class HomePage extends Component {
             </Col>
             <Col xs={6}>
               <PostFeed user={user} isLoading={isLoading} />
-              <Divider />
+              {/* <Divider /> */}
               <GetPosts isLoading={isLoading} />
             </Col>
             <Col xs={3}>
