@@ -13,27 +13,18 @@ import {
   Col,
   InputGroup,
   FormControl,
-  Modal,
 } from "react-bootstrap";
 import { useState } from "react";
 
 const MainFeed = ({ post }) => {
-  const [edited, setEdited] = useState(false);
-  const [postText, setPostText] = useState(post.text);
-  const obj = { text: postText };
-
-  // function to edit post
-
-  function EditPost() {
-    if (post.user._id === "60c8aef9a3a3d700151cb054") {
-      setEdited(!edited);
-    } else {
-      alert("You can't Edit someone's post!!!");
-    }
+  function greetUser() {
+    console.log("Hi there, user!");
   }
 
-  async function SubmitEdit() {
-    console.log("Editing Final", post._id);
+  // function to delete the post;
+
+  async function DeletePost() {
+    console.log("Delete the post", post._id);
 
     try {
       console.log(
@@ -42,17 +33,16 @@ const MainFeed = ({ post }) => {
       let response = await fetch(
         `https://striveschool-api.herokuapp.com/api/posts/${post._id}`,
         {
-          method: "PUT",
-          body: JSON.stringify(obj),
+          method: "DELETE",
+          // body: JSON.stringify(this.state.feed),
           headers: {
-            "Content-type": "application/json",
+            // "Content-type": "application/json",
             Authorization:
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I",
           },
         }
       );
-      alert("The post has been EDITED! ");
-      EditPost();
+      alert("The post has been deleted! ");
       // .then((result) => {
       //   console.log(result, "The text has been deleted");
       //   // console.log("text posted Image left and check it down");
@@ -61,42 +51,6 @@ const MainFeed = ({ post }) => {
     } catch (error) {
       console.log(error);
       console.log("There is some error");
-    }
-  }
-
-  // function to delete the post;
-
-  async function DeletePost() {
-    console.log("Delete the post", post._id);
-    if (post.user._id === "60c8aef9a3a3d700151cb054") {
-      try {
-        console.log(
-          `https://striveschool-api.herokuapp.com/api/posts/${post._id}`
-        );
-        let response = await fetch(
-          `https://striveschool-api.herokuapp.com/api/posts/${post._id}`,
-          {
-            method: "DELETE",
-            // body: JSON.stringify(this.state.feed),
-            headers: {
-              // "Content-type": "application/json",
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I",
-            },
-          }
-        );
-        alert("The post has been deleted! ");
-        // .then((result) => {
-        //   console.log(result, "The text has been deleted");
-        //   // console.log("text posted Image left and check it down");
-        //   return result;
-        // });
-      } catch (error) {
-        console.log(error);
-        console.log("There is some error");
-      }
-    } else {
-      alert("You can only delete your Posts!!");
     }
   }
 
@@ -130,16 +84,10 @@ const MainFeed = ({ post }) => {
                 Icon={Icons.TrashFill}
                 title="Delete"
               />
-              <div onClick={DeletePost}>
-                <InputOptions Icon={Icons.TrashFill} title="Delete" />
-              </div>
-              <div onClick={EditPost}>
-                <InputOptions Icon={Icons.PencilFill} title="Edit" />
-              </div>
             </div>
           </Accordion.Toggle>
         ) : (
-          <div className="MainFeedBodyButtons text-muted" id="otr-usr">
+          <div className="MainFeedBodyButtons text-muted">
             <InputOptions Icon={Icons.HandThumbsUp} title="Like" />
             <InputOptions Icon={Icons.ChatLeftText} title="Comments" />
             <InputOptions Icon={Icons.ShareFill} title="Share" />
@@ -159,34 +107,6 @@ const MainFeed = ({ post }) => {
           </Row>
         </Accordion.Collapse>
       </Card>
-      {edited ? (
-        <Modal show={edited} onHide={!edited}>
-          <Modal.Header closeButton>
-            <Modal.Title>EDIT❤️ your post ✍🏻</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <FormControl
-              id="post_inputfield"
-              placeholder="Edit the text"
-              value={postText}
-              onChange={(e) => {
-                console.log(e.target.value, "Modal typing");
-                return setPostText(e.target.value);
-              }}
-            />
-          </Modal.Body>
-          <Modal.Footer className="d-flex justify-content-around">
-            <Button variant="light" onClick={EditPost}>
-              Discard
-            </Button>
-            <Button variant="success" onClick={SubmitEdit}>
-              Change
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      ) : (
-        <></>
-      )}
     </Accordion>
   );
 };

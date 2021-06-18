@@ -30,7 +30,7 @@
 }
 .MainFeedBodyButtons {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .MainFeed .MainFeedBodyButtons {
   align-items: center;
@@ -82,7 +82,3 @@
   border: none !important;
   box-shadow: none;
 }
-
-/* #otr-urs {
-  justify-content: space-evenly;
-} */
