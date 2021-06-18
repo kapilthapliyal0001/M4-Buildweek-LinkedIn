@@ -25,32 +25,35 @@ const MainFeed = ({post}) => {
 
   async function DeletePost() {
     console.log("Delete the post", post._id);
-
-    try {
-      console.log(
-        `https://striveschool-api.herokuapp.com/api/posts/${post._id}`
-      );
-      let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/posts/${post._id}`,
-        {
-          method: "DELETE",
-          // body: JSON.stringify(this.state.feed),
-          headers: {
-            // "Content-type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I",
-          },
-        }
-      );
-      alert("The post has been deleted! ");
-      // .then((result) => {
-      //   console.log(result, "The text has been deleted");
-      //   // console.log("text posted Image left and check it down");
-      //   return result;
-      // });
-    } catch (error) {
-      console.log(error);
-      console.log("There is some error");
+    if (post.user._id === "60c8aef9a3a3d700151cb054") {
+      try {
+        console.log(
+          `https://striveschool-api.herokuapp.com/api/posts/${post._id}`
+        );
+        let response = await fetch(
+          `https://striveschool-api.herokuapp.com/api/posts/${post._id}`,
+          {
+            method: "DELETE",
+            // body: JSON.stringify(this.state.feed),
+            headers: {
+              // "Content-type": "application/json",
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I",
+            },
+          }
+        );
+        alert("The post has been deleted! ");
+        // .then((result) => {
+        //   console.log(result, "The text has been deleted");
+        //   // console.log("text posted Image left and check it down");
+        //   return result;
+        // });
+      } catch (error) {
+        console.log(error);
+        console.log("There is some error");
+      }
+    } else {
+      alert("You can only delete your Posts!!");
     }
   }
 
