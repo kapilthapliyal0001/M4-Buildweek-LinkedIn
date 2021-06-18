@@ -5,13 +5,6 @@ import "./Sidebar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // get the fontawesome imports
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowRight,
-  faGlobe,
-  faInfoCircle,
-  faQuestionCircle,
-} from "@fortawesome/fontawesome-free-solid";
 
 class Sidebar extends Component {
   state = {

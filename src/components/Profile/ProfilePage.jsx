@@ -17,7 +17,9 @@ class ProfilePage extends Component {
 
   componentDidMount = async () => {
     const userID =
-      this.props.match.params.id === "me" ? "me" : this.props.match.params.id;
+      this.props.match.params.id === "me"
+        ? "60c8aef9a3a3d700151cb054"
+        : this.props.match.params.id;
     // const userId = "60c73bf1291930001560aba3";
 
     this.setState({ isLoading: true });
