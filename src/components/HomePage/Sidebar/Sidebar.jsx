@@ -1,10 +1,10 @@
-import { Component } from "react";
-import { Col, Row, Container, Button, Image, Nav } from "react-bootstrap";
+import {Component} from "react";
+import {Col, Row, Container, Button, Image, Nav} from "react-bootstrap";
 import "./Sidebar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // get the fontawesome imports
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
   faGlobe,
@@ -67,7 +67,7 @@ class Sidebar extends Component {
                 <div className="pl-3 pt-2">
                   {/* Loading random profiles */}
                   {this.state.profiles.map((p) => (
-                    <Nav.Link href={`/profile/${p._id}`}>
+                    <Nav.Link href={`/profile/${p._id}/${this.props.back}`}>
                       <div key={p._id}>
                         <div className="d-flex img-cont">
                           {/* <div className="profile-img mt-1"> */}

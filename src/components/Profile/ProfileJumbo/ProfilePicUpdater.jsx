@@ -1,21 +1,21 @@
-import { Component, createRef, React } from "react";
-import { Modal, Form, Row, Col, Button, Image } from "react-bootstrap";
-import { CameraFill } from "react-bootstrap-icons";
+import {Component, createRef, React} from "react";
+import {Modal, Form, Row, Col, Button, Image} from "react-bootstrap";
+import {CameraFill} from "react-bootstrap-icons";
 
 export default class ProfilePicUpdater extends Component {
-  state = { user: {} };
+  state = {user: {}};
 
   onFileChange = (event) => {
-    this.setState({ user: { image: event.target.files[0] } });
+    this.setState({user: {image: event.target.files[0]}});
   };
 
   handleProfileUpdate = async (e) => {
     const formData = new FormData();
     formData.append("profile", this.state.user.image);
-    // const userId = "60c73bf1291930001560aba3";
+    // const userId = "60c8aef9a3a3d700151cb054";
     const endpointPUTprofile = `https://striveschool-api.herokuapp.com/api/profile/me/picture`;
     const bearerTokenHedri =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2JmMTI5MTkzMDAwMTU2MGFiYTMiLCJpYXQiOjE2MjM2Njk3NDUsImV4cCI6MTYyNDg3OTM0NX0.Lk5Z-l56SBkY6YCIvoiHpVg_0J0rEZHaO4PzAuep3bo";
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I";
 
     try {
       let response = await fetch(endpointPUTprofile, {

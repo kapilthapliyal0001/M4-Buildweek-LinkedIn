@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Col, Row, Container, Button, Modal } from "react-bootstrap";
+import React, {Component} from "react";
+import {Col, Row, Container, Button, Modal} from "react-bootstrap";
 
 import ProfileJumbo from "./Profile/ProfileJumbo/ProfileJumbo";
 import ProfileAbout from "./Profile/ProfileAbout/ProfileAbout";
@@ -7,7 +7,7 @@ import YourDashBoardProfile from "./Profile/YourDashBoardProfile";
 import ProfileUpdater from "./Profile/ProfileJumbo/ProfileJumboUpdater";
 import ProfileExperience from "./Profile/ProfileExperience/ProfileExperience";
 import Sidebar from "./Profile/Sidebar/Sidebar";
-import { withRouter } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import MyLoader from "./MyLoader";
 class ProfilePage extends Component {
   state = {
@@ -18,14 +18,14 @@ class ProfilePage extends Component {
   componentDidMount = async () => {
     const userID =
       this.props.match.params.id === "me"
-        ? "60c73bf1291930001560aba3"
+        ? "60c8aef9a3a3d700151cb054"
         : this.props.match.params.id;
     // const userId = "60c73bf1291930001560aba3";
 
-    this.setState({ isLoading: true });
+    this.setState({isLoading: true});
     const endpointGetMyProfile = `https://striveschool-api.herokuapp.com/api/profile/${userID}`;
     const bearerTokenHedri =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2JmMTI5MTkzMDAwMTU2MGFiYTMiLCJpYXQiOjE2MjM2Njk3NDUsImV4cCI6MTYyNDg3OTM0NX0.Lk5Z-l56SBkY6YCIvoiHpVg_0J0rEZHaO4PzAuep3bo";
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I";
 
     try {
       let getResponse = await fetch(endpointGetMyProfile, {
@@ -37,7 +37,7 @@ class ProfilePage extends Component {
 
       let myProfileData = await getResponse.json();
       console.log(myProfileData);
-      this.setState({ user: myProfileData, isLoading: false });
+      this.setState({user: myProfileData, isLoading: false});
     } catch (err) {
       console.log(err);
     }

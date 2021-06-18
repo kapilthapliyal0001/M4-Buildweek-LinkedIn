@@ -30,24 +30,36 @@ class PostFeed extends Component {
     upload: false,
     close: true,
     image: null,
-    post_id: "60cb3cd5956ccd00158537bb",
+    post_id: "60cb3cd5956ccd00158537bb", // subsitute post_id; null text input case;
   };
+
+  componentDidMount() {
+    console.log(
+      this.props.user,
+      "is the id and ",
+      this.props.isLoading,
+      "is the Loading"
+    );
+  }
 
   fetch = () => {
     console.log("Data is there to be POST");
   };
 
-  //   Submit post starts;
+  // React Boostrap Modal class toggling
   handleClose = () => {
     console.log("Handle close been clicked!");
     this.setState({upload: false});
   };
 
+  // Form Data change state; Upload images;
   onFileChange = (e) => {
     this.setState({
       image: e.target.files[0],
     });
   };
+
+  // Main function via Modal Submit
 
   uploadPostImage = async (e) => {
     // when the user submits the button => the text feed written is posted and then the id of the posted text is used again
@@ -77,15 +89,12 @@ class PostFeed extends Component {
       let data = await response.json();
       console.log("The data recieved is: ", data);
       alert("Successfully posted");
-      // .then((data) => data.json())
-      // .then((result) => {
-      //   console.log("The result of the post is: ", result);
-      // });
     } catch (error) {
       console.log("error in the image posting : ", error);
     }
   };
 
+  //   Submit post starts;
   submitPost = async (e) => {
     e ? e.preventDefault() : console.log(" I am been touched");
 
@@ -122,7 +131,6 @@ class PostFeed extends Component {
             finalWork._id
           );
           console.log("I am being worked first");
-          // alert("Successfully posted");
         });
     } catch (error) {
       console.log(error);
@@ -142,9 +150,6 @@ class PostFeed extends Component {
               fluid
               roundedCircle
             ></Image>
-            {/* </div> */}
-            {/* <div className="text"> */}
-            {/* <input class="post-text mt-4" type="text" placeholder="POST feed" /> */}
             <div className="mt-4">
               <Form
                 onSubmit={(e) => {

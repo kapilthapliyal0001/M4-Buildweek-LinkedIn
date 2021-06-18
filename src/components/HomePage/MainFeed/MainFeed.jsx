@@ -1,11 +1,11 @@
-import { Avatar } from "@material-ui/core";
+import {Avatar} from "@material-ui/core";
 import * as Icons from "react-bootstrap-icons";
 import React from "react";
 import "../MainFeed/MainFeed.css";
 import InputOptions from "../MainFeed/InputOptions";
-import { useState } from "react";
+import {useState} from "react";
 
-const MainFeed = ({ post }) => {
+const MainFeed = ({post}) => {
   return (
     <div className="MainFeed">
       <div className="MainFeedHeader">
@@ -17,7 +17,7 @@ const MainFeed = ({ post }) => {
       </div>
       <div className="MainFeedBody">
         <p>{post.text}</p>
-        <img src={post.image}></img>
+        <img src={post.image} className="img-fluid"></img>
       </div>
       <hr></hr>
       <div className="MainFeedBodyButtons">

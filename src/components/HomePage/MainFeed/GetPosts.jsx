@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import MainFeed from "./MainFeed";
 import PostFeed from "../PostFeed/PostFeed";
 const GetPosts = () => {
@@ -41,7 +41,6 @@ const GetPosts = () => {
       {posts.map((post) => {
         return <MainFeed key={post._id} post={post} />;
       })}
-      )
     </>
   );
 };
