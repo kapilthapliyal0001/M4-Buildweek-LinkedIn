@@ -1,0 +1,84 @@
+.MainFeed {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.MainFeedHeader {
+  display: flex;
+  margin-bottom: 10px;
+}
+.MainHeaderInfo {
+  margin-left: 10px;
+  margin-bottom: 2px;
+}
+.MainHeaderInfo > p {
+  font-size: 12px;
+  color: gray;
+  margin-top: 2px;
+}
+.MainHeaderInfo {
+  overflow-wrap: anywhere;
+}
+.MainHeaderInfo > h2 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.MainFeedBody > img {
+  object-fit: cover;
+}
+.MainFeedBodyButtons {
+  display: flex;
+  justify-content: flex-start;
+}
+.MainFeed .MainFeedBodyButtons {
+  align-items: center;
+}
+
+#hr_divider {
+  display: flex;
+}
+#hr_divider > hr {
+  flex: 2;
+}
+
+#hr_divider > div > button {
+  border: none;
+  color: black;
+  flex: 4;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+#hr_divider > div > div > a {
+  font-size: 10px;
+  width: 10px;
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#hr_divider > div > div {
+  min-width: 60px !important;
+  padding: 0;
+}
+#hr_divider > span {
+  padding-top: 10px;
+  top: 10px;
+  padding-left: 10px;
+  font-size: 10px;
+}
+
+#input_accordion_update {
+  border-radius: 50px !important;
+  margin: 10px;
+}
+#root > div > div:nth-child(2) > div > div.col-6 > div > div > button {
+  background-color: transparent !important;
+  color: black;
+  border: none;
+}
+#root > div > div:nth-child(2) > div > div.col-6 > div > div > button:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none;
+}

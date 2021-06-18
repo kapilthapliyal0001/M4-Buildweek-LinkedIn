@@ -1,0 +1,188 @@
+.feedLeft-card {
+  overflow: hidden;
+  border-radius: 10px !important;
+}
+
+.feedLeft-card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedLeft-profile-img {
+  z-index: 1;
+  width: 100px;
+  top: 50%;
+  left: 50%;
+  top: 50px;
+  transform: translate(-50%);
+  position: absolute;
+  border: 3px solid white;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: flex;
+}
+.feedLeft-cover-img {
+  max-height: 100px;
+  background: no-repeat center center fixed !important;
+
+  background-size: cover;
+}
+.img-container {
+  height: 10rem;
+  position: relative;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+#profilelinks {
+  color: black;
+  text-decoration: none;
+}
+#profilelinks:hover {
+  color: rgb(0, 0, 172);
+  text-decoration-line: underline;
+}
+
+.feedLeft-card .card-body a:nth-child(1) {
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  color: rgb(10, 10, 10);
+  cursor: pointer;
+}
+.feedLeft-card .card-title .card-link {
+  font-size: 15px !important;
+}
+.feedLeft-card .card-title:hover {
+  text-decoration: underline;
+}
+
+.feedLeft-card .card-subtitle {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+#feedLeft-hr {
+  padding: 0 !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+.feedLeft-card .card-text p {
+  margin: 0;
+}
+
+.feedLeft-card .card-text p:nth-child(1) {
+  font-size: 12px;
+  color: #646464;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.feedLeft-card .card-text p:nth-child(2) {
+  font-size: 12px;
+}
+.feedleft-card .card-text p {
+  text-decoration: none;
+}
+
+.feedLeft-card .card-text:hover {
+  background: #d3d3d3;
+}
+
+.bi-linkedin {
+  color: goldenrod;
+  padding-right: 5px;
+  font-size: 15px;
+}
+.bi-bookmark-fill {
+  color: rgb(129, 129, 129);
+  padding-right: 5px;
+  font-size: 20px;
+}
+
+.floatleft {
+  float: left;
+}
+.floatright {
+  float: right;
+  font-size: 14px !important;
+  color: darkblue;
+}
+
+/*LeftColTwo*/
+
+.LeftColumnTwo-card {
+  border-radius: 10px !important;
+  overflow: hidden;
+  /* position: fixed; */
+}
+
+.LeftColumnTwo-card .card-header:nth-child(1n + 2) {
+  color: rgb(36, 105, 255);
+  font-weight: 500;
+}
+
+.LeftColumnTwo-card i {
+  font-size: 18px;
+}
+
+.LeftColumnTwo-card .card-header {
+  background-color: #fff !important;
+}
+.LeftColumnTwo-card .card-link {
+  text-decoration: none;
+}
+.LeftColumnTwo-card .card-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.LeftColumnTwo-card .bi-plus {
+  font-size: 20px !important;
+  opacity: 0.1;
+}
+
+/*Right Columns*/
+
+/*Right Col One*/
+.RightColumn-card {
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+.RightColumn-card .card-header {
+  padding-bottom: 0;
+}
+
+.RightColumn-card .card-body {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#follow-text {
+  font-size: 15px;
+  font-style: normal;
+}
+.RightColumn-card .bi-plus i {
+  font-weight: 500px;
+  color: red;
+  vertical-align: baseline;
+}
+
+.RightColumn-card .RightColumnTwo-card {
+  position: fixed;
+  font-size: 12px;
+}
+
+.RightColumn-card .RightColumnTwo-card .card-header {
+  font-size: 12px !important;
+}
+
+/*Right Col Two */
+#RC2-span {
+  font-size: 12px;
+}
+
+.bi-info-square-fill {
+  font-size: 14px;
+  padding-left: 10px;
+}
