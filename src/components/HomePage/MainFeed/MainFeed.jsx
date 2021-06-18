@@ -30,10 +30,14 @@ const MainFeed = ({ post }) => {
 
         <p className="p-3">{post.text}</p>
         <Image src={post.image} className="img-fluid" />
-        <hr></hr>
+        <hr className="p-0 m-0"></hr>
         {post.user._id === "60c8aef9a3a3d700151cb054" ? (
-          <Accordion.Toggle as={Button} variant="link" eventKey="1">
-            <div className="MainFeedBodyButtons">
+          <Accordion.Toggle
+            id="accordion_toggle_button"
+            as={Button}
+            eventKey="1"
+          >
+            <div className="MainFeedBodyButtons text-muted ">
               <InputOptions Icon={Icons.HandThumbsUp} title="Like" />
               <InputOptions Icon={Icons.ChatLeftText} title="Comments" />
               <InputOptions Icon={Icons.ShareFill} title="Share" />
@@ -41,7 +45,7 @@ const MainFeed = ({ post }) => {
             </div>
           </Accordion.Toggle>
         ) : (
-          <div className="MainFeedBodyButtons">
+          <div className="MainFeedBodyButtons text-muted">
             <InputOptions Icon={Icons.HandThumbsUp} title="Like" />
             <InputOptions Icon={Icons.ChatLeftText} title="Comments" />
             <InputOptions Icon={Icons.ShareFill} title="Share" />

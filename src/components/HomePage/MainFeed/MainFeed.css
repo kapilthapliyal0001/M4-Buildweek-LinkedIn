@@ -30,7 +30,7 @@
 }
 .MainFeedBodyButtons {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 }
 .MainFeed .MainFeedBodyButtons {
   align-items: center;
@@ -44,7 +44,6 @@
 }
 
 #hr_divider > div > button {
-  background-color: transparent;
   border: none;
   color: black;
   flex: 4;
@@ -72,4 +71,14 @@
 #input_accordion_update {
   border-radius: 50px !important;
   margin: 10px;
+}
+#root > div > div:nth-child(2) > div > div.col-6 > div > div > button {
+  background-color: transparent !important;
+  color: black;
+  border: none;
+}
+#root > div > div:nth-child(2) > div > div.col-6 > div > div > button:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none;
 }
