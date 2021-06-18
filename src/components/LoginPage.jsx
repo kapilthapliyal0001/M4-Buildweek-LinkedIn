@@ -19,7 +19,7 @@ class LoginPage extends Component {
   };
 
   handleSubmit = (event) => {
-    alert("Your favorite flavor is: " + this.state.value);
+    alert("The user seleceted is: " + this.state.value);
     event.preventDefault();
   };
 
@@ -66,9 +66,9 @@ class LoginPage extends Component {
               <form onSubmit={this.handleSubmit}>
                 <label>
                   <select value={this.state.value} onChange={this.handleChange}>
-                    {" "}
-                    <option value="Kapil">Kapil</option>
+                    <option value="Helena">Select User</option>
                     <option value="Helena">Helena</option>
+                    <option value="Kapil">Kapil</option>
                     <option value="Kristian">Kristian</option>
                   </select>
                 </label>

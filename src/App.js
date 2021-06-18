@@ -8,29 +8,54 @@ import LoginPage from "./components/LoginPage";
 import HomePage from "./components/HomePage/HomePage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import NetworkFeed from "./components/Network/NetworkFeed";
+import { Component } from "react";
 
-function App() {
-  // let { id } = useParams();
-  const myCallback = (dataFromChild) => {
-    this.setState({ listDataFromChild: dataFromChild });
+class App extends Component {
+  state = { user: "", isLoading: "" };
+  componentDidMount = async () => {
+    this.setState({ isLoading: true });
+    try {
+      const token =
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I";
+
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/me`,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        console.log("This is sidebar profile data", data);
+        this.setState({ user: data, isLoading: false });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  return (
-    <div className="App">
-      <Router>
-        <MyNav />
-        <Switch>
-          <Route exact path="/network" component={NetworkFeed} />
-          <Route exact path="/" component={LoginPage} />
-          <Route exact path="/home">
-            <HomePage test={myCallback} />
-          </Route>
-          <Route exact path="/profile/:id" component={ProfilePage} />
-        </Switch>
-        <MyFooter />
-      </Router>
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <MyNav userdata={this.state.data} />
+          <Switch>
+            <Route exact path="/network" component={NetworkFeed} />
+            <Route exact path="/">
+              <LoginPage />
+            </Route>
+            <Route exact path="/home">
+              <HomePage />
+            </Route>
+            <Route exact path="/profile/:id" component={ProfilePage} />
+          </Switch>
+          <MyFooter />
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
