@@ -30,7 +30,7 @@
 }
 .MainFeedBodyButtons {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
 }
 .MainFeed .MainFeedBodyButtons {
   align-items: center;
