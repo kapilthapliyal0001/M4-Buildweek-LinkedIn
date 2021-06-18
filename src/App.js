@@ -40,7 +40,7 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <MyNav userdata={this.state.data} />
+          <MyNav />
           <Switch>
             <Route exact path="/network" component={NetworkFeed} />
             <Route exact path="/">

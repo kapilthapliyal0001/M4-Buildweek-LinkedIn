@@ -6,6 +6,7 @@ import banner from "./banner.jpg";
 import "../HomePage/SidebarLeft/SidebarLeft.css";
 import "./NetworkFeed.css";
 import { XLg } from "react-bootstrap-icons";
+import { Nav } from "react-bootstrap";
 
 const NetworkFeed = () => {
   const token =
@@ -74,7 +75,12 @@ const NetworkFeed = () => {
                     <Card.Text className="networkFeed">
                       <p>{profile.title}</p>
                     </Card.Text>
-                    <Button className="networkFeedButton">Connect</Button>
+                    <Nav.Link
+                      href={`/profile/${profile._id}`}
+                      id="sidebar_person"
+                    >
+                      <Button className="networkFeedButton">Connect</Button>
+                    </Nav.Link>
                   </Card.Body>
                 </Card>
               </Col>

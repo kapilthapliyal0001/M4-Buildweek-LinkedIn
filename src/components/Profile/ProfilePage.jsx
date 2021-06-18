@@ -62,7 +62,7 @@ class ProfilePage extends Component {
                       surname={this.state.user.surname}
                       image={this.state.user.image}
                       bio={this.state.user.bio}
-                      title={this.state.user.bio}
+                      title={this.state.user.title}
                       area={this.state.user.area}
                       username={this.state.user.username}
                     />
@@ -96,7 +96,6 @@ class ProfilePage extends Component {
             </Col>
           </Row>
         </Container>
-        <Button>Small modal</Button>
       </>
     );
   }

@@ -103,15 +103,14 @@ const MainFeed = ({ post }) => {
   return (
     <Accordion defaultActiveKey="0">
       <Card className="MainFeed p-0">
-        <div className="MainFeedHeader p-3">
+        <div className="MainFeedHeader px-3 pt-3 m-0">
           <Avatar src={post.user.image} />
           <div className="MainHeaderInfo">
             <h2>{post.user.name + " " + post.user.surname || ""}</h2>
             <p>{post.user.title || ""}</p>
           </div>
         </div>
-
-        <p className="p-3">{post.text}</p>
+        <p className="px-3">{post.text}</p>
         <Image src={post.image} className="img-fluid" />
         <hr className="p-0 m-0"></hr>
         {post.user._id === "60c8aef9a3a3d700151cb054" ? (

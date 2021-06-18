@@ -4,7 +4,8 @@ import { Pencil } from "react-bootstrap-icons";
 
 import ProfileAboutUpdater from "./AboutProfileUpdater";
 import "../ProfilePage.css";
-export default class ProfileAbout extends Component {
+import { withRouter } from "react-router";
+class ProfileAbout extends Component {
   state = {
     showModalAbout: false,
   };
@@ -17,10 +18,14 @@ export default class ProfileAbout extends Component {
         <Card className="my-2" id="aboutProfile">
           <Card.Title id="aboutProfile_title" className="mt-1">
             <span>{this.props.title}</span>
-            <Pencil
-              id="pencil-icon"
-              onClick={() => this.setState({ showModalAbout: true })}
-            />
+            {this.props.match.params.id === "me" ? (
+              <Pencil
+                id="pencil-icon"
+                onClick={() => this.setState({ showModalAbout: true })}
+              />
+            ) : (
+              <></>
+            )}
           </Card.Title>
           <Card.Body id="aboutProfile_body">
             <Card.Text>
@@ -36,3 +41,4 @@ export default class ProfileAbout extends Component {
     );
   }
 }
+export default withRouter(ProfileAbout);
