@@ -100,3 +100,17 @@
   margin-left: 35%;
   margin-bottom: 5%;
 }
+
+#sidebar_profile_img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+#sidebar_person {
+  padding: 0;
+  color: black;
+}
+#sidebar_person:hover {
+  color: grey;
+}

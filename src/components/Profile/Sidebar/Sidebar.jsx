@@ -1,10 +1,11 @@
-import {Component} from "react";
-import {Col, Row, Container, Button, Image, Nav} from "react-bootstrap";
+import { Component } from "react";
+import { Col, Row, Container, Button, Image, Nav, Card } from "react-bootstrap";
 import "./Sidebar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { InfoSquareFill, Globe, ArrowRight } from "react-bootstrap-icons";
 
 // get the fontawesome imports
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
   faGlobe,
@@ -55,33 +56,31 @@ class Sidebar extends Component {
   render() {
     return (
       <>
-        <Container>
-          {/* Srction to see the main body of the page Day1 */}
-          <Row>
-            {/*  Side bar start */}
-            <Col className="sidebar-container">
-              {/* Button First sidebar-section starts */}
+        {/* Srction to see the main body of the page Day1 */}
+        <Row>
+          {/*  Side bar start */}
+          <Col className="sidebar-container">
+            {/* Button First sidebar-section starts */}
+            <Card>
               <div className="first-sidebar-container pb-1">
-                <div className="sidebar-btn mt-2 mb-2 d-flex">
-                  <div className="ml-3">
-                    <Button
-                      className="rounded-pill btn-sm long-btn pl-2"
-                      variant="primary"
-                    >
-                      English
-                    </Button>{" "}
-                    <Button
-                      className="rounded-pill btn-sm long-btn"
-                      variant="outline-dark"
-                    >
-                      {" "}
-                      Italiano
-                    </Button>
-                  </div>
-                  <FontAwesomeIcon
-                    className="button-icon globe-icon ml-auto mr-4"
-                    icon={faGlobe}
-                  />
+                {/* <div className="sidebar-btn mt-2 mb-2 d-flex"> */}
+                <div className="ml-3 mt-1" id="language_btn_container">
+                  <Button
+                    id="btn_english"
+                    className="rounded-pill btn-sm long-btn pl-2"
+                    variant="primary"
+                  >
+                    English
+                  </Button>
+                  <Button
+                    id="btn_italian"
+                    className="rounded-pill btn-sm long-btn"
+                    variant="outline-dark"
+                  >
+                    Italiano
+                  </Button>
+                  {/* </div> */}
+                  <Globe id="globe_icon" />
                 </div>
                 <div className="d-flex justify-content-between m-2">
                   <span className="edit-text ml-3">
@@ -95,93 +94,92 @@ class Sidebar extends Component {
                   <div>{""}</div>
                 </div>
               </div>
-              {/* Advertisement section starts */}
-              <div className="advertisement">
-                <Image
-                  className="pt-2 pb-2 pr-3 m-2 w-45"
-                  src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/simple-minimal-coffee-advertisement-design-template-a0f6db1e4cef609cc1865d9e44feb5f6_screen.jpg?ts=1601233298"
-                  alt="advertisement"
-                  fluid
-                />
-              </div>
+            </Card>
+            {/* Advertisement section starts */}
+            <Card className="advertisement mt-2">
+              <Image
+                className="pt-2 pb-2 pr-3 m-2 w-45"
+                src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/simple-minimal-coffee-advertisement-design-template-a0f6db1e4cef609cc1865d9e44feb5f6_screen.jpg?ts=1601233298"
+                alt="advertisement"
+                fluid
+              />
+            </Card>
 
-              {/* People also viewed section */}
-              <div className="people py-3 my-2">
-                <span className="pl-3 pb-3 text">People also viewed</span>
-                <div className="pl-3 pt-2">
-                  {/* Loading random profiles */}
-                  {this.state.profiles.map((p) => (
-                    <div key={p._id}>
-                      <div className="d-flex">
-                        {/* <div className="profile-img mt-1"> */}
-                        {/* {" "} */}
-                        <Image
-                          className="w-25 img-circle profile-img mt-1"
-                          src={p.image}
-                          alt="Linkdin Member"
-                          fluid
-                          roundedCircle
-                        ></Image>
-                        {/* </div> */}
-                        <div className="profile-details ml-4 mb-2">
-                          <div className="profile-name">
-                            {p.name} {p.surname}
-                          </div>
-                          <div className="profile-title">{p.title}</div>
-                          <div className="profile-message">
-                            <Button
-                              className="rounded-pill btn-sm"
-                              variant="outline-dark"
-                            >
-                              Message
-                            </Button>
-                          </div>
+            {/* People also viewed section */}
+            <Card className="mt-2">
+              <span className="pl-3 pb-3 text">People also viewed</span>
+              <div className="pl-3 pt-2">
+                {/* Loading random profiles */}
+                {this.state.profiles.map((p) => (
+                  <div key={p._id}>
+                    <div className="d-flex">
+                      {/* <div className="profile-img mt-1"> */}
+                      {/* {" "} */}
+                      <Image
+                        id="sidebar_profile_img"
+                        src={p.image}
+                        alt="Linkdin Member"
+                        fluid
+                        roundedCircle
+                      ></Image>
+                      {/* </div> */}
+                      <div className="profile-details ml-4 mb-2">
+                        <div className="profile-name">
+                          {p.name} {p.surname}
+                        </div>
+                        <div className="profile-title">{p.title}</div>
+                        <div className="profile-message">
+                          <Button
+                            className="rounded-pill btn-sm"
+                            variant="outline-dark"
+                          >
+                            Message
+                          </Button>
                         </div>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
-              {/*  People you may know */}
-              <div className="people py-3 mt-2">
-                <span className="pl-3 pb-3 text">People you may know</span>
-                <div className="pl-3 pt-2">
-                  {/* Loading random profiles */}
-                  {this.state.profiles_other.map((p) => (
-                    <div key={p._id}>
-                      <div className="d-flex">
-                        {/* <div className="profile-img mt-1"> */}
-                        {/* {" "} */}
-                        <Image
-                          className="w-25 img-circle profile-img mt-1"
-                          src={p.image}
-                          alt="Linkdin Member"
-                          fluid
-                          roundedCircle
-                        ></Image>
-                        {/* </div> */}
-                        <div className="profile-details ml-4 mb-2">
-                          <div className="profile-name">
-                            {p.name} {p.surname}
-                          </div>
-                          <div className="profile-title">{p.title}</div>
-                          <div className="profile-message">
-                            <Button
-                              className="rounded-pill btn-sm"
-                              variant="outline-dark"
-                            >
-                              Message
-                            </Button>
-                          </div>
+            </Card>
+            {/*  People you may know */}
+            <Card className="mt-2">
+              <span className="pl-3 pb-3 text">People you may know</span>
+              <div className="pl-3 pt-2">
+                {/* Loading random profiles */}
+                {this.state.profiles_other.map((p) => (
+                  <div key={p._id}>
+                    <div className="d-flex">
+                      {/* <div className="profile-img mt-1"> */}
+                      {/* {" "} */}
+                      <Image
+                        id="sidebar_profile_img"
+                        src={p.image}
+                        alt="Linkdin Member"
+                        fluid
+                      ></Image>
+                      {/* </div> */}
+                      <div className="profile-details ml-4 mb-2">
+                        <div className="profile-name">
+                          {p.name} {p.surname}
+                        </div>
+                        <div className="profile-title">{p.title}</div>
+                        <div className="profile-message">
+                          <Button
+                            className="rounded-pill btn-sm"
+                            variant="outline-dark"
+                          >
+                            Message
+                          </Button>
                         </div>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
-            </Col>
-          </Row>
-        </Container>
+            </Card>
+          </Col>
+        </Row>
       </>
     );
   }

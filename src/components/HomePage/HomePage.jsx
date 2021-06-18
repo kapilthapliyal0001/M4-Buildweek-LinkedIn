@@ -41,14 +41,14 @@ export default class HomePage extends Component {
       <>
         <Container>
           <Row>
-            <Col xs={3}>
+            <Col xs={3} className="mt-4 p-0">
               <SidebarLeftMain user={user} isLoading={isLoading} />
             </Col>
-            <Col xs={6}>
+            <Col xs={6} className="mt-4">
               <PostFeed user={user} isLoading={isLoading} />
               <GetPosts isLoading={isLoading} />
             </Col>
-            <Col xs={3}>
+            <Col xs={3} className="mt-4 p-0">
               <Sidebar isLoading={isLoading} />
             </Col>
           </Row>

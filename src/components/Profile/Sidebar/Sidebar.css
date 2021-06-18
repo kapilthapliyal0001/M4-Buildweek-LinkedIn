@@ -100,3 +100,36 @@
   margin-left: 35%;
   margin-bottom: 5%;
 }
+
+#sidebar_profile_img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+#sidebar_person {
+  padding: 0;
+  color: black;
+}
+#sidebar_person:hover {
+  color: grey;
+}
+
+#language_btn_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#btn_italian,
+#btn_english {
+  margin: 3px;
+  margin-top: 7px;
+  width: 100%;
+  flex: 1;
+  font-size: 14px;
+  padding: 0;
+}
+#globe_icon {
+  flex: 0.4;
+}

@@ -146,7 +146,7 @@ class PostFeed extends Component {
   render() {
     return (
       <>
-        <Card className="mt-4 pb-0" id="post_card">
+        <Card className="pb-0" id="post_card">
           <Card.Body id="post_card_body">
             <Form
               onSubmit={(e) => {
