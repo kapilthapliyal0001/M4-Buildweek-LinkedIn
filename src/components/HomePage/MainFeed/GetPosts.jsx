@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import MainFeed from "./MainFeed";
 // import PostFeed from "../PostFeed/PostFeed";
-import { DropdownButton, Dropdown } from "react-bootstrap";
-import { Button } from "@material-ui/core";
+import {DropdownButton, Dropdown} from "react-bootstrap";
+import {Button} from "@material-ui/core";
 import MyLoader from "../../Loaders/MyLoader";
 
 const GetPosts = (props) => {
@@ -28,7 +28,7 @@ const GetPosts = (props) => {
       let posts = await response.json();
       console.log(posts);
 
-      setPosts(posts.slice(1).slice(-20));
+      setPosts(posts.slice(1).slice(-50));
       console.log("Posts", posts);
     } catch (error) {
       console.log(error);
