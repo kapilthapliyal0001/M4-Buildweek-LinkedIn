@@ -83,12 +83,6 @@
   box-shadow: none;
 }
 
-#hr_divider > div > button {
-  background-color: transparent;
-}
 /* #otr-urs {
   justify-content: space-evenly;
 } */
-#hr_divider > div > button:focus {
-  box-shadow: none;
-}

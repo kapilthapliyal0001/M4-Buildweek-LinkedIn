@@ -5,8 +5,9 @@ import SidebarLeftMain from "./SidebarLeft/SidebarLeftMain";
 import "./SidebarLeft/SidebarLeft.css";
 import Sidebar from "./Sidebar/Sidebar";
 import PostFeed from "./PostFeed/PostFeed";
-import MyLoader from "../Loaders/MyLoader";
+// import MyLoader from "../Loaders/MyLoader";
 import GetPosts from "../HomePage/MainFeed/GetPosts";
+// import Divider from "./MainFeed/Divider";
 import "./HomePage.css";
 import NetworkFeed from "../Network/NetworkFeed";
 
@@ -15,7 +16,6 @@ export default class HomePage extends Component {
     user: {},
     back: false,
     backgroundColor: "#ecebeb",
-    isLoading: false,
   };
 
   componentDidMount = async () => {
@@ -47,9 +47,7 @@ export default class HomePage extends Component {
     return (
       <div
         className="linkedin-page"
-        style={{
-          backgroundColor: this.state.back ? "rgb(27,26,26)" : "#ecebeb",
-        }}
+        style={{ backgroundColor: this.state.back ? "black" : "#ecebeb" }}
       >
         <Form className="night-mode">
           <Form.Check
@@ -71,11 +69,7 @@ export default class HomePage extends Component {
             </Col>
             <Col xs={6}>
               <PostFeed user={user} isLoading={isLoading} />
-              {this.state.isLoading === true ? (
-                <MyLoader />
-              ) : (
-                <GetPosts isLoading={isLoading} />
-              )}
+              <GetPosts isLoading={isLoading} />
             </Col>
             <Col xs={3}>
               <Sidebar isLoading={isLoading} back={this.state.back} />
