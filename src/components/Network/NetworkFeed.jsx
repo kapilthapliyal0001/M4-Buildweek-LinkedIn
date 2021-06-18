@@ -1,7 +1,11 @@
 import React from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Avatar } from "@material-ui/core";
+import banner from "./banner.jpg";
+import "../HomePage/SidebarLeft/SidebarLeft.css";
+import "./NetworkFeed.css";
+import { XLg } from "react-bootstrap-icons";
 
 const NetworkFeed = () => {
   const token =
@@ -26,7 +30,7 @@ const NetworkFeed = () => {
       let profiles = await response.json();
       console.log(profiles);
 
-      setProfiles(profiles.slice(1).slice(-5));
+      setProfiles(profiles.slice(1).slice(-12));
       console.log("Profiles", profiles);
     } catch (error) {
       console.log(error);
@@ -40,23 +44,42 @@ const NetworkFeed = () => {
   return (
     <div>
       <Container>
-        <Row>
-          <Col>
-            {profiles.map((profile) => {
-              return (
-                <Card>
-                  <Avatar variant="top" src={profile.image} />
+        <Row xs={4} className={{ display: "flex" }}>
+          {profiles.map((profile) => {
+            return (
+              <Col style={{ padding: "10px" }}>
+                <Card className="networkFeedCard">
+                  <Image className="feedLeft-cover-img" src={banner} />
+                  <XLg className="xCricleFill" />
+
+                  <Avatar
+                    variant="top"
+                    src={profile.image}
+                    style={{
+                      width: "100px",
+                      height: "100px",
+                      display: "flex",
+                      position: "absolute",
+                      marginLeft: "60px",
+                      marginTop: "30px",
+                    }}
+                  />
                   <Card.Body>
-                    <Card.Title>
-                      {profile.name + " " + profile.surname || ""}
+                    <Card.Title
+                      className="networkFeed"
+                      style={{ marginTop: "50px" }}
+                    >
+                      <h2>{profile.name + " " + profile.surname || ""}</h2>
                     </Card.Title>
-                    <Card.Text>{profile.title}</Card.Text>
-                    <Button variant="primary">Connect</Button>
+                    <Card.Text className="networkFeed">
+                      <p>{profile.title}</p>
+                    </Card.Text>
+                    <Button className="networkFeedButton">Connect</Button>
                   </Card.Body>
                 </Card>
-              );
-            })}
-          </Col>
+              </Col>
+            );
+          })}
         </Row>
       </Container>
     </div>
