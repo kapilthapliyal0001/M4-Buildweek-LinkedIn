@@ -1,4 +1,4 @@
-import { Component } from "react";
+import {Component} from "react";
 import {
   CardImage,
   Youtube,
@@ -18,7 +18,7 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./PostFeed.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 // import FeedPostImage from "./FeedPostImage";
 
 class PostFeed extends Component {
@@ -48,7 +48,7 @@ class PostFeed extends Component {
   // React Boostrap Modal class toggling
   handleClose = () => {
     console.log("Handle close been clicked!");
-    this.setState({ upload: false });
+    this.setState({upload: false});
   };
 
   // Form Data change state; Upload images;
@@ -75,8 +75,7 @@ class PostFeed extends Component {
       this.state.post_id
     );
     const bearer_token =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2JmMTI5MTkzMDAwMTU2MGFiYTMiLCJpYXQiOjE2MjM2Njk3NDUsImV4cCI6MTYyNDg3OTM0NX0.Lk5Z-l56SBkY6YCIvoiHpVg_0J0rEZHaO4PzAuep3bo";
-
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I";
     try {
       let response = await fetch(url, {
         method: "POST",
@@ -137,8 +136,9 @@ class PostFeed extends Component {
       console.log("There is some error");
     }
   };
+
   checkStateUpload = () => {
-    this.setState({ upload: this.state.upload ? false : true });
+    this.setState({upload: this.state.upload ? false : true});
   };
 
   render() {
@@ -168,7 +168,7 @@ class PostFeed extends Component {
                   onChange={(e) => {
                     console.log(e.target.value);
                     return this.setState({
-                      feed: { text: e.target.value },
+                      feed: {text: e.target.value},
                     });
                   }}
                 />
@@ -177,21 +177,21 @@ class PostFeed extends Component {
 
             <div id="buttonContainer">
               <Button onClick={this.checkStateUpload}>
-                <CardImage id="post_icon" style={{ color: "#70b5f9" }} />
+                <CardImage id="post_icon" style={{color: "#70b5f9"}} />
                 Photos
               </Button>
 
               <Button onClick={this.checkStateUpload}>
-                <Youtube id="post_icon" style={{ color: "#7fc15e" }} />
+                <Youtube id="post_icon" style={{color: "#7fc15e"}} />
                 Videos
               </Button>
 
               <Button onClick={this.checkStateUpload}>
-                <CalendarDate id="post_icon" style={{ color: "#e7a33e" }} />
+                <CalendarDate id="post_icon" style={{color: "#e7a33e"}} />
                 Events
               </Button>
               <Button onClick={this.checkStateUpload}>
-                <Newspaper id="post_icon" style={{ color: "#f5987e" }} />
+                <Newspaper id="post_icon" style={{color: "#f5987e"}} />
                 Write Article
               </Button>
             </div>
