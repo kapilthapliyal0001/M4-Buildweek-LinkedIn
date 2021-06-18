@@ -6,7 +6,8 @@ import MyNav from "./components/MyNav/MyNav";
 import MyFooter from "./components/MyFooter/MyFooter";
 import LoginPage from "./components/LoginPage";
 import HomePage from "./components/HomePage/HomePage";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import NetworkFeed from "./components/Network/NetworkFeed";
 
 function App() {
   // let { id } = useParams();
@@ -19,6 +20,7 @@ function App() {
       <Router>
         <MyNav />
         <Switch>
+          <Route exact path="/network" component={NetworkFeed} />
           <Route exact path="/" component={LoginPage} />
           <Route exact path="/home">
             <HomePage test={myCallback} />

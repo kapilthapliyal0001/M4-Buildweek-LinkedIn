@@ -69,8 +69,7 @@ export default class HomePage extends Component {
             </Col>
             <Col xs={6}>
               <PostFeed user={user} isLoading={isLoading} />
-              {/* <GetPosts isLoading={isLoading} /> */}
-              <NetworkFeed />
+              <GetPosts isLoading={isLoading} />
             </Col>
             <Col xs={3}>
               <Sidebar isLoading={isLoading} back={this.state.back} />

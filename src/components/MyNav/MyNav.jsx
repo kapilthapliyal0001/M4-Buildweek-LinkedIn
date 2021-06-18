@@ -50,7 +50,7 @@ class MyNav extends React.Component {
 
           <div className="myNavOptions">
             <PeopleFill className="myNavOptionsIcon" />
-            <a className="myNavOptionsTitle" href="/mynetwork}">
+            <a className="myNavOptionsTitle" href="/network">
               My Network
             </a>
           </div>
