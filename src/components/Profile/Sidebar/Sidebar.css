@@ -133,3 +133,7 @@
 #globe_icon {
   flex: 0.4;
 }
+
+#accordion_toggle_button {
+  background-color: none !important;
+}
