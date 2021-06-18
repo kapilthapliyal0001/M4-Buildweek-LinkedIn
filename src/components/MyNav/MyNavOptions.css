@@ -13,7 +13,12 @@
   color: gray;
   text-decoration: none;
 }
-
+.myNavOptionsTitle:hover {
+  font-size: 12px;
+  font-weight: 400;
+  color: gray;
+  text-decoration: none;
+}
 .myNavOptionsIcon {
   object-fit: contain;
   margin-top: 5px !important;
