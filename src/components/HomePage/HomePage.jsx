@@ -9,6 +9,7 @@ import PostFeed from "./PostFeed/PostFeed";
 import GetPosts from "../HomePage/MainFeed/GetPosts";
 // import Divider from "./MainFeed/Divider";
 import "./HomePage.css";
+import NetworkFeed from "../Network/NetworkFeed";
 
 export default class HomePage extends Component {
   state = {
@@ -68,7 +69,8 @@ export default class HomePage extends Component {
             </Col>
             <Col xs={6}>
               <PostFeed user={user} isLoading={isLoading} />
-              <GetPosts isLoading={isLoading} />
+              {/* <GetPosts isLoading={isLoading} /> */}
+              <NetworkFeed />
             </Col>
             <Col xs={3}>
               <Sidebar isLoading={isLoading} back={this.state.back} />
