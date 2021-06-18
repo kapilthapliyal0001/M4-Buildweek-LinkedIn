@@ -104,81 +104,79 @@ class Sidebar extends Component {
             </Card>
 
             {/* People also viewed section */}
-            <Card className="mt-2">
-              <span className="pl-3 pb-3 text">People also viewed</span>
-              <div className="pl-3 pt-2">
-                {/* Loading random profiles */}
-                {this.state.profiles.map((p) => (
-                  <Nav.Link href={`/profile/${p._id}`} id="sidebar_person">
-                    <div key={p._id}>
-                      <div className="d-flex">
-                        {/* <div className="profile-img mt-1"> */}
-                        {/* {" "} */}
-                        <Image
-                          id="sidebar_profile_img"
-                          src={p.image}
-                          alt="Linkdin Member"
-                          fluid
-                          roundedCircle
-                        ></Image>
-                        {/* </div> */}
-                        <div className="profile-details ml-4 mb-2">
-                          <div className="profile-name">
-                            {p.name} {p.surname}
-                          </div>
-                          <div className="profile-title">{p.title}</div>
-                          <div className="profile-message">
-                            <Button
-                              className="rounded-pill btn-sm"
-                              variant="outline-dark"
-                            >
-                              Message
-                            </Button>
-                          </div>
+            <Card className="mt-2 p-3">
+              <span className=" pb-3 text">People also viewed</span>
+
+              {/* Loading random profiles */}
+              {this.state.profiles.map((p) => (
+                <Nav.Link href={`/profile/${p._id}`} id="sidebar_person">
+                  <div key={p._id}>
+                    <div className="d-flex">
+                      {/* <div className="profile-img mt-1"> */}
+                      {/* {" "} */}
+                      <Image
+                        id="sidebar_profile_img"
+                        src={p.image}
+                        alt="Linkdin Member"
+                        fluid
+                        roundedCircle
+                      ></Image>
+                      {/* </div> */}
+                      <div className="profile-details ml-4 mb-2">
+                        <div className="profile-name">
+                          {p.name} {p.surname}
+                        </div>
+                        <div className="profile-title">{p.title}</div>
+                        <div className="profile-message">
+                          <Button
+                            className="rounded-pill btn-sm"
+                            variant="outline-dark"
+                          >
+                            Message
+                          </Button>
                         </div>
                       </div>
                     </div>
-                  </Nav.Link>
-                ))}
-              </div>
+                  </div>
+                </Nav.Link>
+              ))}
             </Card>
             {/*  People you may know */}
-            <Card className="mt-2">
+            <Card className="mt-2 p-3">
               <span className="pl-3 pb-3 text">People you may know</span>
-              <div className="pl-3 pt-2">
-                {/* Loading random profiles */}
-                {this.state.profiles_other.map((p) => (
-                  <Nav.Link href={`/profile/${p._id}`} id="sidebar_person">
-                    <div key={p._id}>
-                      <div className="d-flex">
-                        {/* <div className="profile-img mt-1"> */}
-                        {/* {" "} */}
-                        <Image
-                          id="sidebar_profile_img"
-                          src={p.image}
-                          alt="Linkdin Member"
-                          fluid
-                        ></Image>
-                        {/* </div> */}
-                        <div className="profile-details ml-4 mb-2">
-                          <div className="profile-name">
-                            {p.name} {p.surname}
-                          </div>
-                          <div className="profile-title">{p.title}</div>
-                          <div className="profile-message">
-                            <Button
-                              className="rounded-pill btn-sm"
-                              variant="outline-dark"
-                            >
-                              Message
-                            </Button>
-                          </div>
+
+              {/* Loading random profiles */}
+              {this.state.profiles_other.map((p) => (
+                <Nav.Link href={`/profile/${p._id}`} id="sidebar_person">
+                  <div key={p._id}>
+                    <div className="d-flex">
+                      {/* <div className="profile-img mt-1"> */}
+                      {/* {" "} */}
+                      <Image
+                        id="sidebar_profile_img"
+                        src={p.image}
+                        alt="Linkdin Member"
+                        fluid
+                      ></Image>
+                      {/* </div> */}
+                      <div className="profile-details ml-4 mb-2">
+                        <div className="profile-name">
+                          {p.name} {p.surname}
+                        </div>
+                        <div className="profile-title">{p.title}</div>
+                        <div className="profile-message">
+                          <Button
+                            className="rounded-pill btn-sm"
+                            variant="outline-dark"
+                          >
+                            Message
+                          </Button>
                         </div>
                       </div>
                     </div>
-                  </Nav.Link>
-                ))}
-              </div>
+                  </div>
+                </Nav.Link>
+              ))}
             </Card>
           </Col>
         </Row>

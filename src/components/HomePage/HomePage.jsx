@@ -9,6 +9,7 @@ import PostFeed from "./PostFeed/PostFeed";
 import GetPosts from "../HomePage/MainFeed/GetPosts";
 // import Divider from "./MainFeed/Divider";
 import "./HomePage.css";
+import NetworkFeed from "../Network/NetworkFeed";
 
 export default class HomePage extends Component {
   state = {
