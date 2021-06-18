@@ -68,3 +68,8 @@
   padding-left: 10px;
   font-size: 10px;
 }
+
+#input_accordion_update {
+  border-radius: 50px !important;
+  margin: 10px;
+}

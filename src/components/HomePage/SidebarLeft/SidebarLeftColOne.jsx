@@ -2,6 +2,7 @@ import { Card, Image } from "react-bootstrap";
 import ThreeDotsLoader from "../../Loaders/ThreeDotsLoader";
 import { Component } from "react";
 import banner from "../../../banner.jpg";
+import ProfilePictureLoader from "../../Loaders/ProfilePictureLoader";
 
 class SidebarLeftColOne extends Component {
   render() {
@@ -12,7 +13,7 @@ class SidebarLeftColOne extends Component {
           <Card.Header id="feedLeft-card-header" className="p-0">
             <Image className="feedLeft-cover-img" src={banner} />
             {isLoading === true ? (
-              <ThreeDotsLoader />
+              <ProfilePictureLoader />
             ) : (
               <Image className="feedLeft-profile-img" src={image} />
             )}
@@ -21,7 +22,7 @@ class SidebarLeftColOne extends Component {
             <Card.Title className="text-center">
               <Card.Link>
                 {isLoading === true ? (
-                  <ThreeDotsLoader />
+                  <ProfilePictureLoader />
                 ) : (
                   <>
                     {name} {surname}

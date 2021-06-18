@@ -3,13 +3,14 @@
   align-items: center;
   cursor: pointer;
   padding: 10px;
+  text-decoration: none !important;
 }
 .inputOptions:hover {
   background-color: whitesmoke;
   border-radius: 10px;
 }
 .inputOptionsText {
-  font-size: 20px;
+  font-size: 16px;
   padding-left: 10px;
   align-items: center;
 }

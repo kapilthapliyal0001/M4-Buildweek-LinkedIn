@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import MainFeed from "./MainFeed";
-import PostFeed from "../PostFeed/PostFeed";
+// import PostFeed from "../PostFeed/PostFeed";
 import { DropdownButton, Dropdown } from "react-bootstrap";
 import { Button } from "@material-ui/core";
+import MyLoader from "../../Loaders/MyLoader";
 
-const GetPosts = () => {
+const GetPosts = (props) => {
   const token =
     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3M2NmNzI5MTkzMDAwMTU2MGFiYTQiLCJpYXQiOjE2MjM2NzAwMDcsImV4cCI6MTYyNDg3OTYwN30.USHzFfeVTSKHLcrfBBYHNfhmiYlVmRCl_sts1-YCsz0";
   const [posts, setPosts] = useState([]);
@@ -51,10 +52,15 @@ const GetPosts = () => {
           <Dropdown.Item eventKey="2">Recent</Dropdown.Item>
         </DropdownButton>
       </div>
-
-      {posts.map((post) => {
-        return <MainFeed key={post._id} post={post} />;
-      })}
+      {props.isLoading === true ? (
+        <MyLoader />
+      ) : (
+        posts
+          .map((post) => {
+            return <MainFeed key={post._id} post={post} />;
+          })
+          .reverse()
+      )}
     </>
   );
 };
