@@ -1,4 +1,4 @@
-import { Avatar } from "@material-ui/core";
+import {Avatar} from "@material-ui/core";
 import * as Icons from "react-bootstrap-icons";
 import React from "react";
 import "../MainFeed/MainFeed.css";
@@ -15,12 +15,12 @@ import {
   FormControl,
   Modal,
 } from "react-bootstrap";
-import { useState } from "react";
+import {useState} from "react";
 
-const MainFeed = ({ post }) => {
+const MainFeed = ({post}) => {
   const [edited, setEdited] = useState(false);
   const [postText, setPostText] = useState(post.text);
-  const obj = { text: postText };
+  const obj = {text: postText};
 
   // function to edit post
 
