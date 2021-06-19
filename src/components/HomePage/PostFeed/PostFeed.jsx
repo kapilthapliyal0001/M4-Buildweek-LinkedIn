@@ -24,7 +24,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 class PostFeed extends Component {
   state = {
     feed: {
-      text: "",
+      text: "No Imaage today...",
     },
     upload: false,
     close: true,
