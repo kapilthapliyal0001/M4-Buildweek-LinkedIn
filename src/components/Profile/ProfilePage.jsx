@@ -17,7 +17,9 @@ class ProfilePage extends Component {
 
   componentDidMount = async () => {
     const userID =
-      this.props.match.params.id === "me" ? "me" : this.props.match.params.id;
+      this.props.match.params.id === "me"
+        ? "60c8aef9a3a3d700151cb054"
+        : this.props.match.params.id;
     // const userId = "60c73bf1291930001560aba3";
 
     this.setState({ isLoading: true });
@@ -50,7 +52,7 @@ class ProfilePage extends Component {
             <Col>
               <Row>
                 <ProfileUpdater />
-                <Col xs={8} className="mt-2">
+                <Col xs={8}>
                   {this.state.isLoading === true ? (
                     <MyLoader />
                   ) : (
@@ -60,7 +62,7 @@ class ProfilePage extends Component {
                       surname={this.state.user.surname}
                       image={this.state.user.image}
                       bio={this.state.user.bio}
-                      title={this.state.user.bio}
+                      title={this.state.user.title}
                       area={this.state.user.area}
                       username={this.state.user.username}
                     />
@@ -88,13 +90,12 @@ class ProfilePage extends Component {
                   )}
                 </Col>
                 <Col xs={4} className="mt-2">
-                  <Sidebar />
+                  <Sidebar user={this.state.user} />
                 </Col>
               </Row>
             </Col>
           </Row>
         </Container>
-        <Button>Small modal</Button>
       </>
     );
   }

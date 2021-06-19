@@ -68,3 +68,11 @@
   right: 0;
   left: 0;
 }
+
+#accordion_toggle_button {
+  border: none;
+  background: none;
+}
+#accordion_toggle_button:focus {
+  box-shadow: none;
+}

@@ -114,3 +114,20 @@
 #sidebar_person:hover {
   color: grey;
 }
+#accordian_toggle_btn {
+  border: none;
+  background-color: white !important;
+  color: red;
+  font-size: 12px;
+  padding: 0;
+  padding-right: 5px;
+}
+#accordian_toggle_btn:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+#today_most_viewed {
+  font-size: 12px;
+}

@@ -3,6 +3,7 @@ import ThreeDotsLoader from "../../Loaders/ThreeDotsLoader";
 import { Component } from "react";
 import banner from "../../../banner.jpg";
 import ProfilePictureLoader from "../../Loaders/ProfilePictureLoader";
+import SidebarProfilePerson from "./SidebarProfilePerson";
 
 class SidebarLeftColOne extends Component {
   render() {
@@ -10,6 +11,8 @@ class SidebarLeftColOne extends Component {
     return (
       <>
         <Card className="feedLeft-card">
+          <SidebarProfilePerson isLoading={isLoading} image={image} />
+          {/* <>
           <Card.Header id="feedLeft-card-header" className="p-0">
             <Image className="feedLeft-cover-img" src={banner} />
             {isLoading === true ? (
@@ -18,6 +21,7 @@ class SidebarLeftColOne extends Component {
               <Image className="feedLeft-profile-img" src={image} />
             )}
           </Card.Header>
+          </> */}
           <Card.Body className="mt-5  p-0">
             <Card.Title className="text-center">
               <Card.Link>

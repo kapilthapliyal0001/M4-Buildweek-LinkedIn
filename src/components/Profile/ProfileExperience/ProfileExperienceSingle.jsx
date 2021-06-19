@@ -3,8 +3,9 @@ import { Pencil } from "react-bootstrap-icons";
 import React, { Component } from "react";
 import ProfileExpUpdater from "./ProfileExpUpdater";
 import ProfileExpImgUpdater from "./ProfileExpImgUpdater";
+import { withRouter } from "react-router-dom";
 
-export default class ProfileExperienceSingle extends Component {
+class ProfileExperienceSingle extends Component {
   state = {
     showModalExpPut: false,
     showModalExpImg: false,
@@ -19,21 +20,32 @@ export default class ProfileExperienceSingle extends Component {
     return (
       <>
         <hr className="mt-1 mb-2" />
-        <Pencil
-          id="pencil-icon"
-          onClick={() => this.setState({ showModalExpPut: true })}
-        />
+        {this.props.match.params.id === "me" ? (
+          <Pencil
+            id="pencil-icon"
+            onClick={() => this.setState({ showModalExpPut: true })}
+          />
+        ) : (
+          <></>
+        )}
         <Row id="expProfileSingle">
           <Col xs={2}>
-            {this.props.image === undefined ? (
-              <Pencil
-                id="pencil-icon"
-                onClick={() => this.setState({ showModalExpImg: true })}
-              />
+            {this.props.match.params.id === "me" ? (
+              this.props.image === undefined ? (
+                <Pencil
+                  id="pencil-icon"
+                  onClick={() => this.setState({ showModalExpImg: true })}
+                />
+              ) : (
+                <Image
+                  src={this.props.image}
+                  onClick={() => this.setState({ showModalExpImg: true })}
+                />
+              )
             ) : (
               <Image
                 src={this.props.image}
-                onClick={() => this.setState({ showModalExpImg: true })}
+                // onClick={() => this.setState({ showModalExpImg: true })}
               />
             )}
           </Col>
@@ -68,3 +80,4 @@ export default class ProfileExperienceSingle extends Component {
     );
   }
 }
+export default withRouter(ProfileExperienceSingle);

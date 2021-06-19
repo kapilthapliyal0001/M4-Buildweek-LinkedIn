@@ -17,6 +17,7 @@ export default class ProfileExpImgUpdater extends Component {
     this.setState({ experience: { image: event.target.files[0] } });
   };
   handleUpdateExp = async (e) => {
+    e.preventDefault();
     const formData = new FormData();
     formData.append("profile", this.state.experience.image);
     e.preventDefault();
@@ -24,8 +25,8 @@ export default class ProfileExpImgUpdater extends Component {
     console.log(this.state.experience);
     let expId = this.props.idExp;
     console.log(expId);
-    const userId = "60c73bf1291930001560aba3";
-    const endpointPUTExp = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}`;
+    // const userId = "60c73bf1291930001560aba3";
+    const endpointPUTExp = `https://striveschool-api.herokuapp.com/api/profile/me/experiences/${expId}`;
     const bearerTokenHedri =
       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM4YWVmOWEzYTNkNzAwMTUxY2IwNTQiLCJpYXQiOjE2MjM3NjQ3MjksImV4cCI6MTYyNDk3NDMyOX0.Y_86hS0H_3nodj7yLyRmp7q1ATdiHj_4FURWkrzM82I";
     try {
@@ -77,13 +78,12 @@ export default class ProfileExpImgUpdater extends Component {
           <Modal.Body>
             <Form onSubmit={(e) => this.handleUpdateExp(e)}>
               <Form.Group as={Col}>
-                <Form.Label>Role</Form.Label>
-                <Image src={Image} />
+                <Form.Label>{image}</Form.Label>
+                <Image src={image} />
                 <Form.Control
-                  id="role"
+                  id="image"
                   type="file"
                   placeholder={this.props.image}
-                  value={image}
                   onChange={this.onFileChange}
                 />
               </Form.Group>

@@ -43,7 +43,8 @@
   cursor: pointer;
 }
 #jumboProfile_img > img {
-  width: 100%;
+  position: absolute;
+  width: 140%;
 }
 
 .location-line {

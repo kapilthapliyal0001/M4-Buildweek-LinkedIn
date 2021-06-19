@@ -46,10 +46,14 @@ class ProfileExperience extends Component {
         <Card className="my-2" id="expProfile">
           <Card.Title id="expProfile_title" className="mt-3 mb-3 mx-3">
             <span>{this.props.title}</span>
-            <Plus
-              id="pencil-icon"
-              onClick={() => this.setState({ showModalExpPost: true })}
-            />
+            {this.props.match.params.id === "me" ? (
+              <Plus
+                id="pencil-icon"
+                onClick={() => this.setState({ showModalExpPost: true })}
+              />
+            ) : (
+              <></>
+            )}
           </Card.Title>
           <Card.Body id="expProfile_body" className="pt-0 mt-0">
             {experience.map((exp) => (

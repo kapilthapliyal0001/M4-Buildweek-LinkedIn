@@ -19,43 +19,50 @@ class ProfileJumbo extends Component {
   closeJumboModal = () => {
     this.setState({ showModalJumbo: false, showProfilePicModal: false });
   };
+  getRandomInt = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
   render() {
     // const toRender = this.props.match.params.id;
-    const { image, surname, name, title, area, username, bio, email } =
+    const { image, surname, name, title, area, username, email, bio } =
       this.props;
     return (
       <>
         <Card className="my-2 ">
           <div id="jumboProfile_header">
-            <img src={banner}></img>
+            <Image src={banner} />
           </div>
           <Card.Body>
-            <>
+            {this.props.match.params.id === "me" ? (
               <div
                 id="jumboProfile_img"
                 onClick={() => this.setState({ showProfilePicModal: true })}
               >
                 <Image src={image} />
               </div>
-            </>
+            ) : (
+              <div id="jumboProfile_img">
+                <Image src={image} />
+              </div>
+            )}
+
             <Card.Title id="jumboProfile_title" className="mt-5">
               <h5>
                 {name} {surname}
               </h5>
-              {/* {this.toRender === "me" ? ( */}
-              <Pencil
-                id="pencil-icon"
-                onClick={() => this.setState({ showModalJumbo: true })}
-              />
-              {/* ) : (
+              {this.props.match.params.id === "me" ? (
+                <Pencil
+                  id="pencil-icon"
+                  onClick={() => this.setState({ showModalJumbo: true })}
+                />
+              ) : (
                 <></>
-              )} */}
+              )}
             </Card.Title>
             <Card.Text>
-              <p>
-                {title}
-                <br />
-              </p>
+              <p>{title}</p>
               <span className="location-line text-muted">
                 {area} &#183;{" "}
                 <a
@@ -67,7 +74,7 @@ class ProfileJumbo extends Component {
               </span>
               <span></span>
               <p className="text-primary" id="jumboprofile_connections_text">
-                <b>78 Connections</b>
+                <b>{this.getRandomInt(20, 450)} Connections</b>
               </p>
             </Card.Text>
           </Card.Body>
